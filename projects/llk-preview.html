@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Like Keira</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: white;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-donate {
+      background: #1a1a1a;
+      color: #fff !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                  url("LLK_files/ScanImage156212.jpeg") center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 550px;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .btn--primary {
+      background: white;
+      color: #1a1a1a;
+    }
+
+    .btn--dark {
+      background: #1a1a1a;
+      color: white;
+    }
+
+    /* Story */
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+      align-items: center;
+    }
+
+    .story-img {
+      padding-right: 3rem;
+    }
+
+    .story-img img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 350px;
+    }
+
+    .story-text h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .story-text p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-text a {
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: underline;
+    }
+
+    /* Donate CTA */
+    .donate-section {
+      background: #f5f5f5;
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .donate-section h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .donate-section p {
+      color: #666;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* Shop */
+    .shop {
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .shop h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .shop > p {
+      color: #666;
+      margin-bottom: 3rem;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .shop-item {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shop-item img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 3rem;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .footer p {
+      font-size: 0.8rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo">LLK</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Our Mission</a>
+      <a href="#">Events</a>
+      <a href="#">Store</a>
+      <a href="#" class="nav-donate">Donate</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Live Like Keira</h1>
+      <p>Honoring Keira's legacy by bringing joy and support to children and families in need.</p>
+      <a href="#" class="btn btn--primary">Donate Now</a>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="story-img">
+      <img src="LLK_files/Keira+homepage+image+2.png" alt="Keira">
+    </div>
+    <div class="story-text">
+      <h2>Keira's Story</h2>
+      <p>On Keira's last day on earth, she was doing what she loved, shopping for Christmas gifts for foster children. As a camp counselor at Camp Rockin' U starting at age 14, she dedicated herself to making a difference in the lives of children who needed it most.</p>
+      <p>The Keira Bradley Foundation carries her mission forward, channeling her passion for helping others into meaningful community initiatives.</p>
+      <a href="#">Learn more about our mission</a>
+    </div>
+  </section>
+
+  <section class="donate-section">
+    <h2>Support Our Mission</h2>
+    <p>Your donation helps fund camp experiences, holiday gifts, and family resources for children in need.</p>
+    <a href="#" class="btn btn--dark">Donate Now</a>
+  </section>
+
+  <section class="shop">
+    <h2>Shop LLK</h2>
+    <p>Every purchase supports the foundation's mission.</p>
+    <div class="shop-grid">
+      <div class="shop-item">
+        <img src="LLK_files/kiss-cut-stickers-white-3x3-front-67d8de7cf0569.png" alt="LLK sticker">
+      </div>
+      <div class="shop-item">
+        <img src="LLK_files/kiss-cut-stickers-white-3x3-front-67d8def4a4269.png" alt="LLK sticker">
+      </div>
+      <div class="shop-item">
+        <img src="LLK_files/kiss-cut-stickers-white-5.5x5.5-front-67d8df6905ca7.png" alt="LLK sticker">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo">LLK</div>
+    <div class="footer-links">
+      <a href="#">Our Mission</a>
+      <a href="#">Events</a>
+      <a href="#">Store</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 The Keira Bradley Foundation. All rights reserved.</p>
+  </footer>
+</body>
+</html>

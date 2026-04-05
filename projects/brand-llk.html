@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Like Keira Foundation Brand Guide | Michelle Tilton</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .guide {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .guide-header {
+      text-align: center;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .guide-header .brand-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+      color: #a86acf;
+    }
+
+    .guide-header h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .guide-header p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+
+    .guide-section {
+      margin-bottom: 4rem;
+    }
+
+    .guide-section h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #a86acf;
+      margin-bottom: 2rem;
+    }
+
+    .guide-section h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .guide-section p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .color-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .color-swatch {
+      height: 100px;
+    }
+
+    .color-info {
+      padding: 1rem;
+      background: var(--bg-elevated);
+    }
+
+    .color-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+
+    .color-hex {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-family: monospace;
+    }
+
+    .color-role {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-top: 0.3rem;
+    }
+
+    .type-showcase {
+      margin-top: 2rem;
+    }
+
+    .type-specimen {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-specimen:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .type-specimen-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+
+    .type-specimen-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+
+    .type-specimen-weight {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-family: monospace;
+    }
+
+    .type-h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .type-h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .type-h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    .type-body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text-dim);
+      max-width: 500px;
+    }
+
+    .type-small {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-sample {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: default;
+    }
+
+    .btn-primary {
+      background: #a86acf;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--text);
+    }
+
+    .btn-dark {
+      background: #1e1736;
+      color: white;
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .voice-card {
+      padding: 2rem;
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .voice-card h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .voice-card p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .voice-card--dont {
+      background: rgba(220, 38, 38, 0.1);
+    }
+
+    .voice-card--dont h5 {
+      color: #dc2626;
+    }
+
+    @media (max-width: 768px) {
+      .color-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .voice-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <nav class="nav" id="nav">
+    <a href="../index.html" class="nav-logo">MT</a>
+    <div class="nav-links">
+      <a href="../about.html">About</a>
+      <a href="../services.html">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="case-hero case-hero--static">
+    <div class="section-container case-hero-content">
+      <a href="branding.html" class="case-back">&larr; All Brand Guides</a>
+      <h1 class="scatter-text">Live Like Keira Foundation</h1>
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="case-meta-label">Type</span>
+          <span class="case-meta-value">Brand Guide</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Font</span>
+          <span class="case-meta-value">Poppins</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Year</span>
+          <span class="case-meta-value">2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="section-container">
+      <div class="guide">
+
+        <div class="guide-header">
+          <div class="brand-name">Live Like Keira Foundation</div>
+          <h2>Brand Guidelines</h2>
+          <p>The Keira Bradley Foundation | Updated 2026</p>
+        </div>
+
+        <!-- Color Palette -->
+        <div class="guide-section">
+          <h3>01 / Color Palette</h3>
+          <h4>Purple-forward with clean, high-contrast foundations.</h4>
+          <p>The accent purple is the heart of the brand, representing Keira's spirit. It's paired with black and white for clarity and a light lavender for softer backgrounds. The dark accent grounds the palette for headers and footers.</p>
+          <div class="color-grid">
+            <div class="color-card">
+              <div class="color-swatch" style="background:#a86acf;"></div>
+              <div class="color-info">
+                <div class="color-name">Keira Purple</div>
+                <div class="color-hex">#A86ACF</div>
+                <div class="color-role">Primary accent / CTAs</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#1e1736;"></div>
+              <div class="color-info">
+                <div class="color-name">Dark Accent</div>
+                <div class="color-hex">#1E1736</div>
+                <div class="color-role">Headers / Footer / Dark sections</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#eddcf4;"></div>
+              <div class="color-info">
+                <div class="color-name">Light Lavender</div>
+                <div class="color-hex">#EDDCF4</div>
+                <div class="color-role">Tinted backgrounds</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#000000;"></div>
+              <div class="color-info">
+                <div class="color-name">Black</div>
+                <div class="color-hex">#000000</div>
+                <div class="color-role">Primary text</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#ffffff; border-bottom: 1px solid var(--border);"></div>
+              <div class="color-info">
+                <div class="color-name">White</div>
+                <div class="color-hex">#FFFFFF</div>
+                <div class="color-role">Page background / Cards</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#666666;"></div>
+              <div class="color-info">
+                <div class="color-name">Gray</div>
+                <div class="color-hex">#666666</div>
+                <div class="color-role">Body text / Captions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="guide-section">
+          <h3>02 / Typography</h3>
+          <h4>Poppins throughout. Modern, friendly, and highly readable.</h4>
+          <p>Poppins is used for both headings and body text, keeping the brand feeling unified and approachable. Heavier weights for headings create strong visual hierarchy, while lighter weights keep body text easy to read.</p>
+          <div class="type-showcase">
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">H1 / Hero Heading</span>
+                <span class="type-specimen-weight">Poppins Bold 700</span>
+              </div>
+              <div class="type-h1">Live Like Keira</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">H2 / Section Heading</span>
+                <span class="type-specimen-weight">Poppins Semibold 600</span>
+              </div>
+              <div class="type-h2">Honoring her legacy through action</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">H3 / Label</span>
+                <span class="type-specimen-weight">Poppins Semibold 600 / 0.08em</span>
+              </div>
+              <div class="type-h3">Our Mission</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">Body</span>
+                <span class="type-specimen-weight">Poppins Regular 400 / 1.7 line-height</span>
+              </div>
+              <div class="type-body">On Keira's last day, she was doing what she loved, shopping for Christmas gifts for foster children. The foundation carries that mission forward, channeling her passion into meaningful community initiatives.</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">Small / UI</span>
+                <span class="type-specimen-weight">Poppins Medium 500 / 0.05em</span>
+              </div>
+              <div class="type-small">Donate Now</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="guide-section">
+          <h3>03 / Buttons &amp; UI</h3>
+          <h4>Clear, purposeful calls to action.</h4>
+          <p>Primary buttons use Keira Purple for donation and engagement CTAs. The dark accent provides an alternative for navigation and footer actions. All buttons use Poppins Medium 500 with 5px border-radius.</p>
+          <div class="button-row">
+            <span class="btn-sample btn-primary">Donate Now</span>
+            <span class="btn-sample btn-secondary">Learn More</span>
+            <span class="btn-sample btn-dark">Get Involved</span>
+          </div>
+        </div>
+
+        <!-- Brand Voice -->
+        <div class="guide-section">
+          <h3>04 / Brand Voice</h3>
+          <h4>Compassionate, action-driven, and forward-looking.</h4>
+          <p>Live Like Keira speaks with heart and purpose. The voice is warm but always moving toward action. Center the mission and the impact, not the grief. Every message should inspire people to show up for others.</p>
+          <div class="voice-grid">
+            <div class="voice-card">
+              <h5>Do</h5>
+              <p>"On her last day, Keira was doing what she loved, shopping for Christmas gifts for foster children. We carry that forward."</p>
+            </div>
+            <div class="voice-card">
+              <h5>Do</h5>
+              <p>"Every purchase supports camp experiences and holiday gifts for children who need it most."</p>
+            </div>
+            <div class="voice-card voice-card--dont">
+              <h5>Don't</h5>
+              <p>"This is a tragic story and we need your help because everything is terrible."</p>
+            </div>
+            <div class="voice-card voice-card--dont">
+              <h5>Don't</h5>
+              <p>"You HAVE to donate right now or you don't care about kids!!!"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photography -->
+        <div class="guide-section">
+          <h3>05 / Photography</h3>
+          <h4>Authentic moments, warm light, community connection.</h4>
+          <p>Photography should capture genuine moments of connection, kindness, and community. Favor warm, natural light and candid expressions over posed studio shots. Images should feel hopeful and joyful.</p>
+          <p>Event photography is key. Capture volunteers, participants, and supporters in action. Always prioritize images that reflect Keira's spirit of generosity and togetherness.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Michelle Tilton. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

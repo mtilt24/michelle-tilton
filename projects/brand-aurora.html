@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Vida Global Brand Guide | Michelle Tilton</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&family=Gilda+Display&display=swap" rel="stylesheet">
+  <style>
+    .guide {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .guide-header {
+      text-align: center;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .guide-header .brand-name {
+      font-family: 'Gilda Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      color: #C9A84C;
+    }
+
+    .guide-header h2 {
+      font-family: 'Gilda Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .guide-header p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+
+    .guide-section {
+      margin-bottom: 4rem;
+    }
+
+    .guide-section h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #C9A84C;
+      margin-bottom: 2rem;
+    }
+
+    .guide-section h4 {
+      font-family: 'Gilda Display', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .guide-section p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .color-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .color-swatch {
+      height: 100px;
+    }
+
+    .color-info {
+      padding: 1rem;
+      background: var(--bg-elevated);
+    }
+
+    .color-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+
+    .color-hex {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-family: monospace;
+    }
+
+    .color-role {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-top: 0.3rem;
+    }
+
+    .type-showcase {
+      margin-top: 2rem;
+    }
+
+    .type-specimen {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-specimen:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .type-specimen-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+
+    .type-specimen-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+
+    .type-specimen-weight {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-family: monospace;
+    }
+
+    .type-h1 {
+      font-family: 'Gilda Display', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .type-h2 {
+      font-family: 'Gilda Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .type-h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    .type-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text-dim);
+      max-width: 500px;
+    }
+
+    .type-small {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-sample {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: default;
+    }
+
+    .btn-primary {
+      background: #C9A84C;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--text);
+    }
+
+    .btn-dark {
+      background: #1A3832;
+      color: #E4C97A;
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .voice-card {
+      padding: 2rem;
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .voice-card h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .voice-card p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .voice-card--dont {
+      background: rgba(220, 38, 38, 0.1);
+    }
+
+    .voice-card--dont h5 {
+      color: #dc2626;
+    }
+
+    @media (max-width: 768px) {
+      .color-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .voice-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <nav class="nav" id="nav">
+    <a href="../index.html" class="nav-logo">MT</a>
+    <div class="nav-links">
+      <a href="../about.html">About</a>
+      <a href="../services.html">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="case-hero case-hero--static">
+    <div class="section-container case-hero-content">
+      <a href="branding.html" class="case-back">&larr; All Brand Guides</a>
+      <h1 class="scatter-text">Aurora Vida Global</h1>
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="case-meta-label">Type</span>
+          <span class="case-meta-value">Brand Guide</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Fonts</span>
+          <span class="case-meta-value">Gilda Display + Inter</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Year</span>
+          <span class="case-meta-value">2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="section-container">
+      <div class="guide">
+
+        <div class="guide-header">
+          <div class="brand-name">Aurora Vida Global</div>
+          <h2>Brand Guidelines</h2>
+          <p>Aurora Vida Global / PAL Lighting Costa Rica | Updated 2026</p>
+        </div>
+
+        <!-- Color Palette -->
+        <div class="guide-section">
+          <h3>01 / Color Palette</h3>
+          <h4>Luxury gold and deep tropical greens convey premium quality.</h4>
+          <p>Gold is the signature brand color, used for CTAs, accents, and key highlights. Night and forest greens anchor the brand with depth and sophistication. Cream tones create warm, inviting backgrounds throughout the site.</p>
+          <div class="color-grid">
+            <div class="color-card">
+              <div class="color-swatch" style="background:#C9A84C;"></div>
+              <div class="color-info">
+                <div class="color-name">Gold</div>
+                <div class="color-hex">#C9A84C</div>
+                <div class="color-role">Primary / CTAs / Accents</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#E4C97A;"></div>
+              <div class="color-info">
+                <div class="color-name">Gold Light</div>
+                <div class="color-hex">#E4C97A</div>
+                <div class="color-role">Highlights / Hover</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#8A6E28;"></div>
+              <div class="color-info">
+                <div class="color-name">Gold Dark</div>
+                <div class="color-hex">#8A6E28</div>
+                <div class="color-role">Active states / Depth</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#1A3832;"></div>
+              <div class="color-info">
+                <div class="color-name">Night</div>
+                <div class="color-hex">#1A3832</div>
+                <div class="color-role">Headers / Nav / Footer</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#0D2218;"></div>
+              <div class="color-info">
+                <div class="color-name">Forest</div>
+                <div class="color-hex">#0D2218</div>
+                <div class="color-role">Dark backgrounds</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#FAF7F2;"></div>
+              <div class="color-info">
+                <div class="color-name">Cream</div>
+                <div class="color-hex">#FAF7F2</div>
+                <div class="color-role">Page background</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#EDE8DF;"></div>
+              <div class="color-info">
+                <div class="color-name">Cream Dark</div>
+                <div class="color-hex">#EDE8DF</div>
+                <div class="color-role">Borders / Dividers</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#1A2E28;"></div>
+              <div class="color-info">
+                <div class="color-name">Text</div>
+                <div class="color-hex">#1A2E28</div>
+                <div class="color-role">Primary body text</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#3D5A52;"></div>
+              <div class="color-info">
+                <div class="color-name">Text Medium</div>
+                <div class="color-hex">#3D5A52</div>
+                <div class="color-role">Secondary text / Captions</div>
+              </div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background:#ffffff; border-bottom: 1px solid var(--border);"></div>
+              <div class="color-info">
+                <div class="color-name">White</div>
+                <div class="color-hex">#FFFFFF</div>
+                <div class="color-role">Cards / Clean sections</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="guide-section">
+          <h3>02 / Typography</h3>
+          <h4>Gilda Display for luxury headlines, Inter for clean body text.</h4>
+          <p>Gilda Display is a refined serif that communicates premium quality and elegance for all headings. Inter provides excellent readability at all sizes for body copy, navigation, and UI elements. The pairing balances sophistication with modern clarity.</p>
+          <div class="type-showcase">
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">H1 / Hero Heading</span>
+                <span class="type-specimen-weight">Gilda Display 400 / -0.03em</span>
+              </div>
+              <div class="type-h1">Premium Pool Lighting</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">H2 / Section Heading</span>
+                <span class="type-specimen-weight">Gilda Display 400 / -0.02em</span>
+              </div>
+              <div class="type-h2">Iluminaci&oacute;n de calidad mundial para Costa Rica</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">H3 / Label</span>
+                <span class="type-specimen-weight">Inter Semibold 600 / 0.08em</span>
+              </div>
+              <div class="type-h3">Why PAL Lighting</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">Body</span>
+                <span class="type-specimen-weight">Inter Regular 400 / 1.7 line-height</span>
+              </div>
+              <div class="type-body">Aurora Vida Global is the exclusive distributor of PAL Lighting products in Costa Rica, bringing world-class LED pool and landscape lighting to luxury residential and commercial projects.</div>
+            </div>
+            <div class="type-specimen">
+              <div class="type-specimen-meta">
+                <span class="type-specimen-label">Small / UI</span>
+                <span class="type-specimen-weight">Inter Medium 500 / 0.05em</span>
+              </div>
+              <div class="type-small">Request a Quote</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="guide-section">
+          <h3>03 / Buttons &amp; UI</h3>
+          <h4>Bold, premium, with gold and deep green contrast.</h4>
+          <p>Primary buttons use the signature gold for maximum visibility on CTAs. Dark buttons use the night green with gold text for a luxury feel. All buttons use 5px border-radius and Inter Medium 500.</p>
+          <div class="button-row">
+            <span class="btn-sample btn-primary">Request a Quote</span>
+            <span class="btn-sample btn-secondary">View Products</span>
+            <span class="btn-sample btn-dark">Explore Lighting</span>
+          </div>
+        </div>
+
+        <!-- Brand Voice -->
+        <div class="guide-section">
+          <h3>04 / Brand Voice</h3>
+          <h4>Elegant, premium, bilingual, and confident.</h4>
+          <p>Aurora Vida speaks with authority and refinement. The tone is premium but never pretentious. Content is bilingual (English and Spanish), with both languages treated equally. Technical specifications are presented clearly alongside aspirational messaging.</p>
+          <div class="voice-grid">
+            <div class="voice-card">
+              <h5>Do</h5>
+              <p>"World-class LED lighting, engineered for the most demanding pool environments in Costa Rica."</p>
+            </div>
+            <div class="voice-card">
+              <h5>Do</h5>
+              <p>"Iluminaci&oacute;n premium que transforma su piscina en una experiencia extraordinaria."</p>
+            </div>
+            <div class="voice-card voice-card--dont">
+              <h5>Don't</h5>
+              <p>"Buy our lights, they're the cheapest option and good enough for any pool!"</p>
+            </div>
+            <div class="voice-card voice-card--dont">
+              <h5>Don't</h5>
+              <p>"Check out these AMAZING pool lights, you won't BELIEVE the colors!!!"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photography -->
+        <div class="guide-section">
+          <h3>05 / Photography</h3>
+          <h4>Luxury pools, dramatic lighting, tropical settings.</h4>
+          <p>Photography should showcase premium pool environments with dramatic LED lighting effects. Favor twilight and nighttime shots that highlight the color and quality of PAL Lighting products. Settings should feel aspirational, with tropical Costa Rican landscapes as a backdrop.</p>
+          <p>Product photography should be clean and technical when showing specifications, but lifestyle imagery should feel warm, luxurious, and inviting. Both English and Spanish captions should accompany key visual assets.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Michelle Tilton. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>
