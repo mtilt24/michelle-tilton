@@ -3,188 +3,280 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michelle Tilton | Marketing Strategist</title>
+  <title>Michelle Tilton | Marketing for Small Teams Doing Big Things</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Custom cursor -->
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">MT</a>
-    <div class="nav-links">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="work.html">Work</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
+<nav>
+  <a href="index.html" class="nav-logo">Michelle Tilton</a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="contact.html" class="nav-cta">Book a call</a>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <p class="hero-tag scatter-text">MARKETING STRATEGIST</p>
-      <h1 class="hero-name">
-        <span class="scatter-text">Michelle</span>
-        <span class="scatter-text">Tilton</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Marketing that works harder</div>
+      <h1>
+        <span class="line">Marketing for</span>
+        <span class="line outlined">small teams</span>
+        <span class="line">doing <span class="sunset">big things</span></span>
       </h1>
-      <p class="hero-sub scatter-text">Turning ideas into impact. Let's craft a brand that stands out, connects deeply, and drives results.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="hero-cta">Get a Free Consultation</a>
-        <a href="work.html" class="hero-cta" style="background:transparent;border:1px solid var(--accent);box-shadow:none;">View My Work</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-card">
+        <div class="hero-photo-wrap">
+          <!-- Replace with your photo -->
+          <div class="hero-photo-placeholder">MT</div>
+        </div>
+        <p class="hero-card-text">Strategy, brand, and websites for small businesses and nonprofits who refuse to blend in.</p>
+        <a href="contact.html" class="btn-primary">Book a free 30 min call <span>&rarr;</span></a>
       </div>
     </div>
-    <div class="hero-gradient"></div>
-  </section>
+  </div>
+</section>
 
-  <!-- Brief Intro -->
-  <section class="home-intro">
-    <div class="section-container">
-      <div class="home-intro-grid">
-        <div class="home-intro-text">
-          <h2 class="section-title scatter-text">Full-Stack Marketer</h2>
-          <p class="reveal-up">VP of Marketing with a toolkit spanning strategy, social media, design, email campaigns, SEO, and web development. I don't just plan the strategy. I build it, launch it, and optimize it.</p>
-          <a href="about.html" class="text-link reveal-up">More about me</a>
+<!-- LOGO BAR -->
+<div class="logo-bar">
+  <div class="logo-bar-inner">
+    <span class="logo-bar-label">Selected clients</span>
+    <div class="logo-bar-items">
+      <span class="client-logo">Zuda Yoga</span>
+      <span class="client-logo">ACF Inc.</span>
+      <span class="client-logo">Live Like Keira</span>
+      <span class="client-logo">Nor-Cal Pools</span>
+      <span class="client-logo">Aurora Vida</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="problem-header reveal">
+      <div class="section-label">Sound familiar?</div>
+      <h2>You know marketing matters. You just don't know who to trust.</h2>
+    </div>
+    <div class="problem-list">
+      <div class="problem-item reveal">
+        <div class="problem-num">01</div>
+        <div class="problem-text">Your website looks like <strong>every other site in your industry</strong>, and nobody who lands on it actually converts.</div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-num">02</div>
+        <div class="problem-text">You've been <strong>burned by an agency</strong> that overpromised, underdelivered, and left you with a bill you're still paying off.</div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-num">03</div>
+        <div class="problem-text">You're posting on social, sending the occasional email, hoping something sticks, but <strong>nothing feels connected</strong>.</div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-num">04</div>
+        <div class="problem-text">You need marketing that <strong>actually works</strong>, but you don't have the budget for a full-time hire or a big-agency retainer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="section-label">What I offer</div>
+      <h2>Everything your brand needs to stand out.</h2>
+      <p>Clear scope. No mystery retainers or surprise invoices. Every project is scoped to your needs.</p>
+    </div>
+    <div class="service-cards">
+
+      <a href="services.html" class="svc-card reveal">
+        <div class="svc-card-label">Web</div>
+        <div class="svc-card-title">Website Design &amp; Development</div>
+        <p class="svc-card-desc">From Squarespace to fully custom-coded sites. Strategy, copy, design, SEO, and development, all handled.</p>
+        <ul class="svc-card-list">
+          <li>Squarespace or custom code</li>
+          <li>Copywriting &amp; image sourcing</li>
+          <li>Mobile-first responsive design</li>
+          <li>SEO setup &amp; optimization</li>
+        </ul>
+        <div class="svc-card-cta">Learn more &rarr;</div>
+      </a>
+
+      <a href="services.html" class="svc-card reveal">
+        <div class="svc-card-label">Brand</div>
+        <div class="svc-card-title">Brand Identity</div>
+        <p class="svc-card-desc">Logo, color systems, typography, brand guidelines, social templates. A cohesive system you can actually use.</p>
+        <ul class="svc-card-list">
+          <li>Logo design &amp; concepts</li>
+          <li>Color palette &amp; type pairing</li>
+          <li>Brand style guides</li>
+          <li>Social templates &amp; assets</li>
+        </ul>
+        <div class="svc-card-cta">Learn more &rarr;</div>
+      </a>
+
+      <a href="services.html" class="svc-card reveal">
+        <div class="svc-card-label">Ongoing</div>
+        <div class="svc-card-title">Marketing Retainers</div>
+        <p class="svc-card-desc">Email campaigns, social media management, content creation, video, and monthly reporting. The full engine.</p>
+        <ul class="svc-card-list">
+          <li>Email marketing &amp; automation</li>
+          <li>Social media management</li>
+          <li>Video &amp; content creation</li>
+          <li>Monthly reporting</li>
+        </ul>
+        <div class="svc-card-cta">Learn more &rarr;</div>
+      </a>
+
+      <a href="services.html" class="svc-card reveal">
+        <div class="svc-card-label">Flexible</div>
+        <div class="svc-card-title">A La Carte &amp; Maintenance</div>
+        <p class="svc-card-desc">Copywriting, SEO audits, social graphics, email campaigns, image sourcing, or ongoing site updates. Book what you need.</p>
+        <ul class="svc-card-list">
+          <li>Copywriting per page or asset</li>
+          <li>One-off email campaigns</li>
+          <li>Content updates &amp; site maintenance</li>
+          <li>Rush delivery available</li>
+        </ul>
+        <div class="svc-card-cta">Learn more &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="work">
+  <div class="proof-inner">
+    <div class="proof-header reveal">
+      <div class="section-label">Proof it works</div>
+      <h2>Real results from real clients.</h2>
+    </div>
+    <div class="proof-grid">
+      <div class="testimonial t-big featured reveal">
+        <div>
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">Michelle didn't just rebuild our site, she helped us figure out what we actually do and who we're actually for. Our inquiries tripled in the first month after launch.</p>
         </div>
-        <div class="home-stats reveal-up">
-          <div class="stat">
-            <span class="stat-number">30%</span>
-            <span class="stat-label">Email open rates</span>
+        <div class="attribution">
+          <div class="avatar">NR</div>
+          <div class="attribution-text">
+            <div class="attribution-name">Nicole Roeseler</div>
+            <div class="attribution-title">Executive Director &middot; ACF Inc.</div>
           </div>
-          <div class="stat">
-            <span class="stat-number">5+</span>
-            <span class="stat-label">Platforms managed</span>
+        </div>
+      </div>
+      <div class="result-card t-med reveal">
+        <div>
+          <div class="result-number">3x</div>
+          <div class="result-text">increase in qualified inquiries within 30 days of relaunch</div>
+        </div>
+        <div class="result-client">Advancing Communities Forward</div>
+      </div>
+      <div class="testimonial t-small reveal">
+        <div>
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">She gets it. She moves fast. And she won't let you settle for mediocre work.</p>
+        </div>
+        <div class="attribution">
+          <div class="avatar teal">CW</div>
+          <div class="attribution-text">
+            <div class="attribution-name">Cordis Webb</div>
+            <div class="attribution-title">Program Director &middot; ACF</div>
           </div>
-          <div class="stat">
-            <span class="stat-number">E2E</span>
-            <span class="stat-label">Strategy to execution</span>
+        </div>
+      </div>
+      <div class="testimonial t-result reveal">
+        <div>
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">Most marketing people hand you a 40-page deck you'll never read. Michelle handed us a two-page plan we actually followed, and it worked.</p>
+        </div>
+        <div class="attribution">
+          <div class="avatar navy">SB</div>
+          <div class="attribution-text">
+            <div class="attribution-name">Client Name</div>
+            <div class="attribution-title">Founder &middot; Small Business</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills - Horizontal Scroll -->
-  <section class="skills" id="skills">
-    <div class="section-container">
-      <h2 class="section-title scatter-text">What I Do</h2>
-    </div>
-    <div class="horizontal-scroll-wrapper">
-      <div class="horizontal-track" id="horizontalTrack">
-        <div class="skill-panel">
-          <div class="skill-icon">01</div>
-          <h3>Marketing Strategy</h3>
-          <p>Developing comprehensive marketing plans, including audience research, goal setting, and strategic planning.</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">02</div>
-          <h3>Social Media Marketing</h3>
-          <p>Strategy, management, and content creation for Facebook, Instagram, LinkedIn, and TikTok.</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">03</div>
-          <h3>Campaign Management</h3>
-          <p>Overseeing campaigns from concept to execution, including content creation, digital advertising, email marketing, and social media.</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">04</div>
-          <h3>Digital Advertising</h3>
-          <p>Managing campaigns on Google, Meta, and LinkedIn Campaign Manager with a focus on ROI and audience segmentation.</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">05</div>
-          <h3>Graphic Design</h3>
-          <p>Proficient in Adobe Photoshop, Canva, and Adobe Illustrator for creating engaging graphics, logos, and print materials.</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">06</div>
-          <h3>Email Marketing</h3>
-          <p>Crafting targeted campaigns using HubSpot, MailChimp, and SendGrid with proven open rates around 30%.</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">07</div>
-          <h3>SEO &amp; Analytics</h3>
-          <p>On-page SEO, keyword research, and data-driven decisions with Google Analytics and Hotjar.</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">08</div>
-          <h3>Video Content</h3>
-          <p>Editing and producing Reels, TikToks, and short-form videos using tools like CapCut.</p>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-photo">
+        <!-- Replace with your photo -->
+        <div class="about-photo-placeholder">MT</div>
+        <div class="about-photo-caption">
+          <div class="name">Michelle Tilton</div>
+          <div class="role">Strategist &middot; 15+ years in marketing</div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Tools Marquee -->
-  <section class="tools-marquee">
-    <div class="marquee-track">
-      <span>HubSpot</span><span>MailChimp</span><span>SendGrid</span><span>Sprout Social</span><span>Agorapulse</span><span>Google Ads</span><span>Meta Ads</span><span>Google Analytics</span><span>Hotjar</span><span>Canva</span><span>Photoshop</span><span>Illustrator</span><span>Wix</span><span>Squarespace</span><span>Notion</span><span>Asana</span>
-      <span>HubSpot</span><span>MailChimp</span><span>SendGrid</span><span>Sprout Social</span><span>Agorapulse</span><span>Google Ads</span><span>Meta Ads</span><span>Google Analytics</span><span>Hotjar</span><span>Canva</span><span>Photoshop</span><span>Illustrator</span><span>Wix</span><span>Squarespace</span><span>Notion</span><span>Asana</span>
-    </div>
-  </section>
-
-  <!-- Featured Work - just 3 -->
-  <section class="work" id="work">
-    <div class="section-container">
-      <h2 class="section-title scatter-text">Featured Work</h2>
-      <div class="folders-grid folders-grid--featured">
-
-        <div class="folder reveal-up" data-category="web">
-          <div class="folder-tab">Custom Code</div>
-          <div class="folder-body">
-            <h3>Nor-Cal Pool Productions</h3>
-            <p>Full website redesign, 100% custom HTML/CSS/JS with scroll animations and premium brand feel.</p>
-            <a href="https://norcalpoolproductions.com" target="_blank" class="project-link">View Live Site</a>
-          </div>
+    <div class="about-content reveal">
+      <div class="section-label">About</div>
+      <h2>I was tired of watching good organizations get bad marketing.</h2>
+      <p class="lead">For 15+ years I've led marketing at B2B technology companies, running teams, building programs, and figuring out what actually moves the needle.</p>
+      <p>But the work I found most meaningful was always the side work. Helping a nonprofit rebuild the site that brings in their donors. Sitting down with a small business owner to figure out why their messaging wasn't landing. Writing copy for a foundation honoring someone's memory.</p>
+      <p>Small businesses and nonprofits don't need another agency that treats them like an afterthought. You need someone who brings senior-level strategy, actually does the work, and charges like a human.</p>
+      <div class="credentials">
+        <div class="credential">
+          <div class="credential-number">15+</div>
+          <div class="credential-label">Years<br>in marketing</div>
         </div>
-
-        <div class="folder reveal-up" data-category="web">
-          <div class="folder-tab">Squarespace + CSS</div>
-          <div class="folder-body">
-            <h3>Zuda Yoga</h3>
-            <p>Squarespace build with custom CSS for a premier power vinyasa studio. Membership tiers, scheduling, and community-focused design.</p>
-            <a href="https://zudayoga.com" target="_blank" class="project-link">View Live Site</a>
-          </div>
+        <div class="credential">
+          <div class="credential-number">30+</div>
+          <div class="credential-label">Brands &amp; sites<br>launched</div>
         </div>
-
-        <div class="folder reveal-up" data-category="web">
-          <div class="folder-tab">Squarespace</div>
-          <div class="folder-body">
-            <h3>Live Like Keira Foundation</h3>
-            <p>Nonprofit site with donation portal, event listings, merchandise store, and newsletter signup.</p>
-            <a href="https://livelikekeira.org" target="_blank" class="project-link">View Live Site</a>
-          </div>
+        <div class="credential">
+          <div class="credential-number">VP</div>
+          <div class="credential-label">Marketing<br>by day</div>
         </div>
-
-      </div>
-      <div class="work-cta reveal-up">
-        <a href="work.html" class="hero-cta">See All Projects</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="service-cta">
-    <div class="section-container">
-      <div class="service-cta-content reveal-up">
-        <h2>Let's build something together.</h2>
-        <p>I offer discounts for nonprofits and small businesses.</p>
-        <a href="contact.html" class="hero-cta">Get a Free Consultation</a>
-      </div>
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Let's talk</div>
+    <h2 class="cta-title">
+      <span class="line">Your mission deserves</span>
+      <span class="line outlined">marketing that</span>
+      <span class="line"><span class="sunset">actually works.</span></span>
+    </h2>
+    <p class="cta-sub">Book a free 30 minute call. Tell me what you're working on. If I can help, we'll talk next steps. If I can't, I'll point you to someone who can.</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn-light">Book a call <span>&rarr;</span></a>
+      <a href="mailto:hello@michelletilton.com" class="btn-ghost">Email directly <span>&rarr;</span></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <p>&copy; 2026 Michelle Tilton. All rights reserved.</p>
-  </footer>
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">&copy; 2026 Michelle Tilton</span>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="mailto:hello@michelletilton.com">Email</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
