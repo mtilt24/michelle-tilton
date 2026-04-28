@@ -36,7 +36,6 @@
     <button class="project-filter-btn active" data-filter="all">All</button>
     <button class="project-filter-btn" data-filter="web">Websites</button>
     <button class="project-filter-btn" data-filter="social">Social Media</button>
-    <button class="project-filter-btn" data-filter="design">Design</button>
     <button class="project-filter-btn" data-filter="branding">Branding</button>
   </div>
 </section>
@@ -73,6 +72,56 @@
         </div>
         <h3>Zuda Yoga</h3>
         <p>Squarespace build with custom CSS for a premier power vinyasa studio in Placer County.</p>
+      </div>
+    </a>
+
+    <!-- ACF: full width -->
+    <a href="projects/acf.html" class="project-card full" data-category="web branding">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1777356555/Image_4-27-26_at_11.07_PM_zds2jb.jpg" alt="Advancing Communities Forward website" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Custom Code</span>
+          <span>Nonprofit</span>
+          <span>Branding</span>
+          <span>Logo</span>
+        </div>
+        <h3>Advancing Communities Forward</h3>
+        <p>Full nonprofit launch package: brand identity, logo, copy, and a custom-coded multi-page website with Stripe donations and event ticketing for a Sacramento foster youth nonprofit.</p>
+      </div>
+    </a>
+
+    <!-- Aurora Vida -->
+    <a href="projects/aurora-vida.html" class="project-card" data-category="web branding">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1777356912/Image_4-27-26_at_11.12_PM_crabkt.png" alt="Aurora Vida Global website" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Custom Code</span>
+          <span>Logo</span>
+          <span>Branding</span>
+          <span>Copywriting</span>
+        </div>
+        <h3>Aurora Vida Global</h3>
+        <p>Full launch package &mdash; logo, brand identity, copy, and an 11-page custom site for Costa Rica's authorized PAL Lighting distributor.</p>
+      </div>
+    </a>
+
+    <!-- FGA -->
+    <a href="projects/fga.html" class="project-card" data-category="web branding">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1777357009/Image_4-27-26_at_11.16_PM_vg4fj0.jpg" alt="FEEL Good Always website" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Custom Code</span>
+          <span>Branding</span>
+          <span>Copywriting</span>
+        </div>
+        <h3>FEEL Good Always</h3>
+        <p>10-page custom site, brand system, and copywriting for Becky Bradley's spiritual podcast and Costa Rica retreat platform.</p>
       </div>
     </a>
 
@@ -210,21 +259,6 @@
       </div>
     </a>
 
-    <!-- Print/Design -->
-    <a href="#" class="project-card" data-category="design">
-      <div class="project-card-img">
-        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800,c_fill,h_500/Melissa_s_Bday_Invitation_1_qplost.png" alt="Print and digital design work" loading="lazy">
-      </div>
-      <div class="project-card-body">
-        <div class="project-card-tags">
-          <span>Graphic Design</span>
-          <span>Print</span>
-        </div>
-        <h3>Print &amp; Digital Design</h3>
-        <p>Event flyers, invitations, brochures, ebook covers, and marketing collateral in Photoshop and Canva.</p>
-      </div>
-    </a>
-
   </div>
 </section>
 
@@ -265,7 +299,8 @@
       filterBtns.forEach(b => b.classList.toggle('active', b === btn));
       const filter = btn.dataset.filter;
       projectCards.forEach(card => {
-        const matches = filter === 'all' || card.dataset.category === filter;
+        const cats = (card.dataset.category || '').split(/\s+/);
+        const matches = filter === 'all' || cats.includes(filter);
         card.classList.toggle('hidden', !matches);
       });
     });
