@@ -7,239 +7,270 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
 
-  <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">MT</a>
-    <div class="nav-links">
+<nav>
+  <a href="index.html" class="nav-logo">Michelle Tilton</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html" class="nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Portfolio</div>
+    <h1>Selected <span class="sunset">work.</span></h1>
+    <p class="page-hero-sub">Website design, branding, and digital marketing, from strategy to launch.</p>
+  </div>
+</section>
+
+<!-- FILTER -->
+<section class="project-filter">
+  <div class="project-filter-bar">
+    <button class="project-filter-btn active" data-filter="all">All</button>
+    <button class="project-filter-btn" data-filter="web">Websites</button>
+    <button class="project-filter-btn" data-filter="social">Social Media</button>
+    <button class="project-filter-btn" data-filter="design">Design</button>
+    <button class="project-filter-btn" data-filter="branding">Branding</button>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section">
+  <div class="projects-grid" id="filteredGrid">
+
+    <!-- NorCal: full -->
+    <a href="projects/norcal.html" class="project-card full" data-category="web">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200/Image_4-3-26_at_9.40_PM_wnttjh.jpg" alt="Nor-Cal Pool Productions website" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Custom Code</span>
+          <span>Redesign</span>
+          <span>Branding</span>
+        </div>
+        <h3>Nor-Cal Pool Productions</h3>
+        <p>Full rebrand and custom-coded website for a Northern California pool construction company. 100% HTML/CSS/JS with scroll animations, day/night crossfade, and premium brand positioning.</p>
+      </div>
+    </a>
+
+    <!-- Zuda Yoga -->
+    <a href="projects/zuda.html" class="project-card" data-category="web">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Image_4-3-26_at_9.31_PM_q5u1xd.jpg" alt="Zuda Yoga website" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Squarespace</span>
+          <span>Custom CSS</span>
+        </div>
+        <h3>Zuda Yoga</h3>
+        <p>Squarespace build with custom CSS for a premier power vinyasa studio in Placer County.</p>
+      </div>
+    </a>
+
+    <!-- Live Like Keira -->
+    <a href="projects/livelikekeira.html" class="project-card" data-category="web">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Image_4-3-26_at_9.46_PM_w1mz2t.jpg" alt="Live Like Keira Foundation website" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Squarespace</span>
+          <span>Nonprofit</span>
+        </div>
+        <h3>Live Like Keira Foundation</h3>
+        <p>501(c)(3) nonprofit site with donation portal, events, merchandise store, and newsletter.</p>
+      </div>
+    </a>
+
+    <!-- Hair Salon -->
+    <a href="projects/salon.html" class="project-card" data-category="web">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Image_4-3-26_at_9.52_PM_aht6ob.jpg" alt="Hair salon website redesign" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Redesign</span>
+          <span>Photoshop</span>
+        </div>
+        <h3>Hair Salon Redesign</h3>
+        <p>Website redesign for a hair stylist with a more upscale positioning and a focus on curly hair cuts. Designed in Photoshop.</p>
+      </div>
+    </a>
+
+    <!-- Zuda Social -->
+    <a href="projects/social-zuda.html" class="project-card" data-category="social">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Grey_Modern_Social_Media_Mockup_Online_Portfolio_3_rzmqqi.png" alt="Zuda Yoga social media" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Social Media</span>
+          <span>Zuda Yoga</span>
+        </div>
+        <h3>Zuda Yoga Social</h3>
+        <p>Ongoing social media posts for Zuda Yoga, including static posts and branded content for Instagram.</p>
+      </div>
+    </a>
+
+    <!-- Real Estate Social -->
+    <a href="projects/social-realestate.html" class="project-card" data-category="social">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Grey_Modern_Social_Media_Mockup_Online_Portfolio_2_mmwxwg.png" alt="Real estate social media" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Social Media</span>
+          <span>Real Estate</span>
+        </div>
+        <h3>Social for Real Estate</h3>
+        <p>Social media content for real estate agents, maintaining consistent branding and driving audience engagement.</p>
+      </div>
+    </a>
+
+    <!-- Social Ads -->
+    <a href="projects/social-ads.html" class="project-card" data-category="social">
+      <div class="project-card-img">
+        <video src="https://res.cloudinary.com/dstssdnoj/video/upload/q_auto,w_800/Grey_Modern_Social_Media_Mockup_Online_Portfolio_o5le49.mp4" muted loop playsinline autoplay></video>
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Social Ads</span>
+          <span>Meta</span>
+          <span>Instagram</span>
+        </div>
+        <h3>Social Media Ads</h3>
+        <p>Ad creatives for Instagram, Facebook, and Stories designed to drive engagement and conversions.</p>
+      </div>
+    </a>
+
+    <!-- Branding: full -->
+    <a href="projects/branding.html" class="project-card full" data-category="branding">
+      <div class="project-card-img">
+        <div style="display:flex;width:100%;height:100%;min-height:340px;">
+          <div style="flex:1;display:flex;flex-direction:column;">
+            <div style="flex:1;display:flex;">
+              <span style="flex:1;background:#E5751F;"></span>
+              <span style="flex:1;background:#1F2328;"></span>
+              <span style="flex:1;background:#f5f2ed;"></span>
+            </div>
+            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
+              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">NOR-CAL POOL PRODUCTIONS</span>
+            </div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;">
+            <div style="flex:1;display:flex;">
+              <span style="flex:1;background:#6B7F5E;"></span>
+              <span style="flex:1;background:#A8B99C;"></span>
+              <span style="flex:1;background:#F5F3EF;"></span>
+            </div>
+            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
+              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">EKG PURE HAIR STUDIO</span>
+            </div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;">
+            <div style="flex:1;display:flex;">
+              <span style="flex:1;background:#a86acf;"></span>
+              <span style="flex:1;background:#1e1736;"></span>
+              <span style="flex:1;background:#eddcf4;"></span>
+            </div>
+            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
+              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">LIVE LIKE KEIRA</span>
+            </div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;">
+            <div style="flex:1;display:flex;">
+              <span style="flex:1;background:#C9A84C;"></span>
+              <span style="flex:1;background:#1A3832;"></span>
+              <span style="flex:1;background:#FAF7F2;"></span>
+            </div>
+            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
+              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">AURORA VIDA GLOBAL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Branding</span>
+          <span>Identity</span>
+          <span>Brand Guidelines</span>
+          <span>4 Projects</span>
+        </div>
+        <h3>Brand Identity Work</h3>
+        <p>Complete brand guidelines for four clients, including color systems, typography, brand voice, and visual direction. From organic hair studios to luxury pool lighting.</p>
+      </div>
+    </a>
+
+    <!-- Print/Design -->
+    <a href="#" class="project-card" data-category="design">
+      <div class="project-card-img">
+        <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800,c_fill,h_500/Melissa_s_Bday_Invitation_1_qplost.png" alt="Print and digital design work" loading="lazy">
+      </div>
+      <div class="project-card-body">
+        <div class="project-card-tags">
+          <span>Graphic Design</span>
+          <span>Print</span>
+        </div>
+        <h3>Print &amp; Digital Design</h3>
+        <p>Event flyers, invitations, brochures, ebook covers, and marketing collateral in Photoshop and Canva.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Let's talk</div>
+    <h2 class="cta-title">
+      <span class="line">Ready to be the</span>
+      <span class="line outlined">next one?</span>
+    </h2>
+    <p class="cta-sub">Book a free 30 minute call. Tell me what you're working on. If I can help, we'll talk next steps.</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn-light">Book a call <span>&rarr;</span></a>
+      <a href="mailto:hello@michelletilton.com" class="btn-ghost">Email directly <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">&copy; 2026 Michelle Tilton</span>
+    <div class="footer-links">
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="work.html" class="active">Work</a>
-      <a href="contact.html">Contact</a>
+      <a href="mailto:hello@michelletilton.com">Email</a>
+      <a href="https://linkedin.com/in/michelletilton" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </nav>
+  </div>
+</footer>
 
-  <section class="page-hero">
-    <div class="section-container">
-      <p class="hero-tag scatter-text">PORTFOLIO</p>
-      <h1 class="page-hero-title scatter-text">Selected Work</h1>
-      <p class="page-hero-sub reveal-up">Website design, branding, and digital marketing, from strategy to launch.</p>
-    </div>
-    <div class="hero-gradient"></div>
-  </section>
-
-  <!-- Filter -->
-  <section class="work-filter">
-    <div class="section-container">
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Websites</button>
-        <button class="filter-btn" data-filter="social">Social Media</button>
-        <button class="filter-btn" data-filter="design">Design</button>
-        <button class="filter-btn" data-filter="branding">Branding</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Grid - Halo Lab inspired -->
-  <section class="projects">
-    <div class="section-container">
-      <div class="projects-grid" id="filteredGrid">
-
-        <!-- FEATURED: NorCal - full width -->
-        <a href="projects/norcal.html" class="project-card project-card--full reveal-up" data-category="web">
-          <div class="project-card-img">
-            <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200/Image_4-3-26_at_9.40_PM_wnttjh.jpg" alt="Nor-Cal Pool Productions website" loading="lazy">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Custom Code</span>
-              <span>Redesign</span>
-              <span>Branding</span>
-            </div>
-            <h3>Nor-Cal Pool Productions</h3>
-            <p>Full rebrand and custom-coded website for a Northern California pool construction company. 100% HTML/CSS/JS with scroll animations, day/night crossfade, and premium brand positioning.</p>
-          </div>
-        </a>
-
-        <!-- Zuda Yoga - half -->
-        <a href="projects/zuda.html" class="project-card reveal-up" data-category="web">
-          <div class="project-card-img">
-            <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Image_4-3-26_at_9.31_PM_q5u1xd.jpg" alt="Zuda Yoga website" loading="lazy">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Squarespace</span>
-              <span>Custom CSS</span>
-            </div>
-            <h3>Zuda Yoga</h3>
-            <p>Squarespace build with custom CSS for a premier power vinyasa studio in Placer County.</p>
-          </div>
-        </a>
-
-        <!-- Live Like Keira - half -->
-        <a href="projects/livelikekeira.html" class="project-card reveal-up" data-category="web">
-          <div class="project-card-img">
-            <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Image_4-3-26_at_9.46_PM_w1mz2t.jpg" alt="Live Like Keira Foundation website" loading="lazy">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Squarespace</span>
-              <span>Nonprofit</span>
-            </div>
-            <h3>Live Like Keira Foundation</h3>
-            <p>501(c)(3) nonprofit site with donation portal, events, merchandise store, and newsletter.</p>
-          </div>
-        </a>
-
-        <!-- Hair Salon Redesign - half -->
-        <a href="projects/salon.html" class="project-card reveal-up" data-category="web">
-          <div class="project-card-img">
-            <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Image_4-3-26_at_9.52_PM_aht6ob.jpg" alt="Hair salon website redesign" loading="lazy">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Website Redesign</span>
-              <span>Photoshop</span>
-            </div>
-            <h3>Hair Salon Redesign</h3>
-            <p>Website redesign for a hair stylist with a more upscale positioning and a focus on curly hair cuts. Designed in Photoshop.</p>
-          </div>
-        </a>
-
-        <!-- Zuda Yoga Social Media - half -->
-        <a href="projects/social-zuda.html" class="project-card reveal-up" data-category="social">
-          <div class="project-card-img">
-            <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Grey_Modern_Social_Media_Mockup_Online_Portfolio_3_rzmqqi.png" alt="Zuda Yoga social media" loading="lazy">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Social Media</span>
-              <span>Zuda Yoga</span>
-            </div>
-            <h3>Zuda Yoga Social</h3>
-            <p>Ongoing social media posts for Zuda Yoga, including static posts and branded content for Instagram.</p>
-          </div>
-        </a>
-
-        <!-- Social for Real Estate - half -->
-        <a href="projects/social-realestate.html" class="project-card reveal-up" data-category="social">
-          <div class="project-card-img">
-            <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800/Grey_Modern_Social_Media_Mockup_Online_Portfolio_2_mmwxwg.png" alt="Real estate social media" loading="lazy">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Social Media</span>
-              <span>Real Estate</span>
-            </div>
-            <h3>Social for Real Estate</h3>
-            <p>Social media content created for real estate agents, maintaining consistent branding and driving audience engagement.</p>
-          </div>
-        </a>
-
-        <!-- Social Ads - half -->
-        <a href="projects/social-ads.html" class="project-card reveal-up" data-category="social">
-          <div class="project-card-img">
-            <video src="https://res.cloudinary.com/dstssdnoj/video/upload/q_auto,w_800/Grey_Modern_Social_Media_Mockup_Online_Portfolio_o5le49.mp4" muted loop playsinline class="project-card-video"></video>
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Social Ads</span>
-              <span>Meta</span>
-              <span>Instagram</span>
-            </div>
-            <h3>Social Media Ads</h3>
-            <p>Ad creatives for Instagram, Facebook, and Stories designed to drive engagement and conversions.</p>
-          </div>
-        </a>
-
-        <!-- Branding - full width -->
-        <a href="projects/branding.html" class="project-card project-card--full reveal-up" data-category="branding">
-          <div class="project-card-img">
-            <div style="display:flex;width:100%;height:100%;min-height:340px;">
-              <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="flex:1;display:flex;">
-                  <span style="flex:1;background:#E5751F;"></span>
-                  <span style="flex:1;background:#1F2328;"></span>
-                  <span style="flex:1;background:#f5f2ed;"></span>
-                </div>
-                <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-                  <span style="font-size:0.75rem;color:#8888a0;letter-spacing:0.05em;">NOR-CAL POOL PRODUCTIONS</span>
-                </div>
-              </div>
-              <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="flex:1;display:flex;">
-                  <span style="flex:1;background:#6B7F5E;"></span>
-                  <span style="flex:1;background:#A8B99C;"></span>
-                  <span style="flex:1;background:#F5F3EF;"></span>
-                </div>
-                <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-                  <span style="font-size:0.75rem;color:#8888a0;letter-spacing:0.05em;">EKG PURE HAIR STUDIO</span>
-                </div>
-              </div>
-              <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="flex:1;display:flex;">
-                  <span style="flex:1;background:#a86acf;"></span>
-                  <span style="flex:1;background:#1e1736;"></span>
-                  <span style="flex:1;background:#eddcf4;"></span>
-                </div>
-                <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-                  <span style="font-size:0.75rem;color:#8888a0;letter-spacing:0.05em;">LIVE LIKE KEIRA FOUNDATION</span>
-                </div>
-              </div>
-              <div style="flex:1;display:flex;flex-direction:column;">
-                <div style="flex:1;display:flex;">
-                  <span style="flex:1;background:#C9A84C;"></span>
-                  <span style="flex:1;background:#1A3832;"></span>
-                  <span style="flex:1;background:#FAF7F2;"></span>
-                </div>
-                <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-                  <span style="font-size:0.75rem;color:#8888a0;letter-spacing:0.05em;">AURORA VIDA GLOBAL</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Branding</span>
-              <span>Identity</span>
-              <span>Brand Guidelines</span>
-              <span>4 Projects</span>
-            </div>
-            <h3>Brand Identity Work</h3>
-            <p>Complete brand guidelines for four clients, including color systems, typography, brand voice, and visual direction. From organic hair studios to luxury pool lighting.</p>
-          </div>
-        </a>
-
-        <!-- Design Work - half -->
-        <a href="#" class="project-card reveal-up" data-category="design">
-          <div class="project-card-img">
-            <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_800,c_fill,h_500/Melissa_s_Bday_Invitation_1_qplost.png" alt="Design work" loading="lazy">
-          </div>
-          <div class="project-card-info">
-            <div class="project-card-tags">
-              <span>Graphic Design</span>
-              <span>Print</span>
-            </div>
-            <h3>Print &amp; Digital Design</h3>
-            <p>Event flyers, invitations, brochures, ebook covers, and marketing collateral in Photoshop and Canva.</p>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>&copy; 2026 Michelle Tilton. All rights reserved.</p>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="app.js"></script>
+<script>
+  // Project filter
+  const filterBtns = document.querySelectorAll('.project-filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+      const filter = btn.dataset.filter;
+      projectCards.forEach(card => {
+        const matches = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !matches);
+      });
+    });
+  });
+</script>
+<script src="app.js"></script>
 </body>
 </html>
