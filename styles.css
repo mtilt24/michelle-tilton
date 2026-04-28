@@ -474,3 +474,11 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   .case-meta { gap: 20px; }
   .case-next { padding: 60px 20px; }
 }
+
+/* ===== Centered case study hero ===== */
+.page-hero.case .page-hero-inner { text-align: center; }
+.page-hero.case .case-back { display: inline-flex; }
+.page-hero.case .case-logo-mark { display: block; margin-left: auto; margin-right: auto; }
+.page-hero.case h1 { margin-left: auto; margin-right: auto; }
+.page-hero.case .page-hero-sub { margin-left: auto; margin-right: auto; max-width: 720px; }
+.page-hero.case .case-meta { justify-content: center; }

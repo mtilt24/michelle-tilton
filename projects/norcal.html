@@ -4,200 +4,217 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nor-Cal Pool Productions | Michelle Tilton</title>
+  <meta name="description" content="Full rebrand and custom-coded website for Nor-Cal Pool Productions, a Northern California luxury pool builder with 400+ pools and 20+ years of experience.">
   <link rel="stylesheet" href="../styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    .case-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .case-compare-side { display: flex; flex-direction: column; gap: 12px; }
+    .case-compare-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .site-preview { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .site-preview-bar { padding: 10px 14px; background: var(--cream); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+    .site-preview-dots { display: flex; gap: 6px; }
+    .site-preview-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
+    .site-preview-url { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+    .site-preview iframe { width: 100%; height: 480px; border: none; display: block; background: white; }
+    @media (max-width: 1000px) {
+      .case-compare { grid-template-columns: 1fr; }
+      .site-preview iframe { height: 360px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
 
-  <nav class="nav" id="nav">
-    <a href="../index.html" class="nav-logo">MT</a>
-    <div class="nav-links">
+<nav>
+  <a href="../index.html" class="nav-logo">Michelle Tilton</a>
+  <div class="nav-links">
+    <a href="../about.html">About</a>
+    <a href="../services.html">Services</a>
+    <a href="../work.html">Work</a>
+    <a href="../contact.html" class="nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero case">
+  <div class="page-hero-inner">
+    <a href="../work.html" class="case-back">&larr; All Projects</a>
+    <h1>Nor-Cal Pool Productions</h1>
+    <p class="page-hero-sub">Full rebrand and custom-coded website for a Northern California luxury pool builder. 100% hand-written HTML, CSS, and JS. No templates, no page builders, no platform limitations.</p>
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Type</span>
+        <span class="case-meta-value">Rebrand + Custom Site</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Platform</span>
+        <span class="case-meta-value">Custom HTML / CSS / JS</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Tech</span>
+        <span class="case-meta-value">GSAP, Cloudinary</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Year</span>
+        <span class="case-meta-value">2026</span>
+      </div>
+    </div>
+    <div style="margin-top: 32px;">
+      <a href="https://norcalpoolproductions.com" target="_blank" rel="noopener" class="btn-primary">View Live Site <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="two-col">
+  <div class="two-col-inner">
+    <div class="two-col-text">
+      <p class="lead">Nor-Cal Pool Productions is a custom pool and backyard construction company serving Northern California with 20+ years of experience and 400+ pools built. They needed a website that matched the premium quality of their work, but the old site wasn't doing them justice.</p>
+      <p>I handled the full rebrand and built a completely custom-coded website from scratch. No Squarespace, no Webflow, no page builders. The result is fast, distinct, and feels like the brand actually owns its corner of the market.</p>
+    </div>
+    <aside class="two-col-sidebar">
+      <div class="sidebar-block">
+        <h4>The Client</h4>
+        <p>Nor-Cal Pool Productions, a luxury pool builder in Northern California.</p>
+      </div>
+      <div class="sidebar-block">
+        <h4>What I did</h4>
+        <p>Brand refresh, photography direction, copywriting, custom site design and build.</p>
+      </div>
+      <div class="sidebar-block">
+        <h4>Brand Guide</h4>
+        <p><a href="norcal-brand-guide.html">View the brand guide &rarr;</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- THE CHALLENGE -->
+<section class="page-section alt">
+  <div class="page-section-inner">
+    <div class="page-section-header">
+      <div class="section-label">The challenge</div>
+      <h2>The site didn't match the work.</h2>
+    </div>
+    <p style="max-width: 800px; font-size: 18px; line-height: 1.7; color: var(--ink);">The existing website was a Squarespace template that didn't reflect the caliber of Nor-Cal's actual builds. No clear brand identity, low visual impact, and the site wasn't converting visitors into consultation requests. The owner wanted to position the company as the premium choice in Northern California pool construction &mdash; which meant the site needed to actually look the part.</p>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="page-section">
+  <div class="page-section-inner">
+    <div class="page-section-header" style="text-align: center; margin: 0 auto 36px;">
+      <div class="section-label">Before &amp; after</div>
+      <h2>Old Squarespace template &mdash; new custom build.</h2>
+      <p>Same client, same offer, totally different presentation.</p>
+    </div>
+    <div class="case-compare">
+      <div class="case-compare-side">
+        <span class="case-compare-label">Before</span>
+        <div class="site-preview">
+          <div class="site-preview-bar">
+            <div class="site-preview-dots"><span></span><span></span><span></span></div>
+            <span class="site-preview-url">norcalpoolproductions.com (old)</span>
+          </div>
+          <iframe src="norcal-old-preview.html" title="Old Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="case-compare-side">
+        <span class="case-compare-label">After</span>
+        <div class="site-preview">
+          <div class="site-preview-bar">
+            <div class="site-preview-dots"><span></span><span></span><span></span></div>
+            <span class="site-preview-url">norcalpoolproductions.com</span>
+          </div>
+          <iframe src="norcal-preview.html" title="New Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I BUILT -->
+<section class="page-section alt">
+  <div class="page-section-inner">
+    <div class="page-section-header">
+      <div class="section-label">What I built</div>
+      <h2>Hand-coded, fast, intentional.</h2>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="info-card">
+        <h4>100% Custom Code</h4>
+        <ul>
+          <li>Hand-written HTML, CSS, and JavaScript</li>
+          <li>No frameworks, no page builders</li>
+          <li>No platform fees, no plugin updates</li>
+          <li>Clean semantic markup for SEO</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Scroll Animations</h4>
+        <ul>
+          <li>Custom GSAP timelines</li>
+          <li>Day/night image crossfade</li>
+          <li>Section reveals on scroll</li>
+          <li>Rising CTA panel</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Responsive Design</h4>
+        <ul>
+          <li>Mobile-first throughout</li>
+          <li>Fixed navigation with blur effects</li>
+          <li>Optimized image loading via Cloudinary</li>
+          <li>Tested across breakpoints</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Brand Refresh</h4>
+        <ul>
+          <li>Updated color system</li>
+          <li>Typography pairing</li>
+          <li>Photography and tone direction</li>
+          <li>Brand guide documentation</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 36px;">
+      <a href="norcal-brand-guide.html" class="btn-primary">View the brand guide <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- THE RESULT -->
+<section class="two-col alt">
+  <div class="two-col-inner">
+    <div class="two-col-text">
+      <p class="lead">A site that finally matches the work.</p>
+      <p>The new Nor-Cal site positions the company as the premium custom pool builder in Northern California. The portfolio gallery, scroll storytelling, and clear consultation CTAs turn visits into consults &mdash; the entire point of the rebuild.</p>
+      <p>And because the site is hand-coded with zero platform dependencies, the company controls its own infrastructure. No Squarespace fees, no Webflow lock-in, no plugin maintenance. Just a fast, beautiful site they fully own.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="case-next">
+  <div class="case-next-eyebrow">Next project</div>
+  <a href="aurora-vida.html" class="case-next-title">Aurora Vida Global &rarr;</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">&copy; 2026 Michelle Tilton</span>
+    <div class="footer-links">
       <a href="../about.html">About</a>
       <a href="../services.html">Services</a>
       <a href="../work.html">Work</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://linkedin.com/in/michelletilton" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </nav>
+  </div>
+</footer>
 
-  <!-- Case Study Hero -->
-  <section class="case-hero case-hero--static">
-    <div class="section-container case-hero-content">
-      <a href="../work.html" class="case-back">&larr; All Projects</a>
-      <h1 class="scatter-text">Nor-Cal Pool Productions</h1>
-      <div class="case-meta">
-        <div class="case-meta-item">
-          <span class="case-meta-label">Type</span>
-          <span class="case-meta-value">Website Redesign + Rebrand</span>
-        </div>
-        <div class="case-meta-item">
-          <span class="case-meta-label">Platform</span>
-          <span class="case-meta-value">Custom Code (HTML/CSS/JS)</span>
-        </div>
-        <div class="case-meta-item">
-          <span class="case-meta-label">Year</span>
-          <span class="case-meta-value">2026</span>
-        </div>
-      </div>
-      <a href="https://norcalpoolproductions.com" target="_blank" class="hero-cta">View Live Site</a>
-    </div>
-  </section>
-
-  <!-- Overview -->
-  <section class="case-section">
-    <div class="section-container">
-      <div class="case-two-col">
-        <div class="case-col-narrow">
-          <h2 class="case-label scatter-text">Overview</h2>
-        </div>
-        <div class="case-col-wide">
-          <p class="case-body reveal-up">Nor-Cal Pool Productions is a custom pool and backyard construction company serving Northern California with 20+ years of experience and 400+ pools built. They needed a website that matched the premium quality of their work, but the old site wasn't doing them justice.</p>
-          <p class="case-body reveal-up">I handled the full rebrand and built a completely custom-coded website from scratch. No templates, no page builders. 100% hand-written HTML, CSS, and JavaScript.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- The Challenge -->
-  <section class="case-section case-section--alt">
-    <div class="section-container">
-      <div class="case-two-col">
-        <div class="case-col-narrow">
-          <h2 class="case-label scatter-text">The Challenge</h2>
-        </div>
-        <div class="case-col-wide">
-          <p class="case-body reveal-up">The existing website didn't reflect the caliber of Nor-Cal's work. It lacked visual impact, had no clear brand identity, and wasn't converting visitors into consultations. The owner needed a site that positioned them as the premium choice in Northern California pool construction.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Before & After - Live Previews -->
-  <section class="case-section">
-    <div class="section-container">
-      <h2 class="case-label case-label--center scatter-text">Before &amp; After</h2>
-      <p class="case-body" style="text-align:center; margin-bottom:2.5rem;">Scroll through both versions side by side. The old Squarespace template vs. the new custom-coded site.</p>
-      <div class="case-compare reveal-up">
-        <div class="case-compare-side">
-          <span class="case-compare-label">Before</span>
-          <div class="site-preview site-preview--compact">
-            <div class="site-preview-bar">
-              <div class="site-preview-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="site-preview-url">norcalpoolproductions.com (old)</span>
-            </div>
-            <iframe src="norcal-old-preview.html" title="Old Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
-          </div>
-        </div>
-        <div class="case-compare-side">
-          <span class="case-compare-label">After</span>
-          <div class="site-preview site-preview--compact">
-            <div class="site-preview-bar">
-              <div class="site-preview-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="site-preview-url">norcalpoolproductions.com</span>
-            </div>
-            <iframe src="norcal-preview.html" title="New Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Rebrand -->
-  <section class="case-section case-section--alt">
-    <div class="section-container">
-      <div class="case-two-col">
-        <div class="case-col-narrow">
-          <h2 class="case-label scatter-text">The Rebrand</h2>
-        </div>
-        <div class="case-col-wide">
-          <p class="case-body reveal-up">I developed a complete new brand identity including updated color palette, typography system, and visual direction. The goal was to move from generic contractor vibes to a polished, premium feel that reflects the quality of their custom builds.</p>
-          <a href="norcal-brand-guide.html" class="hero-cta" style="display:inline-block;">View Brand Guide</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What I Built -->
-  <section class="case-section">
-    <div class="section-container">
-      <div class="case-two-col">
-        <div class="case-col-narrow">
-          <h2 class="case-label scatter-text">What I Built</h2>
-        </div>
-        <div class="case-col-wide">
-          <div class="case-features reveal-up">
-            <div class="case-feature">
-              <h3>Custom Code</h3>
-              <p>100% hand-written HTML, CSS, and JavaScript. No templates, no page builders, no platform limitations.</p>
-            </div>
-            <div class="case-feature">
-              <h3>Scroll Animations</h3>
-              <p>Custom GSAP animations including a day/night image crossfade, section reveals, and a rising CTA section that animates into view.</p>
-            </div>
-            <div class="case-feature">
-              <h3>Responsive Design</h3>
-              <p>Fully responsive from mobile to desktop with a fixed navigation, blur effects, and optimized image loading via Cloudinary.</p>
-            </div>
-            <div class="case-feature">
-              <h3>Performance</h3>
-              <p>No framework bloat. Fast load times, optimized assets, and clean semantic HTML for SEO.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Results -->
-  <section class="case-section">
-    <div class="section-container">
-      <div class="case-two-col">
-        <div class="case-col-narrow">
-          <h2 class="case-label scatter-text">The Result</h2>
-        </div>
-        <div class="case-col-wide">
-          <p class="case-body reveal-up">A premium, high-performance website that positions Nor-Cal Pool Productions as the top custom pool builder in Northern California. The site drives consultation requests and showcases their portfolio in a way that matches the quality of their actual work.</p>
-          <div class="case-stats reveal-up">
-            <div class="stat">
-              <span class="stat-number">400+</span>
-              <span class="stat-label">Pools showcased</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Custom code</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">0</span>
-              <span class="stat-label">Templates used</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Next Project -->
-  <section class="case-next">
-    <div class="section-container">
-      <p class="case-next-label">Next Project</p>
-      <a href="zuda.html" class="case-next-link scatter-text">Zuda Yoga</a>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>&copy; 2026 Michelle Tilton. All rights reserved.</p>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="../app.js"></script>
+<script src="../app.js"></script>
 </body>
 </html>

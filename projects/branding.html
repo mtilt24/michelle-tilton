@@ -4,229 +4,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brand Identity Work | Michelle Tilton</title>
+  <meta name="description" content="A collection of brand identity work — logo, color systems, typography, voice, and visual guidelines built from scratch for four clients.">
   <link rel="stylesheet" href="../styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    .brand-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .brand-card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      text-decoration: none;
-      color: var(--text);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .brand-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(108, 99, 255, 0.1);
-    }
-
-    .brand-card-preview {
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .brand-card-colors {
-      display: flex;
-      width: 100%;
-      height: 100%;
-    }
-
-    .brand-card-colors span {
-      flex: 1;
-    }
-
-    .brand-card-info {
-      padding: 1.5rem;
-    }
-
-    .brand-card-info h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .brand-card-info p {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 1.5;
-    }
-
-    .brand-card-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .brand-card-tags span {
-      font-size: 0.7rem;
-      padding: 4px 10px;
-      border-radius: 100px;
-      background: var(--surface);
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 0.85rem;
-      margin-bottom: 2rem;
-      transition: color 0.3s ease;
-    }
-
-    .back-link:hover {
-      color: var(--accent);
-    }
-
-    @media (max-width: 768px) {
-      .brand-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .brand-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--ink); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; display: block; }
+    .brand-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.06); border-color: var(--border-strong); }
+    .brand-card-colors { height: 220px; display: flex; }
+    .brand-card-colors span { flex: 1; }
+    .brand-card-body { padding: 24px 28px 28px; }
+    .brand-card-body h3 { font-family: 'Onest', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .brand-card-body p { font-size: 15px; color: var(--muted); line-height: 1.55; margin: 0; }
+    .brand-card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .brand-card-tags span { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sunset-2); padding: 4px 10px; background: rgba(231,111,81,0.08); border-radius: 100px; font-weight: 500; }
+    @media (max-width: 768px) { .brand-grid { grid-template-columns: 1fr; } .brand-card-colors { height: 160px; } }
   </style>
 </head>
 <body>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
 
-  <nav class="nav" id="nav">
-    <a href="../index.html" class="nav-logo">MT</a>
-    <div class="nav-links">
+<nav>
+  <a href="../index.html" class="nav-logo">Michelle Tilton</a>
+  <div class="nav-links">
+    <a href="../about.html">About</a>
+    <a href="../services.html">Services</a>
+    <a href="../work.html">Work</a>
+    <a href="../contact.html" class="nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<section class="page-hero case">
+  <div class="page-hero-inner">
+    <a href="../work.html" class="case-back">&larr; All Projects</a>
+    <h1>Brand Identity Work</h1>
+    <p class="page-hero-sub">Color systems, typography, brand voice, and visual guidelines built from scratch for four clients &mdash; from luxury lighting to a foster youth nonprofit.</p>
+    <div class="case-meta">
+      <div class="case-meta-item"><span class="case-meta-label">Type</span><span class="case-meta-value">Brand Identity</span></div>
+      <div class="case-meta-item"><span class="case-meta-label">Clients</span><span class="case-meta-value">4 projects</span></div>
+      <div class="case-meta-item"><span class="case-meta-label">Year</span><span class="case-meta-value">2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="page-section-inner">
+    <div class="page-section-header" style="text-align: center; margin: 0 auto 36px;">
+      <div class="section-label">The work</div>
+      <h2>Four brands, four worlds.</h2>
+      <p>Each system built around the client's audience, market, and tone &mdash; not a template, not a theme.</p>
+    </div>
+
+    <div class="brand-grid">
+
+      <a href="norcal-brand-guide.html" class="brand-card">
+        <div class="brand-card-colors">
+          <span style="background:#E5751F;"></span>
+          <span style="background:#1F2328;"></span>
+          <span style="background:#f5f2ed;"></span>
+          <span style="background:#F8F7F4;"></span>
+        </div>
+        <div class="brand-card-body">
+          <h3>Nor-Cal Pool Productions</h3>
+          <p>Full brand identity for a premium Northern California pool builder. Grounded tones with confident orange accents.</p>
+          <div class="brand-card-tags">
+            <span>Premium</span>
+            <span>Public Sans</span>
+            <span>Custom Code</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="brand-ekg.html" class="brand-card">
+        <div class="brand-card-colors">
+          <span style="background:#6B7F5E;"></span>
+          <span style="background:#A8B99C;"></span>
+          <span style="background:#1a1a1a;"></span>
+          <span style="background:#F5F3EF;"></span>
+        </div>
+        <div class="brand-card-body">
+          <h3>EKG Pure Hair Studio</h3>
+          <p>Natural, botanical brand identity for an eco-conscious hair studio. Sage green palette with elegant serif and script typography.</p>
+          <div class="brand-card-tags">
+            <span>Organic</span>
+            <span>Playfair Display</span>
+            <span>Botanical</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="brand-llk.html" class="brand-card">
+        <div class="brand-card-colors">
+          <span style="background:#a86acf;"></span>
+          <span style="background:#1e1736;"></span>
+          <span style="background:#eddcf4;"></span>
+          <span style="background:#000000;"></span>
+        </div>
+        <div class="brand-card-body">
+          <h3>Live Like Keira Foundation</h3>
+          <p>Heartfelt brand identity for a 501(c)(3) nonprofit. Clean, warm neutrals with a compassionate, purposeful voice.</p>
+          <div class="brand-card-tags">
+            <span>Nonprofit</span>
+            <span>Poppins</span>
+            <span>Legacy</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="brand-aurora.html" class="brand-card">
+        <div class="brand-card-colors">
+          <span style="background:#C9A84C;"></span>
+          <span style="background:#1A3832;"></span>
+          <span style="background:#0D2218;"></span>
+          <span style="background:#FAF7F2;"></span>
+        </div>
+        <div class="brand-card-body">
+          <h3>Aurora Vida Global</h3>
+          <p>Luxury brand identity for the exclusive PAL Lighting distributor in Costa Rica. Gold and deep green palette, bilingual (EN/ES).</p>
+          <div class="brand-card-tags">
+            <span>Luxury</span>
+            <span>Gilda Display</span>
+            <span>Bilingual</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="case-next">
+  <div class="case-next-eyebrow">More work</div>
+  <a href="../work.html" class="case-next-title">Back to all projects &rarr;</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">&copy; 2026 Michelle Tilton</span>
+    <div class="footer-links">
       <a href="../about.html">About</a>
       <a href="../services.html">Services</a>
-      <a href="../work.html" class="active">Work</a>
-      <a href="../contact.html">Contact</a>
+      <a href="../work.html">Work</a>
+      <a href="https://linkedin.com/in/michelletilton" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </nav>
+  </div>
+</footer>
 
-  <section class="page-hero">
-    <div class="section-container">
-      <p class="hero-tag scatter-text">BRANDING</p>
-      <h1 class="page-hero-title scatter-text">Brand Identity Work</h1>
-      <p class="page-hero-sub reveal-up">Color systems, typography, brand voice, and visual guidelines built from scratch for each client.</p>
-    </div>
-    <div class="hero-gradient"></div>
-  </section>
-
-  <section class="projects" style="padding-top: 2rem;">
-    <div class="section-container">
-      <a href="../work.html" class="back-link">&larr; Back to all work</a>
-      <div class="brand-grid">
-
-        <!-- NorCal -->
-        <a href="norcal-brand-guide.html" class="brand-card reveal-up">
-          <div class="brand-card-preview">
-            <div class="brand-card-colors">
-              <span style="background:#E5751F;"></span>
-              <span style="background:#1F2328;"></span>
-              <span style="background:#f5f2ed;"></span>
-              <span style="background:#F8F7F4;"></span>
-            </div>
-          </div>
-          <div class="brand-card-info">
-            <h3>Nor-Cal Pool Productions</h3>
-            <p>Full brand identity for a premium Northern California pool construction company. Warm, grounded tones with bold orange accents.</p>
-            <div class="brand-card-tags">
-              <span>Custom Code</span>
-              <span>Public Sans</span>
-              <span>Premium</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- EKG -->
-        <a href="brand-ekg.html" class="brand-card reveal-up">
-          <div class="brand-card-preview">
-            <div class="brand-card-colors">
-              <span style="background:#6B7F5E;"></span>
-              <span style="background:#A8B99C;"></span>
-              <span style="background:#1a1a1a;"></span>
-              <span style="background:#F5F3EF;"></span>
-            </div>
-          </div>
-          <div class="brand-card-info">
-            <h3>EKG Pure Hair Studio</h3>
-            <p>Natural, botanical brand identity for an eco-conscious hair studio. Sage green palette with elegant serif and script typography.</p>
-            <div class="brand-card-tags">
-              <span>Organic</span>
-              <span>Playfair Display</span>
-              <span>Botanical</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Live Like Keira -->
-        <a href="brand-llk.html" class="brand-card reveal-up">
-          <div class="brand-card-preview">
-            <div class="brand-card-colors">
-              <span style="background:#a86acf;"></span>
-              <span style="background:#1e1736;"></span>
-              <span style="background:#eddcf4;"></span>
-              <span style="background:#000000;"></span>
-            </div>
-          </div>
-          <div class="brand-card-info">
-            <h3>Live Like Keira Foundation</h3>
-            <p>Heartfelt brand identity for a 501(c)(3) nonprofit. Clean, warm neutrals with compassionate, purposeful voice.</p>
-            <div class="brand-card-tags">
-              <span>Nonprofit</span>
-              <span>Poppins</span>
-              <span>Legacy</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Aurora Vida -->
-        <a href="brand-aurora.html" class="brand-card reveal-up">
-          <div class="brand-card-preview">
-            <div class="brand-card-colors">
-              <span style="background:#C9A84C;"></span>
-              <span style="background:#1A3832;"></span>
-              <span style="background:#0D2218;"></span>
-              <span style="background:#FAF7F2;"></span>
-            </div>
-          </div>
-          <div class="brand-card-info">
-            <h3>Aurora Vida Global</h3>
-            <p>Luxury brand identity for the exclusive PAL Lighting distributor in Costa Rica. Gold and deep green palette, bilingual (EN/ES).</p>
-            <div class="brand-card-tags">
-              <span>Luxury</span>
-              <span>Gilda Display</span>
-              <span>Bilingual</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>&copy; 2026 Michelle Tilton. All rights reserved.</p>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="../app.js"></script>
+<script src="../app.js"></script>
 </body>
 </html>
