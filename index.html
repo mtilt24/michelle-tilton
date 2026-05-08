@@ -111,12 +111,13 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
-  background: var(--ink); color: var(--cream);
+  background: linear-gradient(95deg, var(--peach-1), var(--peach-2));
+  color: var(--cream);
   padding: 0.7rem 1.2rem;
   border-radius: 999px;
-  transition: background 0.2s ease;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
-.nav-cta:hover { background: var(--peach-2); }
+.nav-cta:hover { filter: brightness(0.95); transform: translateY(-1px); }
 .hamburger {
   display: none;
   background: none; border: none;
@@ -870,7 +871,7 @@ footer {
   <div class="container">
     <div class="about-grid">
       <div class="about-photo-wrap">
-        <div class="about-photo about-photo-placeholder" aria-label="Michelle Tilton portrait placeholder">M</div>
+        <img class="about-photo" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_900/v1778282337/ChatGPT_Image_May_7_2026_08_28_11_PM_c0v5k1.png" alt="Michelle Tilton, founder of One Eleven Studio">
       </div>
       <div>
         <h2 class="about-greeting">Hi, I'm <span class="accent">Michelle.</span></h2>
