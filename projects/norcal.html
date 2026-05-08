@@ -13,12 +13,35 @@
     .case-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .case-compare-side { display: flex; flex-direction: column; gap: 12px; }
     .case-compare-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-    .site-preview { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .site-preview { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.08); position: relative; }
     .site-preview-bar { padding: 10px 14px; background: var(--cream); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
     .site-preview-dots { display: flex; gap: 6px; }
     .site-preview-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
     .site-preview-url { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+    .site-preview-frame { position: relative; }
     .site-preview iframe { width: 100%; height: 480px; border: none; display: block; background: white; }
+    .site-preview-frame::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 56px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 100%);
+      pointer-events: none;
+    }
+    .site-preview-scrollhint {
+      position: absolute; right: 14px; bottom: 14px;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px;
+      background: var(--ink); color: var(--paper);
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 500;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      pointer-events: none;
+      animation: scrollhint-bounce 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollhint-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
     @media (max-width: 1000px) {
       .case-compare { grid-template-columns: 1fr; }
       .site-preview iframe { height: 360px; }
@@ -61,64 +84,72 @@
         <span class="case-meta-value">2026</span>
       </div>
     </div>
-    <div style="margin-top: 32px;">
+    <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
       <a href="https://norcalpoolproductions.com" target="_blank" rel="noopener" class="btn-primary">View Live Site <span>&rarr;</span></a>
+      <a href="norcal-brand-guide.html" class="btn-secondary">View Brand Guide <span>&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<!-- AT A GLANCE -->
-<section class="case-stats-section">
-  <div class="case-stats-inner">
-    <div class="case-stats">
-      <div class="case-stat">
-        <span class="case-stat-num">100%</span>
-        <span class="case-stat-label">Hand-coded HTML, CSS, and JS. No templates, no page builders, no platform limits.</span>
+<!-- CASE SUMMARY -->
+<style>
+  .case-summary { padding: 80px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .case-summary-inner { max-width: 1100px; margin: 0 auto; }
+  .case-summary-card {
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 16px 44px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  }
+  .case-summary-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .case-summary-row:last-child { border-bottom: none; }
+  .case-summary-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sunset-2); font-weight: 500;
+  }
+  .case-summary-value {
+    font-family: 'Onest', sans-serif;
+    font-size: 18px; line-height: 1.5; color: var(--ink); font-weight: 500;
+    max-width: 62ch;
+  }
+  @media (max-width: 720px) {
+    .case-summary { padding: 56px 24px; }
+    .case-summary-card { padding: 8px 24px; }
+    .case-summary-row { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+  }
+</style>
+<section class="case-summary">
+  <div class="case-summary-inner">
+    <div class="case-summary-card">
+      <div class="case-summary-row">
+        <span class="case-summary-label">Client</span>
+        <div class="case-summary-value">Nor-Cal Pool Productions</div>
       </div>
-      <div class="case-stat">
-        <span class="case-stat-num">1</span>
-        <span class="case-stat-label">Full rebrand, from logo and palette to typography to the live site.</span>
+      <div class="case-summary-row">
+        <span class="case-summary-label">Industry</span>
+        <div class="case-summary-value">Custom pool design and construction</div>
       </div>
-      <div class="case-stat">
-        <span class="case-stat-num">20+</span>
-        <span class="case-stat-label">Years of pool-building experience finally represented online with a site that matches the work.</span>
+      <div class="case-summary-row">
+        <span class="case-summary-label">Problem</span>
+        <div class="case-summary-value">A Squarespace template that didn't match the caliber of their builds, with weak brand and low conversions.</div>
+      </div>
+      <div class="case-summary-row">
+        <span class="case-summary-label">What I did</span>
+        <div class="case-summary-value">Full rebrand, photography direction, copywriting, and a custom-coded site.</div>
+      </div>
+      <div class="case-summary-row">
+        <span class="case-summary-label">Result</span>
+        <div class="case-summary-value">A fast, distinct site that positions Nor-Cal as the premium pool builder in Northern California.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- OVERVIEW -->
-<section class="two-col">
-  <div class="two-col-inner">
-    <div class="two-col-text">
-      <p class="lead">Nor-Cal Pool Productions is a custom pool and backyard construction company serving Northern California with 20+ years of experience and 400+ pools built. They needed a website that matched the premium quality of their work, but the old site wasn't doing them justice.</p>
-      <p>I handled the full rebrand and built a completely custom-coded website from scratch. No Squarespace, no Webflow, no page builders. The result is fast, distinct, and feels like the brand actually owns its corner of the market.</p>
-    </div>
-    <aside class="two-col-sidebar">
-      <div class="sidebar-block">
-        <h4>The Client</h4>
-        <p>Nor-Cal Pool Productions, a luxury pool builder in Northern California.</p>
-      </div>
-      <div class="sidebar-block">
-        <h4>What I did</h4>
-        <p>Brand refresh, photography direction, copywriting, custom site design and build.</p>
-      </div>
-      <div class="sidebar-block">
-        <h4>Brand Guide</h4>
-        <p><a href="norcal-brand-guide.html">View the brand guide &rarr;</a></p>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<!-- THE CHALLENGE -->
-<section class="page-section alt">
-  <div class="page-section-inner">
-    <div class="page-section-header">
-      <div class="section-label">The challenge</div>
-      <h2>The site didn't match the work.</h2>
-    </div>
-    <p style="max-width: 800px; font-size: 18px; line-height: 1.7; color: var(--ink);">The existing website was a Squarespace template that didn't reflect the caliber of Nor-Cal's actual builds. No clear brand identity, low visual impact, and the site wasn't converting visitors into consultation requests. The owner wanted to position the company as the premium choice in Northern California pool construction &mdash; which meant the site needed to actually look the part.</p>
   </div>
 </section>
 
@@ -138,7 +169,10 @@
             <div class="site-preview-dots"><span></span><span></span><span></span></div>
             <span class="site-preview-url">norcalpoolproductions.com (old)</span>
           </div>
-          <iframe src="norcal-old-preview.html" title="Old Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
+          <div class="site-preview-frame">
+            <iframe src="norcal-old-preview.html" title="Old Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
+            <span class="site-preview-scrollhint">Scroll &darr;</span>
+          </div>
         </div>
       </div>
       <div class="case-compare-side">
@@ -148,7 +182,10 @@
             <div class="site-preview-dots"><span></span><span></span><span></span></div>
             <span class="site-preview-url">norcalpoolproductions.com</span>
           </div>
-          <iframe src="norcal-preview.html" title="New Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
+          <div class="site-preview-frame">
+            <iframe src="norcal-preview.html" title="New Nor-Cal Pool Productions homepage" loading="lazy"></iframe>
+            <span class="site-preview-scrollhint">Scroll &darr;</span>
+          </div>
         </div>
       </div>
     </div>
@@ -160,59 +197,29 @@
   <div class="page-section-inner">
     <div class="page-section-header">
       <div class="section-label">What I built</div>
-      <h2>Hand-coded, fast, intentional.</h2>
+      <h2>Every choice, made on purpose.</h2>
     </div>
     <div class="card-grid cols-2">
       <div class="info-card">
-        <h4>100% Custom Code</h4>
-        <ul>
-          <li>Hand-written HTML, CSS, and JavaScript</li>
-          <li>No frameworks, no page builders</li>
-          <li>No platform fees, no plugin updates</li>
-          <li>Clean semantic markup for SEO</li>
-        </ul>
+        <h4>A site they actually own</h4>
+        <p>Built from scratch instead of dropped into a template, so the site loads fast, isn't slowed down by extra code they don't need, and doesn't cost them a monthly platform fee. They own the work and the infrastructure.</p>
       </div>
       <div class="info-card">
-        <h4>Scroll Animations</h4>
-        <ul>
-          <li>Custom GSAP timelines</li>
-          <li>Day/night image crossfade</li>
-          <li>Section reveals on scroll</li>
-          <li>Rising CTA panel</li>
-        </ul>
+        <h4>Storytelling that pulls you in</h4>
+        <p>Day-to-night image transitions, scroll reveals, and a rising consultation panel keep visitors moving through the site instead of bouncing. The pools get to do the selling, the way they should.</p>
       </div>
       <div class="info-card">
-        <h4>Responsive Design</h4>
-        <ul>
-          <li>Mobile-first throughout</li>
-          <li>Fixed navigation with blur effects</li>
-          <li>Optimized image loading via Cloudinary</li>
-          <li>Tested across breakpoints</li>
-        </ul>
+        <h4>Looks right on every screen</h4>
+        <p>Designed mobile first, because most of their leads land on the site from a phone. Whether someone's at a job site or planning a backyard from the couch, the experience is intentional, not squeezed.</p>
       </div>
       <div class="info-card">
-        <h4>Brand Refresh</h4>
-        <ul>
-          <li>Updated color system</li>
-          <li>Typography pairing</li>
-          <li>Photography and tone direction</li>
-          <li>Brand guide documentation</li>
-        </ul>
+        <h4>A brand that finally matches the work</h4>
+        <p>An updated color palette, typography pairing, and photography direction so every touchpoint, from the homepage to a printed proposal, feels as premium as the pools they build.</p>
       </div>
     </div>
-    <div style="margin-top: 36px;">
-      <a href="norcal-brand-guide.html" class="btn-primary">View the brand guide <span>&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- THE RESULT -->
-<section class="two-col alt">
-  <div class="two-col-inner">
-    <div class="two-col-text">
-      <p class="lead">A site that finally matches the work.</p>
-      <p>The new Nor-Cal site positions the company as the premium custom pool builder in Northern California. The portfolio gallery, scroll storytelling, and clear consultation CTAs turn visits into consults &mdash; the entire point of the rebuild.</p>
-      <p>And because the site is hand-coded with zero platform dependencies, the company controls its own infrastructure. No Squarespace fees, no Webflow lock-in, no plugin maintenance. Just a fast, beautiful site they fully own.</p>
+    <div style="margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+      <a href="https://norcalpoolproductions.com" target="_blank" rel="noopener" class="btn-primary">View Live Site <span>&rarr;</span></a>
+      <a href="norcal-brand-guide.html" class="btn-secondary">View Brand Guide <span>&rarr;</span></a>
     </div>
   </div>
 </section>
