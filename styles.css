@@ -559,6 +559,14 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   border-bottom: 1px solid var(--border);
 }
 
+.home-section-cta {
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 /* ----- HERO ----- */
 .home-hero {
   background: var(--paper);
