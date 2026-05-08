@@ -467,7 +467,7 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
 .case-quote-inline::before { content: '\201C'; position: absolute; top: 24px; left: 48px; font-family: 'Onest', sans-serif; font-style: italic; font-weight: 700; font-size: 200px; line-height: 1; background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.3; pointer-events: none; }
 .case-quote-inline-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
 .case-quote-inline p { font-family: 'Onest', sans-serif; font-weight: 500; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.4; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 28px; max-width: 36ch; }
-.case-quote-inline p em { font-style: italic; font-weight: 600; background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.case-quote-inline p em { font-style: italic; font-weight: 600; background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-right: 0.12em; padding-bottom: 0.1em; display: inline-block; }
 .case-quote-inline figcaption { display: flex; flex-direction: column; gap: 4px; padding-top: 20px; border-top: 1px solid var(--border-strong); max-width: 320px; }
 .case-quote-inline-name { font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); }
 .case-quote-inline-role { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
@@ -520,7 +520,9 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2));
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding-right: 0.06em;
+  padding-right: 0.12em;
+  padding-bottom: 0.08em;
+  display: inline-block;
 }
 
 /* shared section heading + link */
@@ -887,7 +889,7 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   font-family: 'Onest', sans-serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.25;
   letter-spacing: -0.025em;
   color: white;
   max-width: 22ch;
@@ -1176,11 +1178,11 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   font-family: 'Onest', sans-serif;
   font-weight: 500;
   font-size: clamp(22px, 2.6vw, 34px);
-  line-height: 1.4;
+  line-height: 1.55;
   letter-spacing: -0.015em;
   color: var(--ink);
   margin-bottom: 28px;
-  max-width: 32ch;
+  max-width: 36ch;
 }
 .home-testimonial-quote em {
   font-style: italic;
@@ -1188,6 +1190,9 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2));
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding-right: 0.12em;
+  padding-bottom: 0.1em;
+  display: inline-block;
 }
 .home-testimonial-attr {
   display: flex;
