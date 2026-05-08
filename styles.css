@@ -449,9 +449,9 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
 
 .case-logo-mark { display: inline-block; max-width: 220px; max-height: 100px; margin-bottom: 28px; }
 
-.case-screenshot { background: var(--cream); padding: 80px 48px; }
-.case-screenshot-inner { max-width: 1400px; margin: 0 auto; }
-.case-screenshot-wrap { border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 32px 80px rgba(0,0,0,0.10); aspect-ratio: 16 / 10; background: var(--paper); }
+.case-screenshot { background: var(--cream); padding: 64px 48px; }
+.case-screenshot-inner { max-width: 960px; margin: 0 auto; }
+.case-screenshot-wrap { border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 32px 80px rgba(0,0,0,0.10); aspect-ratio: 16 / 9; background: var(--paper); }
 .case-screenshot-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 48px 0 16px; border-top: 1px solid var(--border); margin-top: 32px; }
@@ -467,7 +467,7 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
 
 @media (max-width: 1000px) {
   .case-stats { grid-template-columns: 1fr; gap: 24px; }
-  .case-screenshot { padding: 56px 24px; }
+  .case-screenshot { padding: 48px 20px; }
   .case-screenshot-wrap { aspect-ratio: 4 / 3; }
 }
 @media (max-width: 600px) {
@@ -748,7 +748,7 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   max-width: 44ch;
 }
 
-/* ----- WHO I HELP (alternating image-text rows) ----- */
+/* ----- WHO I HELP (text-only two-column) ----- */
 .home-who-section {
   background: var(--cream);
   padding: 120px 56px;
@@ -756,32 +756,24 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
 }
 .home-who-inner { max-width: 1200px; margin: 0 auto; }
 
-.home-who-row {
+.home-who-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
-  margin-top: 72px;
+  gap: 24px;
 }
-.home-who-row:first-of-type { margin-top: 0; }
-.home-who-row.reverse .home-who-img { order: 2; }
 
-.home-who-img {
-  overflow: hidden;
-  border-radius: 4px;
-  border: 1px solid var(--border);
+.home-who-card {
+  padding: 44px 36px;
   background: var(--paper);
-  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  border-top: 4px solid var(--sunset-2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.home-who-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.7s ease;
+.home-who-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.05);
 }
-.home-who-row:hover .home-who-img img { transform: scale(1.03); }
-
-.home-who-text { padding: 8px 0; }
 .home-who-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -791,21 +783,20 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   display: inline-block;
   margin-bottom: 16px;
 }
-.home-who-text h3 {
+.home-who-card h3 {
   font-family: 'Onest', sans-serif;
-  font-size: clamp(28px, 3vw, 38px);
+  font-size: clamp(24px, 2.4vw, 30px);
   font-weight: 700;
   letter-spacing: -0.025em;
-  line-height: 1.1;
-  margin-bottom: 18px;
-  max-width: 18ch;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  max-width: 22ch;
 }
-.home-who-text p {
+.home-who-card p {
   font-family: 'DM Sans', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--muted);
-  margin-bottom: 24px;
   max-width: 52ch;
 }
 
@@ -1101,8 +1092,7 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
   .home-section-head { grid-template-columns: 1fr; gap: 16px; align-items: start; }
   .home-svcs-grid { grid-template-columns: 1fr; }
   .home-why-grid { grid-template-columns: 1fr; }
-  .home-who-row { grid-template-columns: 1fr; gap: 32px; margin-top: 56px; }
-  .home-who-row.reverse .home-who-img { order: 0; }
+  .home-who-grid { grid-template-columns: 1fr; gap: 16px; }
   .home-how-list { grid-template-columns: 1fr; }
   .home-how-list li {
     border-right: none;
