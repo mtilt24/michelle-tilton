@@ -136,7 +136,7 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
 /* ----- hero ----- */
 .hero {
   background: var(--gradient-warm);
-  padding: 6rem 2rem 5rem;
+  padding: 7rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -198,7 +198,7 @@ h2 {
 .testimonial {
   background: var(--ink);
   color: var(--cream);
-  padding: 8rem 2rem;
+  padding: 7rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -216,7 +216,7 @@ h2 {
   pointer-events: none;
 }
 .testimonial-inner {
-  max-width: 1200px; margin: 0 auto;
+  max-width: 1400px; margin: 0 auto;
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 5fr 7fr;
   gap: 5rem; align-items: center;
@@ -561,11 +561,12 @@ h2 {
 .cta-final {
   background: var(--ink);
   color: var(--cream);
-  padding: 9rem 2rem;
+  padding: 7rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
+.cta-final-inner { max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
 .cta-final::after {
   content: ''; position: absolute;
   bottom: -50%; right: -10%;
@@ -894,11 +895,13 @@ footer {
 
 <!-- FINAL CTA -->
 <section class="cta-final" id="contact">
-  <h2>Make something they <span class="accent">remember.</span></h2>
-  <p>Book a free 30-minute call. Tell me what you're working on. If I can help, we'll talk next steps. If I can't, I'll point you to someone who can.</p>
-  <div class="cta-actions">
-    <a href="contact.html" class="btn btn-primary">Book a discovery call &rarr;</a>
-    <a href="mailto:hello@michelletilton.com" class="btn btn-ghost">Email directly &rarr;</a>
+  <div class="cta-final-inner">
+    <h2>Make something they <span class="accent">remember.</span></h2>
+    <p>Book a free 30-minute call. Tell me what you're working on. If I can help, we'll talk next steps. If I can't, I'll point you to someone who can.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn btn-primary">Book a discovery call &rarr;</a>
+      <a href="mailto:hello@michelletilton.com" class="btn btn-ghost">Email directly &rarr;</a>
+    </div>
   </div>
 </section>
 
