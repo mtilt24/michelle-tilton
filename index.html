@@ -1,280 +1,909 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Eleven Studio | Boutique Design & Marketing for Small Teams</title>
-  <meta name="description" content="One Eleven Studio is a boutique design and marketing studio for nonprofits and small businesses. Brand, websites, and ongoing marketing, by one senior strategist.">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Eleven Studio | Boutique Design & Marketing for Small Teams</title>
+<meta name="description" content="One Eleven Studio is a boutique design and marketing studio for nonprofits and small businesses. Brand, websites, and ongoing marketing, by one senior strategist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf7f2;
+  --cream-2: #f0ece3;
+  --ink: #111111;
+  --ink-soft: #2A2926;
+  --muted: #6b6356;
+  --line: #e2ddd6;
+  --peach-1: #f4a261;
+  --peach-2: #e76f51;
+  --brick: #b34a35;
+  --gradient-warm: linear-gradient(180deg, #faf7f2 0%, #f2e5d0 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
+
+/* ----- italic accent ----- */
+.accent {
+  font-family: 'Onest', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(95deg, var(--peach-1) 0%, var(--peach-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.01em;
+  padding-right: 0.05em;
+  padding-bottom: 0.05em;
+}
+
+/* ----- buttons ----- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.95rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn-primary:hover { transform: translateY(-2px); background: var(--peach-2); border-color: var(--peach-2); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--cream); }
+.btn-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--peach-2);
+  transition: gap 0.2s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+.btn-link:hover { gap: 0.7rem; border-bottom-color: var(--peach-2); }
+
+/* ----- nav ----- */
+.nav-wrap {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 2rem;
+}
+.logo {
+  font-family: 'Onest', sans-serif;
+  font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em;
+}
+.nav-links { display: flex; align-items: center; gap: 2.4rem; }
+.nav-links a {
+  font-size: 0.95rem; color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+.nav-links a:hover { color: var(--peach-2); }
+.nav-cta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--ink); color: var(--cream);
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+.nav-cta:hover { background: var(--peach-2); }
+.hamburger {
+  display: none;
+  background: none; border: none;
+  width: 28px; height: 22px;
+  position: relative; cursor: pointer;
+}
+.hamburger span {
+  position: absolute; left: 0; right: 0;
+  height: 2px; background: var(--ink);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger span:nth-child(1) { top: 2px; }
+.hamburger span:nth-child(2) { top: 10px; }
+.hamburger span:nth-child(3) { top: 18px; }
+
+/* ----- hero ----- */
+.hero {
+  background: var(--gradient-warm);
+  padding: 6rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr;
+  gap: 3rem;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--peach-2);
+  margin-bottom: 1.8rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+}
+.hero-eyebrow::before {
+  content: ''; width: 24px; height: 1px; background: var(--peach-2);
+}
+h1.hero-title {
+  font-size: clamp(3rem, 7.5vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  text-wrap: balance;
+  max-width: 16ch;
+  margin-bottom: 2rem;
+}
+.hero-sub {
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  color: var(--muted);
+  max-width: 48ch;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+  margin-bottom: 3rem;
+}
+
+/* ----- section helpers ----- */
+section { padding: 7rem 2rem; }
+.container { max-width: 1400px; margin: 0 auto; }
+.section-head {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 2rem; align-items: end;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.8rem;
+}
+h2 {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+/* ----- testimonial feature ----- */
+.testimonial {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: -3rem; left: 50%;
+  transform: translateX(-50%);
+  font-size: 32rem;
+  font-family: 'Onest', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(231, 111, 81, 0.07);
+  line-height: 1;
+  pointer-events: none;
+}
+.testimonial-inner {
+  max-width: 1200px; margin: 0 auto;
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 5fr 7fr;
+  gap: 5rem; align-items: center;
+}
+.testimonial-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--peach-1);
+  margin-bottom: 1.5rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+}
+.testimonial-eyebrow::before {
+  content: ''; width: 24px; height: 1px; background: var(--peach-1);
+}
+.testimonial-lead {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.testimonial-quote {
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.55;
+  font-weight: 400;
+  text-wrap: pretty;
+  margin-bottom: 2rem;
+  color: rgba(250, 247, 242, 0.92);
+}
+.testimonial-attr {
+  display: flex; flex-direction: column; gap: 0.3rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: rgba(250, 247, 242, 0.6);
+  letter-spacing: 0.04em;
+}
+.testimonial-attr strong {
+  color: var(--cream);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.testimonial-attr a {
+  color: var(--peach-1);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+  width: fit-content;
+}
+.testimonial-attr a:hover { border-bottom-color: var(--peach-1); }
+
+/* ----- selected work ----- */
+.work { background: var(--cream); }
+.work-list {
+  display: flex; flex-direction: column;
+  gap: 6rem;
+}
+.work-item {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.work-item.reverse .work-image { order: 2; }
+.work-image {
+  aspect-ratio: 16/10;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--cream-2);
+  position: relative;
+  box-shadow: 0 30px 60px -30px rgba(17,17,17,0.25);
+  transition: transform 0.5s ease;
+}
+.work-item:hover .work-image { transform: translateY(-6px); }
+.work-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+.work-item:hover .work-image img { transform: scale(1.03); }
+.work-meta {
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.work-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--peach-2);
+}
+.work-name {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1; font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.work-result {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-style: italic;
+  background: linear-gradient(95deg, var(--peach-1), var(--peach-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.05em;
+  padding-bottom: 0.08em;
+}
+.work-desc {
+  font-size: 1.05rem; color: var(--muted);
+  max-width: 44ch; line-height: 1.55;
+}
+.work-foot {
+  display: flex; justify-content: center;
+  margin-top: 5rem;
+}
+
+/* ----- audiences ----- */
+.audiences { background: var(--cream-2); }
+.audience-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.audience-card {
+  background: var(--cream);
+  padding: 3rem 2.5rem;
+  border-radius: 6px;
+  position: relative;
+  border: 1px solid var(--line);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.audience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(17,17,17,0.15);
+}
+.audience-card::before {
+  content: ''; position: absolute;
+  top: -1px; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--peach-1), var(--peach-2));
+  border-radius: 6px 6px 0 0;
+}
+.audience-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--peach-2);
+  margin-bottom: 1.5rem; display: block;
+}
+.audience-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+.audience-desc {
+  font-size: 1rem; color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ----- services ----- */
+.services { background: var(--cream); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.service-card {
+  background: var(--cream-2);
+  padding: 2rem;
+  border-radius: 4px;
+  display: flex; flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  min-height: 280px;
+}
+.service-card:hover {
+  background: var(--ink); color: var(--cream);
+  transform: translateY(-4px);
+}
+.service-card:hover .service-num,
+.service-card:hover .service-arrow { color: var(--peach-1); }
+.service-card:hover .service-desc { color: rgba(250, 247, 242, 0.75); }
+.service-num {
+  font-family: 'Onest', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--peach-2);
+  letter-spacing: 0.04em;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+.service-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 0.4rem;
+}
+.service-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+  flex-grow: 1;
+  transition: color 0.3s ease;
+}
+.service-arrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 0.4rem;
+  transition: color 0.3s ease, gap 0.2s ease;
+}
+.service-card:hover .service-arrow { gap: 0.7rem; }
+
+/* ----- process ----- */
+.process { background: var(--cream-2); position: relative; }
+.process-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+.process-grid::before {
+  content: ''; position: absolute;
+  top: 1.75rem;
+  left: 16.66%; right: 16.66%;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--peach-2) 0, var(--peach-2) 6px, transparent 6px, transparent 12px);
+  z-index: 0;
+}
+.process-step {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  gap: 1rem;
+}
+.process-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--peach-2);
+  margin-bottom: 1rem;
+}
+.process-step:nth-child(2) .process-num {
+  background: var(--ink); color: var(--peach-1); border-color: var(--ink);
+}
+.process-step:nth-child(3) .process-num {
+  background: linear-gradient(135deg, var(--peach-1), var(--peach-2));
+  color: var(--cream); border-color: transparent;
+}
+.process-title {
+  font-size: 1.5rem; font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.process-desc {
+  font-size: 1rem; color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ----- about ----- */
+.about { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 5fr 7fr;
+  gap: 5rem; align-items: center;
+}
+.about-photo-wrap {
+  position: relative;
+  aspect-ratio: 4/5;
+  max-width: 480px;
+}
+.about-photo-wrap::before {
+  content: ''; position: absolute;
+  inset: 1.2rem -1.2rem -1.2rem 1.2rem;
+  background: linear-gradient(135deg, var(--peach-1) 0%, var(--peach-2) 100%);
+  border-radius: 4px;
+  z-index: 0;
+}
+.about-photo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: relative; z-index: 1;
+  border-radius: 4px;
+  filter: contrast(1.02) saturate(0.95);
+}
+.about-photo-placeholder {
+  background: linear-gradient(135deg, var(--ink) 0%, #2a2926 60%, var(--brick) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Onest', sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(8rem, 16vw, 14rem);
+  letter-spacing: -0.04em;
+  background-clip: padding-box;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(244,162,97,0.55);
+}
+.about-greeting {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+.about-pitch {
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  text-wrap: pretty;
+  color: var(--ink);
+}
+.about-body {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  max-width: 56ch;
+}
+.about-body strong { color: var(--ink); font-weight: 500; }
+.about-sig {
+  margin-top: 2rem;
+  font-family: 'Onest', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background: linear-gradient(95deg, var(--peach-1), var(--peach-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.about-actions {
+  margin-top: 2.5rem;
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+
+/* ----- final cta ----- */
+.cta-final {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 9rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::after {
+  content: ''; position: absolute;
+  bottom: -50%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(231,111,81,0.18), transparent 70%);
+  pointer-events: none;
+}
+.cta-final h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 1.5rem;
+  position: relative; z-index: 1;
+}
+.cta-final p {
+  font-size: 1.1rem;
+  color: rgba(250, 247, 242, 0.75);
+  max-width: 50ch;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+  position: relative; z-index: 1;
+}
+.cta-actions {
+  display: flex; gap: 1rem;
+  justify-content: center; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.cta-final .btn-primary {
+  background: var(--cream); color: var(--ink); border-color: var(--cream);
+}
+.cta-final .btn-primary:hover { background: var(--peach-2); border-color: var(--peach-2); color: var(--cream); }
+.cta-final .btn-ghost { color: var(--cream); border-color: rgba(250, 247, 242, 0.3); }
+.cta-final .btn-ghost:hover { background: var(--cream); color: var(--ink); }
+
+/* ----- footer ----- */
+footer {
+  background: var(--ink);
+  color: rgba(250, 247, 242, 0.6);
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(250, 247, 242, 0.08);
+}
+.footer-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+.footer-links a:hover { color: var(--cream); }
+
+/* ----- responsive ----- */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-photo-wrap { max-width: 380px; margin: 0 auto; }
+  .testimonial-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: left; }
+  .testimonial-lead { font-size: clamp(2.8rem, 11vw, 4rem); }
+}
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--cream);
+    padding: 2rem;
+    border-bottom: 1px solid var(--line);
+    gap: 1.5rem;
+  }
+  .nav-links.open .nav-cta { display: inline-flex; align-self: flex-start; }
+  section { padding: 4.5rem 1.25rem; }
+  .hero { padding: 4rem 1.25rem 4rem; }
+  .work-item, .work-item.reverse {
+    grid-template-columns: 1fr; gap: 1.5rem;
+  }
+  .work-item.reverse .work-image { order: 0; }
+  .work-list { gap: 4rem; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .process-grid::before { display: none; }
+  .section-head { grid-template-columns: 1fr; }
+  .testimonial { padding: 5rem 1.25rem; }
+  .cta-final { padding: 5rem 1.25rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { justify-content: center; }
+}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">One Eleven Studio</a>
-  <div class="nav-links">
-    <a href="work.html">Work</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="nav-cta">Book a call</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="home-hero">
-  <div class="home-hero-inner">
-
-    <h1 class="home-hero-h1">
-      <span class="line">Marketing for small teams</span>
-      <span class="line">doing <em>big things.</em></span>
-    </h1>
-
-    <p class="home-hero-sub">A boutique design and marketing studio for nonprofits and small businesses. Brand, websites, and ongoing marketing, by one senior strategist.</p>
-
-    <div class="home-hero-cta">
-      <a href="contact.html" class="btn-primary">Book a discovery call <span>&rarr;</span></a>
-      <a href="work.html" class="btn-secondary">See selected work <span>&rarr;</span></a>
+<div class="nav-wrap">
+  <nav class="nav">
+    <a class="logo" href="index.html">One Eleven Studio</a>
+    <div class="nav-links" id="navLinks">
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="contact.html">Book a call</a>
     </div>
-
-  </div>
-</section>
-
-<!-- SERVICES MARQUEE -->
-<div class="client-marquee">
-  <div class="client-marquee-track">
-    <span>Brand Identity</span><span class="dot">·</span>
-    <span>Logo Design</span><span class="dot">·</span>
-    <span>Website Design</span><span class="dot">·</span>
-    <span>Custom Code</span><span class="dot">·</span>
-    <span>Squarespace</span><span class="dot">·</span>
-    <span>SEO</span><span class="dot">·</span>
-    <span>Email Marketing</span><span class="dot">·</span>
-    <span>Social Media</span><span class="dot">·</span>
-    <span>Copywriting</span><span class="dot">·</span>
-    <span>Content Strategy</span><span class="dot">·</span>
-    <span>Video</span><span class="dot">·</span>
-    <span>Brand Voice</span><span class="dot">·</span>
-    <span>Brand Identity</span><span class="dot">·</span>
-    <span>Logo Design</span><span class="dot">·</span>
-    <span>Website Design</span><span class="dot">·</span>
-    <span>Custom Code</span><span class="dot">·</span>
-    <span>Squarespace</span><span class="dot">·</span>
-    <span>SEO</span><span class="dot">·</span>
-    <span>Email Marketing</span><span class="dot">·</span>
-    <span>Social Media</span><span class="dot">·</span>
-    <span>Copywriting</span><span class="dot">·</span>
-    <span>Content Strategy</span><span class="dot">·</span>
-    <span>Video</span><span class="dot">·</span>
-    <span>Brand Voice</span><span class="dot">·</span>
-  </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 </div>
 
-<!-- SELECTED WORK -->
-<section class="home-work">
-  <div class="home-work-inner">
-    <header class="home-section-head reveal">
-      <h2 class="home-section-h2">Selected <em>work.</em></h2>
-    </header>
-
-    <div class="home-work-grid">
-
-      <a class="home-work-tile reveal" href="projects/zuda.html">
-        <div class="home-work-img">
-          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200/Image_4-3-26_at_9.31_PM_q5u1xd.jpg" alt="Zuda Yoga website" loading="lazy">
-        </div>
-        <div class="home-work-meta">
-          <h3>Zuda Yoga</h3>
-          <p class="home-work-outcome">Click-through rate 1.5% &rarr; 3.9%. Average search position 19 &rarr; 4.</p>
-        </div>
-      </a>
-
-      <a class="home-work-tile reveal" href="projects/acf.html">
-        <div class="home-work-img">
-          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1777356555/Image_4-27-26_at_11.07_PM_zds2jb.jpg" alt="Advancing Communities Forward website" loading="lazy">
-        </div>
-        <div class="home-work-meta">
-          <h3>Advancing Communities Forward</h3>
-          <p class="home-work-outcome">Inquiries tripled in 30 days.</p>
-        </div>
-      </a>
-
-      <a class="home-work-tile reveal" href="projects/fga.html">
-        <div class="home-work-img">
-          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1777357009/Image_4-27-26_at_11.16_PM_vg4fj0.jpg" alt="FEEL Good Always website" loading="lazy">
-        </div>
-        <div class="home-work-meta">
-          <h3>FEEL Good Always</h3>
-          <p class="home-work-outcome">Brand, podcast platform, and retreat site, launched from scratch.</p>
-        </div>
-      </a>
-
-      <a class="home-work-tile reveal" href="projects/livelikekeira.html">
-        <div class="home-work-img">
-          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200/Image_4-3-26_at_9.46_PM_w1mz2t.jpg" alt="Live Like Keira Foundation website" loading="lazy">
-        </div>
-        <div class="home-work-meta">
-          <h3>Live Like Keira Foundation</h3>
-          <p class="home-work-outcome">501(c)(3) launch: donations, events, and merch in one site.</p>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="home-section-cta reveal">
-      <a href="work.html" class="btn-secondary">View all projects <span>&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL (post-work) -->
-<section class="home-testimonial-band reveal">
-  <div class="home-testimonial-band-inner">
-    <p class="home-testimonial-quote">Michelle didn't just rebuild our site, she helped us figure out what we actually do and who we're actually for. <em>Our inquiries tripled in the first month after launch.</em></p>
-    <div class="home-testimonial-attr">
-      <span class="home-testimonial-name">Nicole Roeseler</span>
-      <span class="home-testimonial-role">Executive Director · ACF Inc.</span>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="home-svcs">
-  <div class="home-svcs-inner">
-    <header class="home-section-head reveal">
-      <h2 class="home-section-h2">Everything your brand needs, <em>under one roof.</em></h2>
-    </header>
-
-    <div class="home-svcs-grid">
-      <a class="home-svc reveal" href="services.html#brand">
-        <span class="home-svc-num">01</span>
-        <h3>Brand identity</h3>
-        <p>Logo, color, typography, voice, guidelines.</p>
-        <span class="home-svc-link">Learn more <span>&rarr;</span></span>
-      </a>
-      <a class="home-svc reveal" href="services.html#web">
-        <span class="home-svc-num">02</span>
-        <h3>Web design &amp; dev</h3>
-        <p>Squarespace or fully custom-coded sites, end to end.</p>
-        <span class="home-svc-link">Learn more <span>&rarr;</span></span>
-      </a>
-      <a class="home-svc reveal" href="services.html#marketing">
-        <span class="home-svc-num">03</span>
-        <h3>Ongoing marketing</h3>
-        <p>Email, social, content, video, monthly reporting.</p>
-        <span class="home-svc-link">Learn more <span>&rarr;</span></span>
-      </a>
-      <a class="home-svc reveal" href="services.html#a-la-carte">
-        <span class="home-svc-num">04</span>
-        <h3>A la carte</h3>
-        <p>Copy, audits, graphics, maintenance, one-offs.</p>
-        <span class="home-svc-link">Learn more <span>&rarr;</span></span>
-      </a>
-    </div>
-
-    <div class="home-section-cta reveal">
-      <a href="services.html" class="btn-secondary">View all services <span>&rarr;</span></a>
-      <a href="contact.html" class="btn-primary">Book a discovery call <span>&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="home-how-section">
-  <div class="home-how-inner">
-    <header class="home-section-head reveal">
-      <h2 class="home-section-h2">Three steps, no <em>mystery.</em></h2>
-    </header>
-
-    <ol class="home-how-list">
-      <li class="reveal">
-        <span class="home-how-num">01</span>
-        <div>
-          <h3>Discovery call</h3>
-          <p>Free 30 minutes. Tell me what you're working on. I'll tell you straight whether I can help.</p>
-        </div>
-      </li>
-      <li class="reveal">
-        <span class="home-how-num">02</span>
-        <div>
-          <h3>Strategy &amp; scope</h3>
-          <p>A clear, plain-language proposal. What gets done, by when, what it costs, no surprises.</p>
-        </div>
-      </li>
-      <li class="reveal">
-        <span class="home-how-num">03</span>
-        <div>
-          <h3>Launch &amp; grow</h3>
-          <p>Strategy, design, copy, build, and ongoing support, end to end.</p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="home-cta-banner reveal">
-  <div class="home-cta-banner-inner">
-    <h2>Ready to talk about <em>your project?</em></h2>
-    <a href="contact.html" class="btn-primary">Book a discovery call <span>&rarr;</span></a>
-  </div>
-</section>
-
-<!-- WHO I HELP -->
-<section class="home-who-section">
-  <div class="home-who-inner">
-    <header class="home-section-head reveal">
-      <h2 class="home-section-h2">Built for the <em>good ones.</em></h2>
-    </header>
-
-    <div class="home-who-grid">
-      <article class="home-who-card reveal">
-        <span class="home-who-tag">For nonprofits</span>
-        <h3>Foundations, foster care, community programs.</h3>
-        <p>You need a brand and a site that pulls in donors, volunteers, and partners, without an agency-sized retainer. Strategy, design, copy, build, and ongoing support, all in one place.</p>
-      </article>
-
-      <article class="home-who-card reveal">
-        <span class="home-who-tag">For small businesses</span>
-        <h3>Studios, founders, family-run brands.</h3>
-        <p>You're growing past DIY but not ready to hire a full marketing team. Senior-level strategy and execution, scoped to your reality and your timeline.</p>
-      </article>
-    </div>
-
-    <div class="home-section-cta reveal">
-      <a href="contact.html" class="btn-primary">Book a discovery call <span>&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="home-about">
-  <div class="home-about-inner reveal">
-    <h2 class="home-about-h2">Hi, I'm <em>Michelle.</em></h2>
-    <p class="home-about-lead">A senior marketing strategist running One Eleven Studio for the work I love most.</p>
-    <p>Helping a nonprofit rebuild the site that brings in their donors. Writing copy for a foundation honoring someone's memory. Sitting down with a small business owner to figure out why their messaging wasn't landing. Small businesses and nonprofits deserve senior-level work, charged like a human.</p>
-    <a href="about.html" class="btn-secondary">More about me <span>&rarr;</span></a>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="home-close home-close--centered">
-  <div class="home-close-inner">
-    <div class="home-close-action reveal">
-      <h2 class="home-close-h2">Make something they <em>remember.</em></h2>
-      <p>Book a free 30 minute call. Tell me what you're working on. If I can help, we'll talk next steps. If I can't, I'll point you to someone who can.</p>
-      <div class="home-close-buttons">
-        <a href="contact.html" class="btn-light">Book a discovery call <span>&rarr;</span></a>
-        <a href="mailto:hello@michelletilton.com" class="btn-ghost">Email directly <span>&rarr;</span></a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">One Eleven Studio</div>
+      <h1 class="hero-title">Marketing for small teams doing <span class="accent">big things.</span></h1>
+      <p class="hero-sub">Brand, websites, and ongoing marketing, by one senior strategist. Built for the nonprofits, founders, and family-run brands who deserve agency-grade work, charged like a human.</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-primary">Book a discovery call &rarr;</a>
+        <a href="work.html" class="btn-link">See selected work &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- TESTIMONIAL FEATURE -->
+<section class="testimonial">
+  <div class="testimonial-inner">
+    <div>
+      <div class="testimonial-eyebrow">A note from a client</div>
+      <p class="testimonial-lead">Worth every <span class="accent">penny.</span></p>
+    </div>
+    <div>
+      <p class="testimonial-quote">"I had no clue how to get a website started for my nonprofit until I was referred to Michelle. I am so grateful I was. She was incredibly knowledgeable, helpful, and brought so many great ideas to the table that I hadn't even considered. She was very thorough, easy to work with, and took all the stress out of the process. Michelle was absolutely worth every penny for the professional result and peace of mind she provided. I highly recommend her to anyone looking for a web designer."</p>
+      <div class="testimonial-attr">
+        <strong>Nicole Roeseler</strong>
+        <a href="https://www.advancingcommunitiesforward.org" target="_blank" rel="noopener">Advancing Communities Forward</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="work" id="work">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Brands &amp; sites built for <span class="accent">people doing the work.</span></h2>
+      </div>
+      <a href="work.html" class="btn-link">View all projects &rarr;</a>
+    </div>
+
+    <div class="work-list">
+      <article class="work-item">
+        <a class="work-image" href="projects/zuda.html">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200/Image_4-3-26_at_9.31_PM_q5u1xd.jpg" alt="Zuda Yoga website" loading="lazy">
+        </a>
+        <div class="work-meta">
+          <span class="work-tag">Web · SEO · Brand refresh</span>
+          <h3 class="work-name">Zuda Yoga</h3>
+          <p class="work-result">CTR 1.5% &rarr; 3.9%. Search 19 &rarr; 4.</p>
+          <p class="work-desc">A premier vinyasa studio in Placer County. New site, sharper messaging, and an SEO overhaul to help the right students find them.</p>
+          <a href="projects/zuda.html" class="btn-link">Read case study &rarr;</a>
+        </div>
+      </article>
+
+      <article class="work-item reverse">
+        <a class="work-image" href="projects/acf.html">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1777356555/Image_4-27-26_at_11.07_PM_zds2jb.jpg" alt="Advancing Communities Forward website" loading="lazy">
+        </a>
+        <div class="work-meta">
+          <span class="work-tag">Brand · Web · Strategy</span>
+          <h3 class="work-name">ACF Inc.</h3>
+          <p class="work-result">Inquiries tripled in 30 days.</p>
+          <p class="work-desc">A nonprofit empowering foster youth ages 18 to 21. We rebuilt the brand and the site around what they actually do, with a clear mission and a clear path to support.</p>
+          <a href="projects/acf.html" class="btn-link">Read case study &rarr;</a>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <a class="work-image" href="projects/fga.html">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/v1777357009/Image_4-27-26_at_11.16_PM_vg4fj0.jpg" alt="FEEL Good Always website" loading="lazy">
+        </a>
+        <div class="work-meta">
+          <span class="work-tag">Brand · Web · Podcast platform</span>
+          <h3 class="work-name">FEEL Good Always</h3>
+          <p class="work-result">Brand and platform, end to end.</p>
+          <p class="work-desc">A soul-led movement built end to end. Brand identity, podcast platform, and retreat site, all stitched into one cohesive experience.</p>
+          <a href="projects/fga.html" class="btn-link">Read case study &rarr;</a>
+        </div>
+      </article>
+
+      <article class="work-item reverse">
+        <a class="work-image" href="projects/livelikekeira.html">
+          <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1200/Image_4-3-26_at_9.46_PM_w1mz2t.jpg" alt="Live Like Keira Foundation website" loading="lazy">
+        </a>
+        <div class="work-meta">
+          <span class="work-tag">501(c)(3) launch · Web · Brand</span>
+          <h3 class="work-name">Live Like Keira</h3>
+          <p class="work-result">Donations, events, and merch in one site.</p>
+          <p class="work-desc">A nonprofit honoring Keira's memory. We built the foundation's first website with donations, event registration, and merch, every dollar going where it should.</p>
+          <a href="projects/livelikekeira.html" class="btn-link">Read case study &rarr;</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="work-foot">
+      <a href="work.html" class="btn btn-ghost">View all projects &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section class="audiences">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Built for the <span class="accent">good ones.</span></h2>
+      </div>
+    </div>
+    <div class="audience-grid">
+      <article class="audience-card">
+        <span class="audience-tag">For nonprofits</span>
+        <h3 class="audience-title">Foundations, foster care, community programs.</h3>
+        <p class="audience-desc">You need a brand and a site that pulls in donors, volunteers, and partners, without an agency-sized retainer. Strategy, design, copy, build, and ongoing support, all in one place.</p>
+      </article>
+      <article class="audience-card">
+        <span class="audience-tag">For small businesses</span>
+        <h3 class="audience-title">Studios, founders, family-run brands.</h3>
+        <p class="audience-desc">You're growing past DIY but not ready to hire a full marketing team. Senior-level strategy and execution, scoped to your reality and your timeline.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Everything your brand needs, <span class="accent">under one roof.</span></h2>
+      </div>
+      <a href="services.html" class="btn-link">View all services &rarr;</a>
+    </div>
+    <div class="services-grid">
+      <a href="services.html#brand" class="service-card">
+        <span class="service-num">01</span>
+        <h3 class="service-title">Brand identity</h3>
+        <p class="service-desc">Logo, color, typography, voice, guidelines. The full system, not just a wordmark.</p>
+        <span class="service-arrow">Learn more &rarr;</span>
+      </a>
+      <a href="services.html#web" class="service-card">
+        <span class="service-num">02</span>
+        <h3 class="service-title">Web design &amp; dev</h3>
+        <p class="service-desc">Squarespace or fully custom-coded sites, end to end. Strategy, copy, build, launch.</p>
+        <span class="service-arrow">Learn more &rarr;</span>
+      </a>
+      <a href="services.html#marketing" class="service-card">
+        <span class="service-num">03</span>
+        <h3 class="service-title">Ongoing marketing</h3>
+        <p class="service-desc">Email, social, content, video, monthly reporting. Senior-level retainer, no fluff.</p>
+        <span class="service-arrow">Learn more &rarr;</span>
+      </a>
+      <a href="services.html#a-la-carte" class="service-card">
+        <span class="service-num">04</span>
+        <h3 class="service-title">A la carte</h3>
+        <p class="service-desc">Copy, audits, graphics, maintenance, one-offs. Drop in when you need a sharper hand.</p>
+        <span class="service-arrow">Learn more &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Three steps, no <span class="accent">mystery.</span></h2>
+      </div>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3 class="process-title">Discovery call</h3>
+        <p class="process-desc">Free 30 minutes. Tell me what you're working on. I'll tell you straight whether I can help.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3 class="process-title">Strategy &amp; scope</h3>
+        <p class="process-desc">A clear, plain-language proposal. What gets done, by when, what it costs, no surprises.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3 class="process-title">Launch &amp; grow</h3>
+        <p class="process-desc">Strategy, design, copy, build, and ongoing support. End to end, in one set of hands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT MICHELLE -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="about-photo about-photo-placeholder" aria-label="Michelle Tilton portrait placeholder">M</div>
+      </div>
+      <div>
+        <h2 class="about-greeting">Hi, I'm <span class="accent">Michelle.</span></h2>
+        <p class="about-pitch">A senior marketing strategist running One Eleven Studio for the work I love most.</p>
+        <p class="about-body">
+          That looks like helping a nonprofit rebuild the site that brings in their donors. Writing copy for a foundation honoring someone's memory. Sitting down with a small business owner to figure out why their messaging wasn't landing.
+        </p>
+        <p class="about-body">
+          <strong>Small businesses and nonprofits deserve senior-level work, charged like a human.</strong> That's the whole thesis. No team to hand you off to, no junior account manager to translate. Just me, your project, and the kind of attention your work actually deserves.
+        </p>
+        <div class="about-sig">Michelle</div>
+        <div class="about-actions">
+          <a href="about.html" class="btn btn-ghost">More about me &rarr;</a>
+          <a href="contact.html" class="btn-link">Book a call &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final" id="contact">
+  <h2>Make something they <span class="accent">remember.</span></h2>
+  <p>Book a free 30-minute call. Tell me what you're working on. If I can help, we'll talk next steps. If I can't, I'll point you to someone who can.</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn btn-primary">Book a discovery call &rarr;</a>
+    <a href="mailto:hello@michelletilton.com" class="btn btn-ghost">Email directly &rarr;</a>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
-    <span class="footer-text">&copy; 2026 One Eleven Studio</span>
+    <div>&copy; 2026 One Eleven Studio</div>
     <div class="footer-links">
       <a href="work.html">Work</a>
       <a href="services.html">Services</a>
@@ -285,6 +914,16 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+
 </body>
 </html>
