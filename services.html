@@ -40,13 +40,13 @@
   .svc-intro { padding: 64px 32px 24px; background: var(--paper); }
   .svc-intro-inner { max-width: 880px; margin: 0 auto; }
   .svc-intro p { font-family: 'Onest', sans-serif; font-size: 1.15rem; line-height: 1.65; color: var(--ink); }
-  .svc-tier { padding: 72px 32px; background: var(--paper); border-top: 1px solid var(--border); }
+  .svc-tier { padding: 112px 32px; background: var(--paper); border-top: 1px solid var(--border); }
   .svc-tier.alt { background: var(--cream); }
   .svc-tier-inner { max-width: 1400px; margin: 0 auto; }
-  .svc-tier-head { margin-bottom: 40px; display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap; }
-  .svc-tier-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 600; }
+  .svc-tier-head { margin-bottom: 40px; display: flex; flex-direction: column; gap: 12px; }
   .svc-tier-head h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px, 3.4vw, 44px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; color: var(--ink); margin: 0; }
-  .svc-tier-head p { font-family: 'Onest', sans-serif; font-size: 1rem; color: var(--muted); max-width: 56ch; margin: 4px 0 0; line-height: 1.6; flex-basis: 100%; }
+  .svc-tier-head p { font-family: 'Onest', sans-serif; font-size: 1rem; color: var(--muted); max-width: 56ch; margin: 0; line-height: 1.6; }
+  .svc-tier-cta { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
   .svc-cards { display: grid; gap: 32px; }
   .svc-cards.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .svc-cards.cols-1 { grid-template-columns: 1fr; max-width: 880px; }
@@ -67,8 +67,8 @@
   .svc-card-examples a { color: var(--sunset-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
   .svc-card-examples a:hover { border-bottom-color: var(--sunset-2); }
   @media (max-width: 880px) {
-    .svc-tier { padding: 56px 24px; }
-    .svc-intro { padding: 48px 24px 16px; }
+    .svc-tier { padding: 72px 20px; }
+    .svc-intro { padding: 48px 20px 16px; }
     .svc-cards.cols-2 { grid-template-columns: 1fr; }
     .svc-card-list { grid-template-columns: 1fr; }
   }
@@ -83,9 +83,8 @@
 <section class="svc-tier">
   <div class="svc-tier-inner">
     <div class="svc-tier-head">
-      <span class="svc-tier-num">01 / Build it</span>
-      <h2>The foundation: a brand, a website, both.</h2>
-      <p>Big-ticket projects that set up everything else. Most clients start here.</p>
+      <h2>Build it.</h2>
+      <p>The foundational work that sets up everything else: a brand system, a website, or both. Most clients start here.</p>
     </div>
     <div class="svc-cards cols-2">
       <div class="svc-card">
@@ -119,6 +118,9 @@
         <div class="svc-card-examples">In action: <a href="projects/brand-aurora.html">Aurora Vida</a> · <a href="projects/brand-acf.html">ACF</a></div>
       </div>
     </div>
+    <div class="svc-tier-cta">
+      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
+    </div>
   </div>
 </section>
 
@@ -126,9 +128,8 @@
 <section class="svc-tier alt">
   <div class="svc-tier-inner">
     <div class="svc-tier-head">
-      <span class="svc-tier-num">02 / Run it</span>
-      <h2>Ongoing work that keeps the lights on.</h2>
-      <p>For brands that need a senior strategist on call without hiring full-time.</p>
+      <h2>Run it.</h2>
+      <p>Ongoing work for brands that need a senior strategist on call without hiring full-time.</p>
     </div>
     <div class="svc-cards cols-2">
       <div class="svc-card">
@@ -158,6 +159,9 @@
         </ul>
       </div>
     </div>
+    <div class="svc-tier-cta">
+      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
+    </div>
   </div>
 </section>
 
@@ -165,9 +169,8 @@
 <section class="svc-tier">
   <div class="svc-tier-inner">
     <div class="svc-tier-head">
-      <span class="svc-tier-num">03 / Add to it</span>
-      <h2>One thing, scoped tight.</h2>
-      <p>For specific needs that don't require a full package.</p>
+      <h2>Add to it.</h2>
+      <p>One thing, scoped tight, for specific needs that don't require a full package.</p>
     </div>
     <div class="svc-cards cols-1">
       <div class="svc-card dark">
@@ -182,6 +185,9 @@
           <li>Rush delivery available</li>
         </ul>
       </div>
+    </div>
+    <div class="svc-tier-cta">
+      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
     </div>
   </div>
 </section>
