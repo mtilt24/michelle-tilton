@@ -422,7 +422,7 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 .project-filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
 .projects-section { padding: 64px 32px 112px; background: var(--paper); }
-.projects-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+.projects-grid { max-width: 1400px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
 .project-card { position: relative; display: block; background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--ink); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; }
 .project-card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(0,0,0,0.1); border-color: var(--border-strong); }
 .project-card.full { grid-column: span 2; }
