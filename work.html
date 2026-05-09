@@ -25,18 +25,8 @@
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="page-hero-eyebrow">Portfolio</div>
-    <h1>Selected <span class="sunset">work.</span></h1>
+    <h1>Recent <span class="sunset">projects.</span></h1>
     <p class="page-hero-sub">Website design, branding, and digital marketing, from strategy to launch.</p>
-  </div>
-</section>
-
-<!-- FILTER -->
-<section class="project-filter">
-  <div class="project-filter-bar">
-    <button class="project-filter-btn active" data-filter="all">All</button>
-    <button class="project-filter-btn" data-filter="web">Websites</button>
-    <button class="project-filter-btn" data-filter="social">Social Media</button>
-    <button class="project-filter-btn" data-filter="branding">Branding</button>
   </div>
 </section>
 
@@ -185,74 +175,6 @@
       </div>
     </a>
 
-    <!-- Branding: full -->
-    <a href="projects/branding.html" class="project-card full" data-category="branding">
-      <div class="project-card-img">
-        <div style="display:flex;width:100%;height:100%;min-height:340px;">
-          <div style="flex:1;display:flex;flex-direction:column;">
-            <div style="flex:1;display:flex;">
-              <span style="flex:1;background:#E5751F;"></span>
-              <span style="flex:1;background:#1F2328;"></span>
-              <span style="flex:1;background:#f5f2ed;"></span>
-            </div>
-            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">NOR-CAL POOL PRODUCTIONS</span>
-            </div>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;">
-            <div style="flex:1;display:flex;">
-              <span style="flex:1;background:#6B7F5E;"></span>
-              <span style="flex:1;background:#A8B99C;"></span>
-              <span style="flex:1;background:#F5F3EF;"></span>
-            </div>
-            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">EKG PURE HAIR STUDIO</span>
-            </div>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;">
-            <div style="flex:1;display:flex;">
-              <span style="flex:1;background:#a86acf;"></span>
-              <span style="flex:1;background:#1e1736;"></span>
-              <span style="flex:1;background:#eddcf4;"></span>
-            </div>
-            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">LIVE LIKE KEIRA</span>
-            </div>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;">
-            <div style="flex:1;display:flex;">
-              <span style="flex:1;background:#C9A84C;"></span>
-              <span style="flex:1;background:#1A3832;"></span>
-              <span style="flex:1;background:#FAF7F2;"></span>
-            </div>
-            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">AURORA VIDA GLOBAL</span>
-            </div>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;">
-            <div style="flex:1;display:flex;">
-              <span style="flex:1;background:#0675BC;"></span>
-              <span style="flex:1;background:#FCA418;"></span>
-              <span style="flex:1;background:#E53990;"></span>
-            </div>
-            <div style="padding:1rem 1.2rem;background:rgba(10,10,15,0.85);">
-              <span style="font-size:0.75rem;color:#cfc6b8;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;">ADVANCING COMMUNITIES FORWARD</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card-body">
-        <div class="project-card-tags">
-          <span>Branding</span>
-          <span>Logo Design</span>
-          <span>Brand Guidelines</span>
-          <span>5 Projects</span>
-        </div>
-        <h3>Brand Identity Work</h3>
-        <p>Complete brand systems for five clients, including logos, color palettes, typography, brand voice, and guidelines. From luxury pool lighting to a foster youth nonprofit.</p>
-      </div>
-    </a>
-
   </div>
 </section>
 
@@ -284,22 +206,6 @@
   </div>
 </footer>
 
-<script>
-  // Project filter
-  const filterBtns = document.querySelectorAll('.project-filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.toggle('active', b === btn));
-      const filter = btn.dataset.filter;
-      projectCards.forEach(card => {
-        const cats = (card.dataset.category || '').split(/\s+/);
-        const matches = filter === 'all' || cats.includes(filter);
-        card.classList.toggle('hidden', !matches);
-      });
-    });
-  });
-</script>
 <script src="app.js"></script>
 </body>
 </html>
