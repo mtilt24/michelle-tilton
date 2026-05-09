@@ -91,64 +91,117 @@
   </div>
 </section>
 
-<!-- CASE SUMMARY -->
+<!-- THE WORK -->
 <style>
-  .case-summary { padding: 80px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
-  .case-summary-inner { max-width: 1100px; margin: 0 auto; }
-  .case-summary-card {
-    background: var(--paper);
-    border-radius: 12px;
-    padding: 16px 44px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
-  }
-  .case-summary-row {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 48px;
-    padding: 26px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: baseline;
-  }
-  .case-summary-row:last-child { border-bottom: none; }
-  .case-summary-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--sunset-2); font-weight: 500;
-  }
-  .case-summary-value {
-    font-family: 'Onest', sans-serif;
-    font-size: 18px; line-height: 1.5; color: var(--ink); font-weight: 500;
-    max-width: 62ch;
-  }
+  .case-work { padding: 96px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .case-work-inner { max-width: 760px; margin: 0 auto; }
+  .case-work-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 10px; }
+  .case-work-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .case-work h2 { font-family: 'Onest', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; color: var(--ink); line-height: 1.05; margin-bottom: 28px; }
+  .case-work p { font-family: 'Onest', sans-serif; font-size: 1.1rem; line-height: 1.65; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
+  .case-work p:last-child { margin-bottom: 0; }
+  @media (max-width: 720px) { .case-work { padding: 64px 24px; } .case-work h2 { margin-bottom: 20px; } }
+</style>
+<section class="case-work">
+  <div class="case-work-inner">
+    <div class="case-work-label">The work</div>
+    <h2>A custom-built site that finally matches the caliber of the pools.</h2>
+    <p>Nor-Cal had been running on a Squarespace template that didn't reflect the level of work they were doing. Photos of premium custom builds were sitting inside a layout that looked like every other pool company. Conversions were weak, the brand felt generic, and the site couldn't compete with how they wanted to be perceived.</p>
+    <p>The work covered a brand refresh, photography direction, copywriting, and a fully custom-coded site, hand-built in HTML, CSS, and JS. Day-to-night image transitions, scroll-triggered reveals, and a rising consultation panel keep visitors moving through the site, with quote requests landing straight in the team's inbox.</p>
+  </div>
+</section>
+
+<!-- BRAND AT A GLANCE -->
+<style>
+  .brand-glance { padding: 96px 48px; background: var(--paper); }
+  .brand-glance-inner { max-width: 1100px; margin: 0 auto; }
+  .brand-glance-head { text-align: center; margin-bottom: 56px; }
+  .brand-glance-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .brand-glance-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .brand-glance-title { font-family: 'Onest', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; color: var(--ink); line-height: 1.05; }
+  .brand-glance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+  .brand-glance-card { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+  .brand-glance-card h3 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); font-weight: 600; margin-bottom: 18px; opacity: 0.7; }
+  .brand-glance-colors-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .brand-glance-color { display: flex; flex-direction: column; gap: 6px; flex: 1 1 70px; min-width: 70px; }
+  .brand-glance-color-swatch { width: 100%; aspect-ratio: 1 / 1; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06); }
+  .brand-glance-color-name { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+  .brand-glance-color-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink); opacity: 0.6; }
+  .brand-glance-type-row { display: flex; flex-direction: column; gap: 18px; }
+  .brand-glance-type-pair { display: flex; flex-direction: column; gap: 4px; }
+  .brand-glance-type-name { font-family: 'Onest', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+  .brand-glance-type-role { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); opacity: 0.6; }
+  .brand-glance-cta { text-align: center; }
+  @media (max-width: 720px) { .brand-glance { padding: 64px 24px; } .brand-glance-grid { grid-template-columns: 1fr; } }
+</style>
+<section class="brand-glance">
+  <div class="brand-glance-inner">
+    <div class="brand-glance-head">
+      <div class="brand-glance-label">Brand contributions</div>
+      <h2 class="brand-glance-title">Warm, grounded, premium.</h2>
+    </div>
+    <div class="brand-glance-grid">
+      <div class="brand-glance-card">
+        <h3>Color palette</h3>
+        <div class="brand-glance-colors-row">
+          <div class="brand-glance-color"><div class="brand-glance-color-swatch" style="background:#E5751F;"></div><span class="brand-glance-color-name">Orange</span><span class="brand-glance-color-hex">#E5751F</span></div>
+          <div class="brand-glance-color"><div class="brand-glance-color-swatch" style="background:#1F2328;"></div><span class="brand-glance-color-name">Charcoal</span><span class="brand-glance-color-hex">#1F2328</span></div>
+          <div class="brand-glance-color"><div class="brand-glance-color-swatch" style="background:#f5f2ed;"></div><span class="brand-glance-color-name">Sand</span><span class="brand-glance-color-hex">#f5f2ed</span></div>
+          <div class="brand-glance-color"><div class="brand-glance-color-swatch" style="background:#fdf2ea;"></div><span class="brand-glance-color-name">Light sand</span><span class="brand-glance-color-hex">#fdf2ea</span></div>
+        </div>
+      </div>
+      <div class="brand-glance-card">
+        <h3>Typography</h3>
+        <div class="brand-glance-type-row">
+          <div class="brand-glance-type-pair">
+            <span class="brand-glance-type-name" style="font-family:'Public Sans',sans-serif;">Public Sans</span>
+            <span class="brand-glance-type-role">Display & body</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="brand-glance-cta">
+      <a href="norcal-brand-guide.html" class="btn-secondary">View full brand guide <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SITE FEATURES -->
+<style>
+  .case-features { padding: 80px 48px; background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .case-features-inner { max-width: 1100px; margin: 0 auto; }
+  .case-features-head { text-align: center; margin-bottom: 40px; }
+  .case-features-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .case-features-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .case-features-title { font-family: 'Onest', sans-serif; font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+  .case-features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; background: var(--paper); overflow: hidden; }
+  .case-feature { display: flex; flex-direction: column; gap: 6px; padding: 24px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .case-feature:nth-child(2n) { border-right: none; }
+  .case-feature:nth-last-child(-n+2) { border-bottom: none; }
+  .case-feature-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sunset-2); font-weight: 600; }
+  .case-feature-desc { font-family: 'Onest', sans-serif; font-size: 0.95rem; line-height: 1.5; color: var(--ink); font-weight: 400; }
   @media (max-width: 720px) {
-    .case-summary { padding: 56px 24px; }
-    .case-summary-card { padding: 8px 24px; }
-    .case-summary-row { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+    .case-features { padding: 56px 24px; }
+    .case-features-grid { grid-template-columns: 1fr; }
+    .case-feature { border-right: none; }
+    .case-feature:not(:last-child) { border-bottom: 1px solid var(--border); }
+    .case-feature:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .case-feature:last-child { border-bottom: none; }
   }
 </style>
-<section class="case-summary">
-  <div class="case-summary-inner">
-    <div class="case-summary-card">
-      <div class="case-summary-row">
-        <span class="case-summary-label">Client</span>
-        <div class="case-summary-value">Nor-Cal Pool Productions</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">Industry</span>
-        <div class="case-summary-value">Custom pool design and construction</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">Problem</span>
-        <div class="case-summary-value">A Squarespace template that didn't match the caliber of their builds, with weak brand and low conversions.</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">What I did</span>
-        <div class="case-summary-value">Full rebrand, photography direction, copywriting, and a custom-coded site.</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">Result</span>
-        <div class="case-summary-value">A fast, distinct site that positions Nor-Cal as the premium pool builder in Northern California.</div>
-      </div>
+<section class="case-features">
+  <div class="case-features-inner">
+    <div class="case-features-head">
+      <div class="case-features-label">What's on the site</div>
+      <h2 class="case-features-title">Built so the pools do the selling.</h2>
+    </div>
+    <div class="case-features-grid">
+      <div class="case-feature"><span class="case-feature-name">Day-to-night transitions</span><span class="case-feature-desc">Hero imagery crossfades from daylight to night, showing how the pools live across hours.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Quote requests</span><span class="case-feature-desc">Contact and consultation forms send submissions straight to the team's inbox.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Scroll-triggered motion</span><span class="case-feature-desc">GSAP-powered reveals and a rising consultation panel keep visitors moving instead of bouncing.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Mobile-first build</span><span class="case-feature-desc">Designed for the phone first, where most pool leads land before they sit at a desk.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Photography direction</span><span class="case-feature-desc">Direction on the imagery so the homepage and printed proposals share the same premium look.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Hosting</span><span class="case-feature-desc">Hand-coded HTML, CSS, and JS hosted on Netlify with images served through Cloudinary.</span></div>
     </div>
   </div>
 </section>
@@ -192,41 +245,6 @@
   </div>
 </section>
 
-<!-- WHAT I BUILT -->
-<section class="page-section alt">
-  <div class="page-section-inner">
-    <div class="page-section-header">
-      <div class="section-label">What I built</div>
-      <h2>Every choice, made on purpose.</h2>
-    </div>
-    <div class="card-grid cols-2">
-      <div class="info-card">
-        <h4>A site they actually own</h4>
-        <p>Built from scratch instead of dropped into a template, so the site loads fast, isn't slowed down by extra code they don't need, and doesn't cost them a monthly platform fee. They own the work and the infrastructure.</p>
-      </div>
-      <div class="info-card">
-        <h4>Storytelling that pulls you in</h4>
-        <p>Day-to-night image transitions, scroll reveals, and a rising consultation panel keep visitors moving through the site instead of bouncing. The pools get to do the selling, the way they should.</p>
-      </div>
-      <div class="info-card">
-        <h4>Looks right on every screen</h4>
-        <p>Designed mobile first, because most of their leads land on the site from a phone. Whether someone's at a job site or planning a backyard from the couch, the experience is intentional, not squeezed.</p>
-      </div>
-      <div class="info-card">
-        <h4>A brand that finally matches the work</h4>
-        <p>An updated color palette, typography pairing, and photography direction so every touchpoint, from the homepage to a printed proposal, feels as premium as the pools they build.</p>
-      </div>
-      <div class="info-card">
-        <h4>Quote requests, straight to the inbox</h4>
-        <p>The contact and consultation forms send every submission directly to the team's email the moment it's filled out. No third-party CRM to log into, no missed leads sitting in some other tool.</p>
-      </div>
-    </div>
-    <div style="margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
-      <a href="https://norcalpoolproductions.com" target="_blank" rel="noopener" class="btn-primary">View Live Site <span>&rarr;</span></a>
-      <a href="norcal-brand-guide.html" class="btn-secondary">View Brand Guide <span>&rarr;</span></a>
-    </div>
-  </div>
-</section>
 
 <!-- NEXT PROJECT -->
 <section class="case-next">

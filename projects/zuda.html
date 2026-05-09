@@ -36,78 +36,62 @@
   </div>
 </section>
 
-<!-- CASE SUMMARY -->
+<!-- THE WORK -->
 <style>
-  .case-summary { padding: 80px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
-  .case-summary-inner { max-width: 1100px; margin: 0 auto; }
-  .case-summary-card { background: var(--paper); border-radius: 12px; padding: 16px 44px; box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
-  .case-summary-row { display: grid; grid-template-columns: 200px 1fr; gap: 48px; padding: 26px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
-  .case-summary-row:last-child { border-bottom: none; }
-  .case-summary-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; }
-  .case-summary-value { font-family: 'Onest', sans-serif; font-size: 18px; line-height: 1.5; color: var(--ink); font-weight: 500; max-width: 62ch; }
-  @media (max-width: 720px) { .case-summary { padding: 56px 24px; } .case-summary-card { padding: 8px 24px; } .case-summary-row { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; } }
+  .case-work { padding: 96px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .case-work-inner { max-width: 760px; margin: 0 auto; }
+  .case-work-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 10px; }
+  .case-work-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .case-work h2 { font-family: 'Onest', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; color: var(--ink); line-height: 1.05; margin-bottom: 28px; }
+  .case-work p { font-family: 'Onest', sans-serif; font-size: 1.1rem; line-height: 1.65; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
+  .case-work p:last-child { margin-bottom: 0; }
+  @media (max-width: 720px) { .case-work { padding: 64px 24px; } .case-work h2 { margin-bottom: 20px; } }
 </style>
-<section class="case-summary">
-  <div class="case-summary-inner">
-    <div class="case-summary-card">
-      <div class="case-summary-row">
-        <span class="case-summary-label">Client</span>
-        <div class="case-summary-value">Zuda Yoga, two studios in Rocklin and Auburn, CA</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">Industry</span>
-        <div class="case-summary-value">Premier power vinyasa yoga studio and community</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">Problem</span>
-        <div class="case-summary-value">A site that didn't reflect the studio's warm community brand or surface what members actually came for: memberships, workshops, retreats, and class schedules.</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">What I did</span>
-        <div class="case-summary-value">Squarespace build with extensive custom CSS, page architecture, membership and event flows, on-page SEO and content.</div>
-      </div>
-      <div class="case-summary-row">
-        <span class="case-summary-label">Result</span>
-        <div class="case-summary-value">CTR went from 1.5% to 3.9% and average search position climbed from 19 to 4. Workshops and retreats now flow through a polished digital home.</div>
-      </div>
-    </div>
+<section class="case-work">
+  <div class="case-work-inner">
+    <div class="case-work-label">The work</div>
+    <h2>A Squarespace site that finally feels like the studio.</h2>
+    <p>Zuda runs two studios in Placer County with a strong, warm community, but the original site was generic, didn't surface what members were actually coming for, and wasn't ranking. Memberships, workshops, retreats, and the class schedule were all buried.</p>
+    <p>The work covered an extensive custom-CSS rebuild on top of Squarespace, page architecture, membership and event flows, copy that reflects the actual energy of the studio, and on-page SEO. CTR climbed from 1.5% to 3.9% in Search Console, and average search position moved from 19 to 4.</p>
   </div>
 </section>
 
-<section class="page-section alt">
-  <div class="page-section-inner">
-    <div class="page-section-header">
-      <div class="section-label">What I built</div>
-      <h2>Every choice, made on purpose.</h2>
+<!-- SITE FEATURES -->
+<style>
+  .case-features { padding: 80px 48px; background: var(--paper); border-bottom: 1px solid var(--border); }
+  .case-features-inner { max-width: 1100px; margin: 0 auto; }
+  .case-features-head { text-align: center; margin-bottom: 40px; }
+  .case-features-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .case-features-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .case-features-title { font-family: 'Onest', sans-serif; font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+  .case-features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; background: var(--cream); overflow: hidden; }
+  .case-feature { display: flex; flex-direction: column; gap: 6px; padding: 24px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .case-feature:nth-child(2n) { border-right: none; }
+  .case-feature:nth-last-child(-n+2) { border-bottom: none; }
+  .case-feature-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sunset-2); font-weight: 600; }
+  .case-feature-desc { font-family: 'Onest', sans-serif; font-size: 0.95rem; line-height: 1.5; color: var(--ink); font-weight: 400; }
+  @media (max-width: 720px) {
+    .case-features { padding: 56px 24px; }
+    .case-features-grid { grid-template-columns: 1fr; }
+    .case-feature { border-right: none; }
+    .case-feature:not(:last-child) { border-bottom: 1px solid var(--border); }
+    .case-feature:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .case-feature:last-child { border-bottom: none; }
+  }
+</style>
+<section class="case-features">
+  <div class="case-features-inner">
+    <div class="case-features-head">
+      <div class="case-features-label">What's on the site</div>
+      <h2 class="case-features-title">A digital home for everything Zuda offers.</h2>
     </div>
-    <div class="card-grid cols-2">
-      <div class="info-card">
-        <h4>Squarespace, but it doesn't look like Squarespace</h4>
-        <p>Heavy custom CSS layered on top of the platform so the site feels distinctive and on-brand, while staying maintainable for the studio team to update on their own.</p>
-      </div>
-      <div class="info-card">
-        <h4>Memberships built to convert</h4>
-        <p>Three-tier pricing (Intro, Monthly, Annual) with clear perks and signup flow. Visitors see exactly what they get, what it costs, and how to start, no friction between curiosity and commitment.</p>
-      </div>
-      <div class="info-card">
-        <h4>Workshops and retreats in one place</h4>
-        <p>Workshop calendar, Costa Rica retreat listing, and event detail pages so the studio's offerings beyond drop-in classes get the visibility (and bookings) they deserve.</p>
-      </div>
-      <div class="info-card">
-        <h4>SEO that finally pays off</h4>
-        <p>On-page SEO and content work moved their average Google search position from 19 to 4, and CTR from 1.5% to 3.9% in Search Console. More of the right students are finding the studio.</p>
-      </div>
-      <div class="info-card">
-        <h4>Class schedule, always current</h4>
-        <p>Mindbody schedule and booking widgets embedded directly into the site, so the live class times, teachers, and signups stay in sync with what the studio is already running, no double-entry.</p>
-      </div>
-      <div class="info-card">
-        <h4>Words that sound like the studio</h4>
-        <p>Rewrote core pages so the copy reflects the actual energy of Zuda, warm, grounded, a little playful, instead of the generic yoga-studio language the original site leaned on.</p>
-      </div>
-    </div>
-    <div style="margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
-      <a href="https://zudayoga.com" target="_blank" rel="noopener" class="btn-primary">View Live Site <span>&rarr;</span></a>
+    <div class="case-features-grid">
+      <div class="case-feature"><span class="case-feature-name">Class schedule</span><span class="case-feature-desc">Mindbody schedule and booking widgets embedded so live class times stay in sync.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Memberships</span><span class="case-feature-desc">Three-tier pricing (Intro, Monthly, Annual) with a clean signup flow.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Workshops & retreats</span><span class="case-feature-desc">Workshop calendar, Costa Rica retreat listing, and event detail pages.</span></div>
+      <div class="case-feature"><span class="case-feature-name">SEO</span><span class="case-feature-desc">On-page work moved CTR from 1.5% to 3.9% and search position from 19 to 4.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Custom CSS</span><span class="case-feature-desc">Heavy styling on top of Squarespace so the site doesn't read as a stock template.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Self-managed</span><span class="case-feature-desc">Built so the studio team can update events, blog posts, and classes themselves.</span></div>
     </div>
   </div>
 </section>
