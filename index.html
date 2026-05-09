@@ -148,12 +148,38 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
   align-items: center;
 }
 .hero-portrait {
+  position: relative;
   width: 100%; max-width: 480px;
   justify-self: center;
 }
 .hero-portrait img {
   width: 100%; height: auto; display: block;
+  position: relative; z-index: 1;
 }
+.hero-pill {
+  position: absolute;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  box-shadow: 0 14px 30px -14px rgba(17, 17, 17, 0.22);
+  z-index: 2;
+  white-space: nowrap;
+}
+.hero-pill.is-accent {
+  background: linear-gradient(135deg, var(--peach-1), var(--peach-2));
+  color: var(--cream);
+  border-color: transparent;
+}
+.hero-pill-1 { top: 6%; left: -18%; transform: rotate(-5deg); }
+.hero-pill-2 { top: 38%; right: -16%; transform: rotate(4deg); }
+.hero-pill-3 { bottom: 14%; left: -14%; transform: rotate(3deg); }
+.hero-pill-4 { bottom: -4%; right: -6%; transform: rotate(-4deg); }
 .hero-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem; letter-spacing: 0.16em;
@@ -669,6 +695,7 @@ footer {
   .hero { padding: 4rem 1.25rem 4rem; }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .hero-portrait { max-width: 320px; justify-self: center; }
+  .hero-pill { display: none; }
   .work-item, .work-item.reverse {
     grid-template-columns: 1fr; gap: 1.5rem;
   }
@@ -718,6 +745,10 @@ footer {
     </div>
     <div class="hero-portrait">
       <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_960/v1778297059/Untitled_design_16_copmsi.png" alt="Michelle Tilton, founder of One Eleven Studio">
+      <span class="hero-pill hero-pill-1">Brand identity</span>
+      <span class="hero-pill hero-pill-2 is-accent">Web design</span>
+      <span class="hero-pill hero-pill-3">Marketing strategy</span>
+      <span class="hero-pill hero-pill-4">Copy &amp; content</span>
     </div>
   </div>
 </section>
