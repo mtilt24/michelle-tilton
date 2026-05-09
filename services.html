@@ -35,127 +35,154 @@
   </div>
 </section>
 
-<!-- WEBSITE BUILDS -->
-<section class="svc-row">
-  <div class="svc-row-inner">
-    <div class="svc-row-content">
-      <h3>Website Design &amp; Development</h3>
-      <p>From Squarespace to fully custom-coded sites, I handle everything: design, copywriting, branding, development, and SEO. You get a site that looks and performs the way your business deserves.</p>
-      <p>I build on Squarespace, Squarespace with custom CSS/JS, or fully custom code with no platform limitations. Every build includes mobile optimization and SEO foundations.</p>
-      <ul class="svc-row-list">
-        <li>Squarespace builds</li>
-        <li>Custom HTML/CSS/JS sites</li>
-        <li>Copywriting included</li>
-        <li>Image sourcing</li>
-        <li>Branding integration</li>
-        <li>Mobile-first responsive</li>
-        <li>SEO setup &amp; optimization</li>
-        <li>Advanced interactions</li>
-      </ul>
-      <p>See it in action: <a href="work.html">Nor-Cal Pool Productions</a> (custom code), <a href="work.html">Zuda Yoga</a> (Squarespace + CSS), <a href="work.html">Live Like Keira</a> (Squarespace).</p>
-    </div>
-    <aside class="svc-row-cta-box">
-      <div class="label">Get started</div>
-      <p>Every project is scoped to your needs. Free 30-minute consultation, no pressure, no upsells.</p>
-      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
-    </aside>
+<!-- HOW I WORK -->
+<style>
+  .svc-intro { padding: 64px 32px 24px; background: var(--paper); }
+  .svc-intro-inner { max-width: 880px; margin: 0 auto; }
+  .svc-intro p { font-family: 'Onest', sans-serif; font-size: 1.15rem; line-height: 1.65; color: var(--ink); }
+  .svc-tier { padding: 72px 32px; background: var(--paper); border-top: 1px solid var(--border); }
+  .svc-tier.alt { background: var(--cream); }
+  .svc-tier-inner { max-width: 1400px; margin: 0 auto; }
+  .svc-tier-head { margin-bottom: 40px; display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+  .svc-tier-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 600; }
+  .svc-tier-head h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px, 3.4vw, 44px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; color: var(--ink); margin: 0; }
+  .svc-tier-head p { font-family: 'Onest', sans-serif; font-size: 1rem; color: var(--muted); max-width: 56ch; margin: 4px 0 0; line-height: 1.6; flex-basis: 100%; }
+  .svc-cards { display: grid; gap: 32px; }
+  .svc-cards.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .svc-cards.cols-1 { grid-template-columns: 1fr; max-width: 880px; }
+  .svc-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; }
+  .svc-card.dark { background: var(--ink); color: white; border-color: var(--ink); }
+  .svc-card.dark .svc-card-list li { color: rgba(255,255,255,0.85); }
+  .svc-card.dark .svc-card-list li::before { background: var(--sunset-2); }
+  .svc-card.dark .svc-card-examples { color: rgba(255,255,255,0.6); }
+  .svc-card.dark .svc-card-examples a { color: var(--sunset-1); }
+  .svc-card h3 { font-family: 'Onest', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; color: inherit; }
+  .svc-card-desc { font-family: 'Onest', sans-serif; font-size: 1rem; line-height: 1.6; color: var(--muted); margin: 0; }
+  .svc-card.dark .svc-card-desc { color: rgba(255,255,255,0.75); }
+  .svc-card-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; }
+  .svc-card-list li { position: relative; padding-left: 16px; font-size: 0.92rem; line-height: 1.5; color: var(--ink); }
+  .svc-card-list li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--sunset-2); }
+  .svc-card-examples { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--muted); margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+  .svc-card.dark .svc-card-examples { border-top-color: rgba(255,255,255,0.1); }
+  .svc-card-examples a { color: var(--sunset-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .svc-card-examples a:hover { border-bottom-color: var(--sunset-2); }
+  @media (max-width: 880px) {
+    .svc-tier { padding: 56px 24px; }
+    .svc-intro { padding: 48px 24px 16px; }
+    .svc-cards.cols-2 { grid-template-columns: 1fr; }
+    .svc-card-list { grid-template-columns: 1fr; }
+  }
+</style>
+<section class="svc-intro">
+  <div class="svc-intro-inner">
+    <p>Every project is scoped to what you actually need: no padded packages, no surprise invoices, no upsells. Discounts for nonprofits and small businesses. The free 30 minute call is the start of every engagement, paid or not.</p>
   </div>
 </section>
 
-<!-- WEBSITE MAINTENANCE -->
-<section class="svc-row alt">
-  <div class="svc-row-inner">
-    <div class="svc-row-content">
-      <h3>Website Maintenance</h3>
-      <p>Your site shouldn't go stale after launch. I offer ongoing maintenance plans to keep your content fresh, your site running smoothly, and your strategy evolving.</p>
-      <ul class="svc-row-list">
-        <li>Content updates and edits</li>
-        <li>New landing pages</li>
-        <li>New sections</li>
-        <li>Ongoing strategy</li>
-        <li>SEO optimization</li>
-        <li>Monthly reporting</li>
-      </ul>
+<!-- BUILD IT -->
+<section class="svc-tier">
+  <div class="svc-tier-inner">
+    <div class="svc-tier-head">
+      <span class="svc-tier-num">01 / Build it</span>
+      <h2>The foundation: a brand, a website, both.</h2>
+      <p>Big-ticket projects that set up everything else. Most clients start here.</p>
     </div>
-    <aside class="svc-row-cta-box">
-      <div class="label">Keep it fresh</div>
-      <p>Pricing scales with how often you need updates. Bundle with retainers for a discount.</p>
-      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
-    </aside>
+    <div class="svc-cards cols-2">
+      <div class="svc-card">
+        <h3>Website design &amp; development</h3>
+        <p class="svc-card-desc">From Squarespace to fully custom-coded. Design, copy, branding integration, mobile-first responsive, SEO foundations, all included.</p>
+        <ul class="svc-card-list">
+          <li>Squarespace builds</li>
+          <li>Custom HTML / CSS / JS</li>
+          <li>Copywriting included</li>
+          <li>Image direction</li>
+          <li>Mobile-first responsive</li>
+          <li>SEO setup</li>
+          <li>Advanced interactions</li>
+          <li>Brand integration</li>
+        </ul>
+        <div class="svc-card-examples">In action: <a href="projects/norcal.html">Nor-Cal</a> · <a href="projects/aurora-vida.html">Aurora Vida</a> · <a href="projects/zuda.html">Zuda Yoga</a></div>
+      </div>
+      <div class="svc-card">
+        <h3>Brand identity</h3>
+        <p class="svc-card-desc">Logo, color, typography, voice, and a documented brand guide so the system holds up across web, print, and proposals.</p>
+        <ul class="svc-card-list">
+          <li>Logo design</li>
+          <li>Color palette system</li>
+          <li>Typography pairing</li>
+          <li>Voice direction</li>
+          <li>Iconography</li>
+          <li>Social templates</li>
+          <li>Brand style guide</li>
+          <li>Vector deliverables</li>
+        </ul>
+        <div class="svc-card-examples">In action: <a href="projects/brand-aurora.html">Aurora Vida</a> · <a href="projects/brand-acf.html">ACF</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- BRAND IDENTITY -->
-<section class="svc-row">
-  <div class="svc-row-inner">
-    <div class="svc-row-content">
-      <h3>Brand Identity</h3>
-      <p>Your brand is more than a logo. It's how people feel about your business before they ever talk to you. I build cohesive brand systems that give you confidence in every touchpoint, from business cards to social media.</p>
-      <ul class="svc-row-list">
-        <li>Logo design &amp; concepts</li>
-        <li>Multiple revision rounds</li>
-        <li>Color palette systems</li>
-        <li>Typography pairing</li>
-        <li>Brand style guides</li>
-        <li>Iconography</li>
-        <li>Social templates</li>
-        <li>Full brand documentation</li>
-      </ul>
+<!-- RUN IT -->
+<section class="svc-tier alt">
+  <div class="svc-tier-inner">
+    <div class="svc-tier-head">
+      <span class="svc-tier-num">02 / Run it</span>
+      <h2>Ongoing work that keeps the lights on.</h2>
+      <p>For brands that need a senior strategist on call without hiring full-time.</p>
     </div>
-    <aside class="svc-row-cta-box">
-      <div class="label">Build the brand</div>
-      <p>From a single logo to a full brand identity system. Scoped to fit your stage.</p>
-      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
-    </aside>
+    <div class="svc-cards cols-2">
+      <div class="svc-card">
+        <h3>Marketing retainers</h3>
+        <p class="svc-card-desc">Email, social, content, and strategy under one monthly relationship. Senior-level work at small-business pricing. Cancel anytime.</p>
+        <ul class="svc-card-list">
+          <li>Email campaigns</li>
+          <li>List management</li>
+          <li>Social management</li>
+          <li>Content creation</li>
+          <li>Captions &amp; graphics</li>
+          <li>Combined packages</li>
+          <li>Full-service tier</li>
+          <li>Monthly reporting</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <h3>Website maintenance</h3>
+        <p class="svc-card-desc">Keep the site fresh, accurate, and indexed. Pricing scales with how often you need updates. Bundle with a retainer for a discount.</p>
+        <ul class="svc-card-list">
+          <li>Content updates</li>
+          <li>New landing pages</li>
+          <li>New sections</li>
+          <li>Ongoing strategy</li>
+          <li>SEO optimization</li>
+          <li>Monthly reporting</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- MARKETING RETAINERS -->
-<section class="svc-row alt">
-  <div class="svc-row-inner">
-    <div class="svc-row-content">
-      <h3>Marketing Retainers</h3>
-      <p>Ongoing marketing that actually moves the needle. I handle the strategy, the content, the design, and the reporting so you can focus on running your business.</p>
-      <ul class="svc-row-list">
-        <li>Email marketing campaigns</li>
-        <li>Email copy &amp; design</li>
-        <li>List management</li>
-        <li>Social media management</li>
-        <li>Content creation</li>
-        <li>Captions &amp; graphics</li>
-        <li>Combined social + email packages</li>
-        <li>Full service (social, email, video, strategy, site updates)</li>
-        <li>Monthly reporting on every retainer</li>
-      </ul>
+<!-- ADD TO IT -->
+<section class="svc-tier">
+  <div class="svc-tier-inner">
+    <div class="svc-tier-head">
+      <span class="svc-tier-num">03 / Add to it</span>
+      <h2>One thing, scoped tight.</h2>
+      <p>For specific needs that don't require a full package.</p>
     </div>
-    <aside class="svc-row-cta-box">
-      <div class="label">Hire your fractional CMO</div>
-      <p>Senior-level strategy at small-business prices. Cancel anytime.</p>
-      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
-    </aside>
-  </div>
-</section>
-
-<!-- A LA CARTE -->
-<section class="svc-row">
-  <div class="svc-row-inner">
-    <div class="svc-row-content">
-      <h3>A La Carte</h3>
-      <p>Need something specific without a full package? I offer individual services that can be added to any project or booked on their own.</p>
-      <ul class="svc-row-list">
-        <li>Copywriting (per page or asset)</li>
-        <li>Image sourcing</li>
-        <li>One-off email campaigns</li>
-        <li>Social media graphics</li>
-        <li>Strategy sessions</li>
-        <li>Rush delivery available</li>
-      </ul>
+    <div class="svc-cards cols-1">
+      <div class="svc-card dark">
+        <h3>A la carte</h3>
+        <p class="svc-card-desc">Single services, scoped tight, quick turnaround. Add to any project or book on its own.</p>
+        <ul class="svc-card-list">
+          <li>Copywriting (per page or asset)</li>
+          <li>Image direction</li>
+          <li>One-off email campaigns</li>
+          <li>Social media graphics</li>
+          <li>Strategy sessions</li>
+          <li>Rush delivery available</li>
+        </ul>
+      </div>
     </div>
-    <aside class="svc-row-cta-box">
-      <div class="label">Just one thing</div>
-      <p>Don't need the full enchilada? Book a single service. Quick turnaround.</p>
-      <a href="contact.html" class="btn-primary">Book a call <span>&rarr;</span></a>
-    </aside>
   </div>
 </section>
 
