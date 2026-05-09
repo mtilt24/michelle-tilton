@@ -59,9 +59,9 @@
   .svc-card h3 { font-family: 'Onest', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.015em; margin: 0; color: inherit; }
   .svc-card-desc { font-family: 'Onest', sans-serif; font-size: 1rem; line-height: 1.6; color: var(--muted); margin: 0; }
   .svc-card.dark .svc-card-desc { color: rgba(255,255,255,0.75); }
-  .svc-card-list { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; }
-  .svc-card-list li { position: relative; padding-left: 16px; font-size: 0.92rem; line-height: 1.5; color: var(--ink); }
-  .svc-card-list li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--sunset-2); }
+  .svc-card-list { list-style: disc; padding-left: 1.2em; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .svc-card-list li { font-size: 0.92rem; line-height: 1.5; color: var(--ink); padding-left: 4px; }
+  .svc-card-list li::marker { color: var(--sunset-2); }
   .svc-card-examples { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--muted); margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
   .svc-card.dark .svc-card-examples { border-top-color: rgba(255,255,255,0.1); }
   .svc-card-examples a { color: var(--sunset-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
