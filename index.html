@@ -143,41 +143,8 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
 }
 .hero-inner {
   max-width: 1400px; margin: 0 auto;
-  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: 4rem;
-  align-items: center;
-}
-.hero-portrait {
-  position: relative;
-  width: 100%; max-width: 460px;
-  aspect-ratio: 1 / 1;
-  justify-self: end;
-}
-.hero-portrait::before {
-  content: '';
-  position: absolute;
-  width: 116%; height: 116%;
-  bottom: 0; left: -8%;
-  background: linear-gradient(135deg, var(--peach-1), var(--peach-2));
-  border-radius: 50%;
-  z-index: 0;
-}
-.hero-portrait::after {
-  content: '';
-  position: absolute;
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  border: 1px dashed var(--peach-2);
-  top: 4%; left: -18px;
-  z-index: 0;
-  opacity: 0.55;
-}
-.hero-portrait img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
-  display: block;
+  display: grid; grid-template-columns: 1fr;
+  gap: 3rem;
 }
 .hero-eyebrow {
   font-family: 'JetBrains Mono', monospace;
@@ -678,8 +645,6 @@ footer {
   .nav-links.open .nav-cta { display: inline-flex; align-self: flex-start; }
   section { padding: 4.5rem 1.25rem; }
   .hero { padding: 4rem 1.25rem 4rem; }
-  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-portrait { max-width: 320px; justify-self: center; }
   .work-item, .work-item.reverse {
     grid-template-columns: 1fr; gap: 1.5rem;
   }
@@ -725,9 +690,6 @@ footer {
         <a href="contact.html" class="btn btn-primary">Book a discovery call &rarr;</a>
         <a href="work.html" class="btn-link">See selected work &rarr;</a>
       </div>
-    </div>
-    <div class="hero-portrait">
-      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_900/v1778294890/Untitled_design_15_qhlihl.png" alt="Michelle Tilton, founder of One Eleven Studio">
     </div>
   </div>
 </section>
