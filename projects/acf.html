@@ -54,28 +54,23 @@
   </div>
 </section>
 
-<!-- THE STORY -->
+<!-- THE WORK -->
 <style>
-  .case-story { padding: 96px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
-  .case-story-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-  .case-story-block-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; margin-bottom: 14px; display: inline-flex; align-items: center; gap: 10px; }
-  .case-story-block-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
-  .case-story-block h2 { font-family: 'Onest', sans-serif; font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; margin-bottom: 18px; }
-  .case-story-block p { font-family: 'Onest', sans-serif; font-size: 1.05rem; line-height: 1.65; color: var(--ink); font-weight: 400; }
-  @media (max-width: 880px) { .case-story { padding: 64px 24px; } .case-story-inner { grid-template-columns: 1fr; gap: 48px; } }
+  .case-work { padding: 96px 48px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .case-work-inner { max-width: 760px; margin: 0 auto; }
+  .case-work-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 10px; }
+  .case-work-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .case-work h2 { font-family: 'Onest', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; color: var(--ink); line-height: 1.05; margin-bottom: 28px; }
+  .case-work p { font-family: 'Onest', sans-serif; font-size: 1.1rem; line-height: 1.65; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
+  .case-work p:last-child { margin-bottom: 0; }
+  @media (max-width: 720px) { .case-work { padding: 64px 24px; } .case-work h2 { margin-bottom: 20px; } }
 </style>
-<section class="case-story">
-  <div class="case-story-inner">
-    <div class="case-story-block">
-      <div class="case-story-block-label">The brief</div>
-      <h2>A tax ID, a mission, and a fundraiser already on the calendar.</h2>
-      <p>Two founders walked in ready to support foster youth aging out of the system, with no website, no logo, and no brand to speak of. They needed something that could walk into donor meetings, hold its own next to bigger nonprofits, and convert curious visitors into people who actually give.</p>
-    </div>
-    <div class="case-story-block">
-      <div class="case-story-block-label">What I delivered</div>
-      <h2>A brand from zero, then a site to put it on.</h2>
-      <p>Logo, color system, typography, voice, and photography direction, designed from scratch. Then a custom-coded multi-page website with Stripe donations and event ticketing live the day it launched. The May fundraiser ran through it without a hitch, and inquiries tripled in the first month.</p>
-    </div>
+<section class="case-work">
+  <div class="case-work-inner">
+    <div class="case-work-label">The work</div>
+    <h2>A brand from zero, then a site to put it on.</h2>
+    <p>Two founders walked in ready to support foster youth aging out of the system, with no website, no logo, and no brand. They needed something that could walk into donor meetings, hold its own next to bigger nonprofits, and turn curious visitors into people who actually give.</p>
+    <p>The work started from scratch: logo, color system, typography, voice, and photography direction. From there, a custom-coded multi-page website with Stripe-powered donations and event ticketing, live the day the site launched, in time for the May fundraiser.</p>
   </div>
 </section>
 
@@ -162,13 +157,23 @@
   </div>
 </section>
 
-<!-- INLINE TESTIMONIAL -->
-<section class="case-quote-inline">
-  <figure class="case-quote-inline-inner">
-    <p>Michelle didn't just rebuild our site, she helped us figure out what we actually do and who we're actually for. <em>Our inquiries tripled in the first month after launch.</em></p>
-    <figcaption>
-      <span class="case-quote-inline-name">Nicole Roeseler</span>
-      <span class="case-quote-inline-role">Executive Director · ACF Inc.</span>
+<!-- PULL QUOTE -->
+<style>
+  .case-pull-quote { padding: 112px 48px; background: var(--ink); color: var(--paper); position: relative; overflow: hidden; }
+  .case-pull-quote::before { content: '"'; position: absolute; top: -3rem; left: 50%; transform: translateX(-50%); font-family: 'Onest', sans-serif; font-weight: 800; font-style: italic; font-size: 28rem; line-height: 1; color: rgba(252, 164, 24, 0.06); pointer-events: none; }
+  .case-pull-quote-inner { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; text-align: center; }
+  .case-pull-quote-text { font-family: 'Onest', sans-serif; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.45; font-weight: 500; letter-spacing: -0.015em; color: var(--paper); text-wrap: balance; margin-bottom: 32px; }
+  .case-pull-quote-attr { display: inline-flex; flex-direction: column; gap: 4px; }
+  .case-pull-quote-name { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--paper); }
+  .case-pull-quote-role { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(252, 247, 242, 0.55); }
+  @media (max-width: 720px) { .case-pull-quote { padding: 72px 24px; } .case-pull-quote::before { font-size: 16rem; top: -1.5rem; } }
+</style>
+<section class="case-pull-quote">
+  <figure class="case-pull-quote-inner">
+    <p class="case-pull-quote-text">"Michelle was incredibly knowledgeable and brought ideas to the table I hadn't even considered. She took all the stress out of the process, the result was worth every penny."</p>
+    <figcaption class="case-pull-quote-attr">
+      <span class="case-pull-quote-name">Nicole Roeseler</span>
+      <span class="case-pull-quote-role">Executive Director · ACF Inc.</span>
     </figcaption>
   </figure>
 </section>
