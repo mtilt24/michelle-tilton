@@ -250,10 +250,10 @@ h2 {
   pointer-events: none;
 }
 .testimonial-inner {
-  max-width: 1400px; margin: 0 auto;
+  max-width: 880px; margin: 0 auto;
   position: relative; z-index: 1;
-  display: grid; grid-template-columns: 5fr 7fr;
-  gap: 5rem; align-items: center;
+  display: flex; flex-direction: column;
+  gap: 1.75rem;
 }
 .testimonial-eyebrow {
   font-family: 'JetBrains Mono', monospace;
@@ -266,11 +266,12 @@ h2 {
   content: ''; width: 24px; height: 1px; background: var(--peach-1);
 }
 .testimonial-lead {
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  line-height: 0.9;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.05;
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.025em;
   text-wrap: balance;
+  margin-bottom: 0.5rem;
 }
 .testimonial-quote {
   font-size: clamp(1.1rem, 1.5vw, 1.35rem);
@@ -658,8 +659,6 @@ footer {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-photo-wrap { max-width: 380px; margin: 0 auto; }
-  .testimonial-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: left; }
-  .testimonial-lead { font-size: clamp(2.8rem, 11vw, 4rem); }
 }
 @media (max-width: 720px) {
   .nav-links { display: none; }
@@ -734,16 +733,12 @@ footer {
 <!-- TESTIMONIAL FEATURE -->
 <section class="testimonial">
   <div class="testimonial-inner">
-    <div>
-      <div class="testimonial-eyebrow">A note from a client</div>
-      <p class="testimonial-lead">Worth every <span class="accent">penny.</span></p>
-    </div>
-    <div>
-      <p class="testimonial-quote">"I had no clue how to get a website started for my nonprofit until I was referred to Michelle. I am so grateful I was. She was incredibly knowledgeable, helpful, and brought so many great ideas to the table that I hadn't even considered. She was very thorough, easy to work with, and took all the stress out of the process. Michelle was absolutely worth every penny for the professional result and peace of mind she provided. I highly recommend her to anyone looking for a web designer."</p>
-      <div class="testimonial-attr">
-        <strong>Nicole Roeseler</strong>
-        <a href="https://www.advancingcommunitiesforward.org" target="_blank" rel="noopener">Advancing Communities Forward</a>
-      </div>
+    <div class="testimonial-eyebrow">A note from a client</div>
+    <p class="testimonial-lead">Worth every <span class="accent">penny.</span></p>
+    <p class="testimonial-quote">"I had no clue how to get a website started for my nonprofit until I was referred to Michelle. I am so grateful I was. She was incredibly knowledgeable, helpful, and brought so many great ideas to the table that I hadn't even considered. She was very thorough, easy to work with, and took all the stress out of the process. Michelle was absolutely worth every penny for the professional result and peace of mind she provided. I highly recommend her to anyone looking for a web designer."</p>
+    <div class="testimonial-attr">
+      <strong>Nicole Roeseler</strong>
+      <a href="https://www.advancingcommunitiesforward.org" target="_blank" rel="noopener">Advancing Communities Forward</a>
     </div>
   </div>
 </section>
