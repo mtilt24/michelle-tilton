@@ -155,29 +155,28 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
 }
 .hero-portrait::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute;
+  width: 88%; height: 88%;
+  bottom: -6%; right: -6%;
   background: linear-gradient(135deg, var(--peach-1), var(--peach-2));
   border-radius: 50%;
   z-index: 0;
-  transform: rotate(-4deg);
 }
 .hero-portrait::after {
   content: '';
   position: absolute;
-  width: 64px; height: 64px;
+  width: 72px; height: 72px;
   border-radius: 50%;
   border: 1px dashed var(--peach-2);
-  bottom: -12px; left: -18px;
+  top: 4%; left: -18px;
   z-index: 0;
   opacity: 0.55;
 }
 .hero-portrait img {
-  position: absolute;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 105%;
-  height: auto;
+  position: relative;
   z-index: 1;
+  width: 100%;
+  height: auto;
   display: block;
 }
 .hero-eyebrow {
@@ -727,7 +726,7 @@ footer {
       </div>
     </div>
     <div class="hero-portrait">
-      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_900/v1778293822/Untitled_design_14_ig2ovt.png" alt="Michelle Tilton, founder of One Eleven Studio">
+      <img src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_900/v1778294890/Untitled_design_15_qhlihl.png" alt="Michelle Tilton, founder of One Eleven Studio">
     </div>
   </div>
 </section>
