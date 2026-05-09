@@ -347,11 +347,12 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
    ========================================== */
 
 /* ----- Page hero (smaller than home hero) ----- */
-.page-hero { background: var(--paper); padding: 96px 48px 56px; border-bottom: 1px solid var(--border); }
+.page-hero { background: var(--paper); padding: 64px 48px 40px; border-bottom: 1px solid var(--border); }
 .page-hero-inner { max-width: 1400px; margin: 0 auto; }
 .page-hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; display: inline-flex; align-items: center; gap: 12px; }
 .page-hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--muted); }
-.page-hero h1 { font-size: clamp(48px, 7vw, 96px); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; max-width: 14ch; margin-bottom: 20px; }
+.page-hero:not(.case) .page-hero-eyebrow { display: none; }
+.page-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; max-width: 18ch; margin-bottom: 18px; }
 .page-hero h1 .sunset { background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .page-hero-sub { font-size: 19px; color: var(--muted); max-width: 620px; line-height: 1.55; }
 
