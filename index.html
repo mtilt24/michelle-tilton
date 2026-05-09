@@ -143,8 +143,41 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
 }
 .hero-inner {
   max-width: 1400px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr;
-  gap: 3rem;
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+.hero-mark {
+  position: relative;
+  justify-self: center;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem;
+}
+.hero-mark-num {
+  font-family: 'Onest', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(9rem, 20vw, 20rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  background: linear-gradient(135deg, var(--peach-1), var(--peach-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.05em;
+}
+.hero-mark-rule {
+  width: 64px; height: 2px;
+  background: linear-gradient(90deg, var(--peach-1), var(--peach-2));
+  border-radius: 2px;
+}
+.hero-mark-cap {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.7;
 }
 .hero-eyebrow {
   font-family: 'JetBrains Mono', monospace;
@@ -659,6 +692,8 @@ footer {
   .nav-links.open .nav-cta { display: inline-flex; align-self: flex-start; }
   section { padding: 4.5rem 1.25rem; }
   .hero { padding: 4rem 1.25rem 4rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-mark { display: none; }
   .work-item, .work-item.reverse {
     grid-template-columns: 1fr; gap: 1.5rem;
   }
@@ -705,6 +740,11 @@ footer {
         <a href="contact.html" class="btn btn-primary">Book a discovery call &rarr;</a>
         <a href="work.html" class="btn-link">See selected work &rarr;</a>
       </div>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <span class="hero-mark-num">111</span>
+      <span class="hero-mark-rule"></span>
+      <span class="hero-mark-cap">One Eleven Studio</span>
     </div>
   </div>
 </section>
