@@ -138,6 +138,46 @@
   </div>
 </section>
 
+<!-- SITE FEATURES -->
+<style>
+  .case-features { padding: 80px 48px; background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .case-features-inner { max-width: 1100px; margin: 0 auto; }
+  .case-features-head { text-align: center; margin-bottom: 40px; }
+  .case-features-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .case-features-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .case-features-title { font-family: 'Onest', sans-serif; font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+  .case-features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; background: var(--paper); overflow: hidden; }
+  .case-feature { display: flex; flex-direction: column; gap: 6px; padding: 24px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .case-feature:nth-child(2n) { border-right: none; }
+  .case-feature:nth-last-child(-n+2) { border-bottom: none; }
+  .case-feature-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sunset-2); font-weight: 600; }
+  .case-feature-desc { font-family: 'Onest', sans-serif; font-size: 0.95rem; line-height: 1.5; color: var(--ink); font-weight: 400; }
+  @media (max-width: 720px) {
+    .case-features { padding: 56px 24px; }
+    .case-features-grid { grid-template-columns: 1fr; }
+    .case-feature { border-right: none; }
+    .case-feature:not(:last-child) { border-bottom: 1px solid var(--border); }
+    .case-feature:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .case-feature:last-child { border-bottom: none; }
+  }
+</style>
+<section class="case-features">
+  <div class="case-features-inner">
+    <div class="case-features-head">
+      <div class="case-features-label">What's on the site</div>
+      <h2 class="case-features-title">Built lean, set up to last.</h2>
+    </div>
+    <div class="case-features-grid">
+      <div class="case-feature"><span class="case-feature-name">Donations</span><span class="case-feature-desc">Stripe-powered one-time and recurring giving, live the day the site launched.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Event ticketing</span><span class="case-feature-desc">Stripe checkout for fundraisers and gatherings, no third-party platform fee.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Contact form</span><span class="case-feature-desc">Submissions land directly in the team's inbox with spam protection built in.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Motion design</span><span class="case-feature-desc">Scroll-triggered reveals and gentle animation that build momentum without distracting.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Mobile-first build</span><span class="case-feature-desc">Designed for the phone first, since most donors land on the site from one.</span></div>
+      <div class="case-feature"><span class="case-feature-name">Hosting</span><span class="case-feature-desc">Hand-coded HTML, CSS, and JS on Netlify with images served through Cloudinary.</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- LIVE PREVIEW -->
 <section class="case-screenshot">
   <div class="case-screenshot-inner">
@@ -146,10 +186,10 @@
         <div class="site-preview-dots"><span></span><span></span><span></span></div>
         <span class="site-preview-url">advancingcommunitiesforward.com</span>
       </div>
-      <a href="https://advancingcommunitiesforward.com" target="_blank" rel="noopener" class="site-preview-frame">
-        <img class="site-preview-img" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1800/v1777356555/Image_4-27-26_at_11.07_PM_zds2jb.jpg" alt="Advancing Communities Forward homepage" loading="lazy">
-        <span class="site-preview-clickhint">Open live site &rarr;</span>
-      </a>
+      <div class="site-preview-frame">
+        <iframe src="https://advancingcommunitiesforward.com" title="Advancing Communities Forward live website" loading="lazy"></iframe>
+        <span class="site-preview-scrollhint">Scroll &darr;</span>
+      </div>
     </div>
     <div style="text-align: center; margin-top: 32px;">
       <a href="https://advancingcommunitiesforward.com" target="_blank" rel="noopener" class="btn-primary">View Full Site <span>&rarr;</span></a>
