@@ -228,7 +228,6 @@ h1 .sunset {
   font-size: 14px; padding: 10px 0; border-top: 1px solid var(--border);
   padding-left: 24px; position: relative; line-height: 1.45;
 }
-.svc-card-list li::before { content: '\2192'; position: absolute; left: 0; top: 10px; color: var(--sunset-2); font-weight: 500; }
 .svc-card-cta {
   font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--ink); font-weight: 500;
@@ -348,7 +347,7 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 
 /* ----- Page hero (smaller than home hero) ----- */
 .page-hero { background: var(--paper); padding: 64px 32px 40px; border-bottom: 1px solid var(--border); }
-.page-hero-inner { max-width: 1400px; margin: 0 auto; }
+.page-hero-inner { max-width: 1400px; margin: 0 auto;; padding: 0 48px; }
 .page-hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; display: inline-flex; align-items: center; gap: 12px; }
 .page-hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--muted); }
 .page-hero:not(.case) .page-hero-eyebrow { display: none; }
@@ -359,7 +358,7 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 /* ----- Two-column section ----- */
 .two-col { padding: 80px 32px; background: var(--paper); }
 .two-col.alt { background: var(--cream); }
-.two-col-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: start; }
+.two-col-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: start;; padding: 0 48px; }
 .two-col-text p { font-size: 18px; line-height: 1.7; margin-bottom: 18px; color: var(--ink); }
 .two-col-text p.lead { font-size: 22px; line-height: 1.5; }
 .two-col-sidebar { background: var(--paper); border: 1px solid var(--border); border-radius: 16px; padding: 28px; position: sticky; top: 100px; }
@@ -372,7 +371,7 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 .page-section { padding: 80px 32px; background: var(--paper); }
 .page-section.alt { background: var(--cream); }
 .page-section.dark { background: var(--ink); color: white; }
-.page-section-inner { max-width: 1400px; margin: 0 auto; }
+.page-section-inner { max-width: 1400px; margin: 0 auto;; padding: 0 48px; }
 .page-section-header { margin-bottom: 48px; max-width: 720px; }
 .page-section-header h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.02; margin-bottom: 16px; }
 .page-section-header p { font-size: 18px; color: var(--muted); line-height: 1.6; }
@@ -404,7 +403,7 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 /* ----- Service detail rows (services page) ----- */
 .svc-row { padding: 64px 32px; border-bottom: 1px solid var(--border); background: var(--paper); }
 .svc-row.alt { background: var(--cream); }
-.svc-row-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr; gap: 64px; align-items: start; }
+.svc-row-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr; gap: 64px; align-items: start;; padding: 0 48px; }
 .svc-row-content h3 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; }
 .svc-row-content p { font-size: 17px; line-height: 1.7; margin-bottom: 16px; color: var(--ink); }
 .svc-row-list { list-style: none; margin: 16px 0; padding: 0; columns: 2; column-gap: 32px; }
