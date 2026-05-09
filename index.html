@@ -633,17 +633,20 @@ footer {
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-photo-wrap { max-width: 380px; margin: 0 auto; }
 }
+.work-tag { display: none; }
 @media (max-width: 720px) {
   section { padding: 4.5rem 1.25rem; }
-  .hero { padding: 4rem 1.25rem 4rem; }
-  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-portrait { max-width: 320px; justify-self: center; transform: none; }
+  .hero { padding: 3.5rem 1.25rem 3rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-inner > div:first-child { padding-left: 0; }
+  .hero-portrait { display: none; }
   .hero-pill { display: none; }
   .work-item, .work-item.reverse {
     grid-template-columns: 1fr; gap: 1.5rem;
   }
   .work-item.reverse .work-image { order: 0; }
   .work-list { gap: 4rem; }
+  .testimonial-inner { padding: 0; }
   .testimonial-grid { grid-template-columns: 1fr; }
   .audience-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }

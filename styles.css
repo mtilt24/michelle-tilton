@@ -55,6 +55,7 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; font-weight: 800; letter-
   max-width: 1400px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px 32px;
+  position: relative;
 }
 .logo, .nav-logo {
   font-family: 'Onest', sans-serif;
@@ -465,7 +466,13 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 
 @media (max-width: 600px) {
   .page-hero { padding: 60px 20px 40px; }
-  .two-col, .page-section, .svc-row, .projects-section, .contact-section, .project-filter { padding-left: 20px; padding-right: 20px; }
+  .two-col, .page-section, .svc-row, .projects-section, .contact-section, .project-filter, .cta { padding-left: 20px; padding-right: 20px; }
+  .page-hero-inner, .page-section-inner, .two-col-inner, .svc-row-inner, .contact-section-inner, .case-screenshot-inner, .case-pull-quote-inner, .case-summary-inner, .cta-final-inner, .cta-inner, .svc-tier-inner, .svc-intro-inner, .case-work-inner, .brand-glance-inner, .case-features-inner, .about-bio-inner { padding-left: 0; padding-right: 0; }
+  .projects-grid { padding-left: 0; padding-right: 0; }
+  .cta { padding: 80px 20px; }
+  .case-work, .brand-glance, .case-features, .case-pull-quote, .svc-tier, .svc-intro, .about-bio { padding-left: 20px; padding-right: 20px; }
+  footer { padding: 32px 20px; }
+  .footer-inner { padding-left: 0; padding-right: 0; }
   .card-grid.cols-4, .card-grid.cols-3, .card-grid.cols-2 { grid-template-columns: 1fr; }
   .marquee-track span { font-size: 22px; }
   .marquee-track { gap: 36px; }
