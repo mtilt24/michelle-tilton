@@ -397,7 +397,7 @@ footer { padding: 36px 48px; background: var(--paper); border-top: 1px solid var
 .project-card.hidden { display: none; }
 .project-card-img { aspect-ratio: 16 / 10; overflow: hidden; background: var(--cream); }
 .project-card.full .project-card-img { aspect-ratio: 16 / 9; }
-.project-card-img img, .project-card-img video { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.5s; }
+.project-card-img img, .project-card-img video { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform 0.5s; padding: 16px; }
 .project-card:hover .project-card-img img { transform: scale(1.03); }
 .project-card-body { position: relative; padding: 28px 32px 32px; }
 .project-card-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sunset-2); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: gap 0.2s, border-color 0.2s; }
