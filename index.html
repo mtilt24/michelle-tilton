@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
 :root {
   --cream: #faf7f2;
@@ -84,55 +85,6 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
   padding-bottom: 2px;
 }
 .btn-link:hover { gap: 0.7rem; border-bottom-color: var(--peach-2); }
-
-/* ----- nav ----- */
-.nav-wrap {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(250, 247, 242, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.nav {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 2rem;
-}
-.logo {
-  font-family: 'Onest', sans-serif;
-  font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em;
-}
-.nav-links { display: flex; align-items: center; gap: 2.4rem; }
-.nav-links a {
-  font-size: 0.95rem; color: var(--ink-soft);
-  transition: color 0.2s ease;
-}
-.nav-links a:not(.nav-cta):hover { color: var(--peach-2); }
-.nav-cta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  background: linear-gradient(95deg, var(--peach-1), var(--peach-2));
-  color: var(--cream);
-  padding: 0.7rem 1.2rem;
-  border-radius: 999px;
-  transition: filter 0.2s ease, transform 0.2s ease;
-}
-.nav-cta:hover { filter: brightness(0.95); transform: translateY(-1px); }
-.hamburger {
-  display: none;
-  background: none; border: none;
-  width: 28px; height: 22px;
-  position: relative; cursor: pointer;
-}
-.hamburger span {
-  position: absolute; left: 0; right: 0;
-  height: 2px; background: var(--ink);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.hamburger span:nth-child(1) { top: 2px; }
-.hamburger span:nth-child(2) { top: 10px; }
-.hamburger span:nth-child(3) { top: 18px; }
 
 /* ----- hero ----- */
 .hero {
@@ -680,19 +632,6 @@ footer {
   .about-photo-wrap { max-width: 380px; margin: 0 auto; }
 }
 @media (max-width: 720px) {
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
-  .hamburger { display: block; }
-  .nav-links.open {
-    display: flex; flex-direction: column;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: var(--cream);
-    padding: 2rem;
-    border-bottom: 1px solid var(--line);
-    gap: 1.5rem;
-  }
-  .nav-links.open .nav-cta { display: inline-flex; align-self: flex-start; }
   section { padding: 4.5rem 1.25rem; }
   .hero { padding: 4rem 1.25rem 4rem; }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -993,16 +932,7 @@ footer {
   </div>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinks.classList.remove('open'));
-  });
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>

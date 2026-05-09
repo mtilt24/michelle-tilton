@@ -11,15 +11,20 @@
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">One Eleven Studio</a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="work.html">Work</a>
-    <a href="contact.html" class="nav-cta">Book a call</a>
-  </div>
-</nav>
+<div class="nav-wrap">
+  <nav class="nav">
+    <a class="logo" href="index.html">One Eleven Studio</a>
+    <div class="nav-links" id="navLinks">
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="contact.html">Book a call</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
 
 <!-- PAGE HERO -->
 <section class="page-hero">
@@ -59,54 +64,6 @@
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section class="page-section alt">
-  <div class="page-section-inner">
-    <div class="page-section-header">
-      <div class="section-label">Certifications</div>
-      <h2>Trained, certified, and constantly learning.</h2>
-    </div>
-    <div class="card-grid cols-4">
-      <div class="info-card">
-        <h4>HubSpot Academy</h4>
-        <ul>
-          <li>Marketing Software</li>
-          <li>Email Marketing</li>
-          <li>SEO</li>
-          <li>Digital Advertising</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h4>Google &amp; Meta</h4>
-        <ul>
-          <li>Google Ads Search</li>
-          <li>Google Ads Display</li>
-          <li>Meta Media Buying Pro</li>
-          <li>Facebook Digital Marketing</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h4>Coursera</h4>
-        <ul>
-          <li>Fundamentals of Graphic Design</li>
-          <li>Introduction to Typography</li>
-          <li>Introduction to Imagemaking</li>
-          <li>History of Graphic Design</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h4>LinkedIn Learning</h4>
-        <ul>
-          <li>Social Media Strategy</li>
-          <li>Writing Emails People Want to Read</li>
-          <li>Marketing Performance Analysis</li>
-          <li>Animated Loading GIFs</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SKILLS -->
 <section class="page-section">
   <div class="page-section-inner">
@@ -131,7 +88,6 @@
           <li>Social media strategy</li>
           <li>Email (HubSpot, MailChimp)</li>
           <li>Blog &amp; copywriting</li>
-          <li>Video content (Reels, TikToks)</li>
           <li>Newsletter creation</li>
         </ul>
       </div>
