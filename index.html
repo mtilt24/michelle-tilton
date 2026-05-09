@@ -223,7 +223,8 @@ h2 {
   align-items: flex-start;
   gap: 1.75rem;
 }
-.testimonial-inner > * { max-width: 880px; }
+.testimonial-eyebrow,
+.testimonial-lead { max-width: 880px; }
 .testimonial-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem; letter-spacing: 0.16em;
@@ -250,27 +251,40 @@ h2 {
   margin-bottom: 2rem;
   color: rgba(250, 247, 242, 0.92);
 }
-.testimonial-attr {
-  display: flex; flex-direction: column; gap: 0.3rem;
+.testimonial-grid {
+  width: 100%;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.t-card {
+  background: rgba(250, 247, 242, 0.04);
+  border: 1px solid rgba(250, 247, 242, 0.12);
+  border-radius: 6px;
+  padding: 2rem;
+  display: flex; flex-direction: column;
+  gap: 1.5rem;
+}
+.t-card-quote {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(250, 247, 242, 0.92);
+  flex: 1;
+}
+.t-card-attr {
+  display: flex; flex-direction: column; gap: 0.25rem;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
-  color: rgba(250, 247, 242, 0.6);
+  font-size: 0.78rem;
+  color: rgba(250, 247, 242, 0.55);
   letter-spacing: 0.04em;
 }
-.testimonial-attr strong {
+.t-card-attr strong {
   color: var(--cream);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.testimonial-attr a {
-  color: var(--peach-1);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
-  width: fit-content;
-}
-.testimonial-attr a:hover { border-bottom-color: var(--peach-1); }
 
 /* ----- selected work ----- */
 .work { background: var(--cream); }
@@ -650,6 +664,7 @@ footer {
   }
   .work-item.reverse .work-image { order: 0; }
   .work-list { gap: 4rem; }
+  .testimonial-grid { grid-template-columns: 1fr; }
   .audience-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -697,12 +712,31 @@ footer {
 <!-- TESTIMONIAL FEATURE -->
 <section class="testimonial">
   <div class="testimonial-inner">
-    <div class="testimonial-eyebrow">A note from a client</div>
-    <p class="testimonial-lead">Worth every <span class="accent">penny.</span></p>
-    <p class="testimonial-quote">"I had no clue how to get a website started for my nonprofit until I was referred to Michelle. I am so grateful I was. She was incredibly knowledgeable, helpful, and brought so many great ideas to the table that I hadn't even considered. She was very thorough, easy to work with, and took all the stress out of the process. Michelle was absolutely worth every penny for the professional result and peace of mind she provided. I highly recommend her to anyone looking for a web designer."</p>
-    <div class="testimonial-attr">
-      <strong>Nicole Roeseler</strong>
-      <a href="https://www.advancingcommunitiesforward.org" target="_blank" rel="noopener">Advancing Communities Forward</a>
+    <div class="testimonial-eyebrow">Notes from clients</div>
+    <p class="testimonial-lead">Don't just take my <span class="accent">word for it.</span></p>
+    <!-- TODO: replace placeholder testimonials with real client quotes -->
+    <div class="testimonial-grid">
+      <div class="t-card">
+        <p class="t-card-quote">"Michelle was incredibly knowledgeable and brought ideas to the table I hadn't even considered. She took all the stress out of the process and the result was worth every penny."</p>
+        <div class="t-card-attr">
+          <strong>Nicole Roeseler</strong>
+          <span>Advancing Communities Forward</span>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-card-quote">"Michelle understood the heart of what I was building from the very first call. The site she designed feels like a true extension of the podcast itself."</p>
+        <div class="t-card-attr">
+          <strong>Becky Bradley</strong>
+          <span>FEEL Good Always</span>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-card-quote">"It felt like having a senior strategist in my corner without the agency overhead. She gets small businesses and gave me a brand I'm actually proud of."</p>
+        <div class="t-card-attr">
+          <strong>Andrea Lynn</strong>
+          <span>Andrea Lynn Coaching</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
