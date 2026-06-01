@@ -335,7 +335,6 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 
 @media (max-width: 600px) {
   nav { padding: 14px 20px; }
-  .nav-links a:not(.nav-cta) { display: none; }
   .hero, .problem, .services, .proof, .about, .cta { padding-left: 20px; padding-right: 20px; }
   .container { padding: 0 20px; }
   .logo-bar { padding: 28px 20px; }
@@ -477,6 +476,20 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
   .card-grid.cols-4, .card-grid.cols-3, .card-grid.cols-2 { grid-template-columns: 1fr; }
   .marquee-track span { font-size: 22px; }
   .marquee-track { gap: 36px; }
+}
+
+/* Case-study pages define per-section inner padding inline; their inline media
+   queries only shrink the section padding, not the inner. These higher-specificity
+   rules reset the inner gutter on mobile so case pages match the rest of the site. */
+@media (max-width: 720px) {
+  .case-work .case-work-inner,
+  .case-features .case-features-inner,
+  .brand-glance .brand-glance-inner,
+  .case-screenshot .case-screenshot-inner,
+  .case-pull-quote .case-pull-quote-inner,
+  .case-preview .case-preview-inner,
+  .case-summary .case-summary-inner,
+  .page-section .page-section-inner { padding-left: 0; padding-right: 0; }
 }
 
 /* ==========================================

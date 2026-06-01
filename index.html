@@ -251,6 +251,9 @@ h2 {
   padding-bottom: 1rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  min-width: 0;
+  align-self: stretch;
+  max-width: 100%;
 }
 .testimonial-grid::-webkit-scrollbar { display: none; }
 .t-card {
@@ -519,6 +522,7 @@ h2 {
 
 /* ----- about ----- */
 .about { background: var(--cream); }
+.about { overflow: hidden; }
 .about-grid {
   display: grid; grid-template-columns: 5fr 7fr;
   gap: 5rem; align-items: center;
@@ -674,9 +678,9 @@ footer {
   }
   .work-item.reverse .work-image { order: 0; }
   .work-list { gap: 4rem; }
-  .testimonial-inner { padding: 0; }
-  .testimonial-grid { margin-left: -1.25rem; margin-right: -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; scroll-padding-left: 1.25rem; }
-  .t-card { width: 85%; }
+  .testimonial-inner { padding: 0; min-width: 0; max-width: 100%; }
+  .testimonial-grid { margin-left: -1.25rem; margin-right: -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; scroll-padding-left: 1.25rem; max-width: none; width: auto; }
+  .t-card { width: 80vw; max-width: 340px; }
   .audience-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; gap: 2rem; }
