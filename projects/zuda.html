@@ -101,6 +101,47 @@
   </div>
 </section>
 
+<!-- LIVE SITE PREVIEW -->
+<style>
+  .case-preview { padding: 96px 32px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .case-preview-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; text-align: center; }
+  .case-preview-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sunset-2); font-weight: 500; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+  .case-preview-label::before { content: ''; width: 22px; height: 1px; background: var(--sunset-2); opacity: 0.6; }
+  .case-preview-shot { width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(0,0,0,0.12); display: block; }
+  .case-preview-cta { margin-top: 32px; }
+  @media (max-width: 720px) { .case-preview { padding: 64px 20px; } .case-preview-inner { padding: 0; } }
+</style>
+<section class="case-preview">
+  <div class="case-preview-inner">
+    <div class="case-preview-label">See it live</div>
+    <img class="case-preview-shot" src="https://res.cloudinary.com/dstssdnoj/image/upload/q_auto,f_auto,w_1600/Image_4-3-26_at_9.31_PM_q5u1xd.jpg" alt="Zuda Yoga website homepage" loading="lazy">
+    <div class="case-preview-cta">
+      <a href="https://zudayoga.com" target="_blank" rel="noopener" class="btn-primary">View Live Site <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<style>
+  .case-pull-quote { padding: 112px 32px; background: var(--ink); color: var(--paper); position: relative; overflow: hidden; }
+  .case-pull-quote::before { content: '"'; position: absolute; top: -3rem; left: 50%; transform: translateX(-50%); font-family: 'Onest', sans-serif; font-weight: 800; font-style: italic; font-size: 28rem; line-height: 1; color: rgba(231, 111, 81, 0.06); pointer-events: none; }
+  .case-pull-quote-inner { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; text-align: center; padding: 0 48px; }
+  .case-pull-quote-text { font-family: 'Onest', sans-serif; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.45; font-weight: 500; letter-spacing: -0.015em; color: var(--paper); text-wrap: balance; margin-bottom: 32px; }
+  .case-pull-quote-attr { display: inline-flex; flex-direction: column; gap: 4px; }
+  .case-pull-quote-name { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--paper); }
+  .case-pull-quote-role { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(252, 247, 242, 0.55); }
+  @media (max-width: 720px) { .case-pull-quote { padding: 72px 24px; } .case-pull-quote::before { font-size: 16rem; top: -1.5rem; } }
+</style>
+<section class="case-pull-quote">
+  <figure class="case-pull-quote-inner">
+    <p class="case-pull-quote-text">"Michelle manages all of my marketing, from website and email to social and technical troubleshooting, and no matter the issue she finds a solution quickly and effectively. She puts her clients first and makes sure everything is handled on time, every time. 10/10, I cannot recommend her enough."</p>
+    <figcaption class="case-pull-quote-attr">
+      <span class="case-pull-quote-name">Heidi</span>
+      <span class="case-pull-quote-role">Owner &middot; Zuda Yoga</span>
+    </figcaption>
+  </figure>
+</section>
+
 <section class="case-next">
   <div class="case-next-eyebrow">Next project</div>
   <a href="livelikekeira.html" class="case-next-title">Live Like Keira &rarr;</a>
