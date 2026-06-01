@@ -22,3 +22,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Testimonial auto-scroller (pauses on hover / touch / focus, respects reduced motion)
+document.addEventListener('DOMContentLoaded', () => {
+  const scroller = document.querySelector('.testimonial-grid');
+  if (!scroller || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let paused = false;
+  const pause = () => { paused = true; };
+  const resume = () => { paused = false; };
+  scroller.addEventListener('pointerenter', pause);
+  scroller.addEventListener('pointerleave', resume);
+  scroller.addEventListener('focusin', pause);
+  scroller.addEventListener('touchstart', pause, { passive: true });
+  setInterval(() => {
+    if (paused) return;
+    const card = scroller.querySelector('.t-card');
+    if (!card) return;
+    const gap = parseFloat(getComputedStyle(scroller).columnGap) || 0;
+    const step = card.offsetWidth + gap;
+    const atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 4;
+    scroller.scrollTo({ left: atEnd ? 0 : scroller.scrollLeft + step, behavior: 'smooth' });
+  }, 4500);
+});

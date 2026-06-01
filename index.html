@@ -242,11 +242,20 @@ h2 {
 }
 .testimonial-grid {
   width: 100%;
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 1.5rem;
   margin-top: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.testimonial-grid::-webkit-scrollbar { display: none; }
 .t-card {
+  flex: 0 0 clamp(280px, 30%, 360px);
+  scroll-snap-align: start;
   background: rgba(250, 247, 242, 0.04);
   border: 1px solid rgba(250, 247, 242, 0.12);
   border-radius: 6px;
@@ -647,7 +656,8 @@ footer {
   .work-item.reverse .work-image { order: 0; }
   .work-list { gap: 4rem; }
   .testimonial-inner { padding: 0; }
-  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-grid { margin-left: -1.25rem; margin-right: -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; scroll-padding-left: 1.25rem; }
+  .t-card { flex-basis: 85%; }
   .audience-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -729,6 +739,13 @@ footer {
         <div class="t-card-attr">
           <strong>Mike</strong>
           <span>NorCal Pool Productions &amp; Aurora Vida</span>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-card-quote">"Michelle took the vision in my head and turned it into a site that actually feels like the podcast. She made the whole process calm and easy, and I still get compliments on it all the time."</p>
+        <div class="t-card-attr">
+          <strong>Becky Bradley</strong>
+          <span>FEEL Good Always</span>
         </div>
       </div>
     </div>
