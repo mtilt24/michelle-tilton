@@ -23,24 +23,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Testimonial auto-scroller (pauses on hover / touch / focus, respects reduced motion)
+// Testimonial scroller: arrows + auto-advance (pauses on hover/touch/focus, respects reduced motion)
 document.addEventListener('DOMContentLoaded', () => {
   const scroller = document.querySelector('.testimonial-grid');
-  if (!scroller || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let paused = false;
-  const pause = () => { paused = true; };
-  const resume = () => { paused = false; };
-  scroller.addEventListener('pointerenter', pause);
-  scroller.addEventListener('pointerleave', resume);
-  scroller.addEventListener('focusin', pause);
-  scroller.addEventListener('touchstart', pause, { passive: true });
-  setInterval(() => {
-    if (paused) return;
+  if (!scroller) return;
+  const step = () => {
     const card = scroller.querySelector('.t-card');
-    if (!card) return;
+    if (!card) return scroller.clientWidth;
     const gap = parseFloat(getComputedStyle(scroller).columnGap) || 0;
-    const step = card.offsetWidth + gap;
+    return card.offsetWidth + gap;
+  };
+  const advance = (dir) => {
     const atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 4;
-    scroller.scrollTo({ left: atEnd ? 0 : scroller.scrollLeft + step, behavior: 'smooth' });
-  }, 4500);
+    const atStart = scroller.scrollLeft <= 4;
+    let left;
+    if (dir > 0) left = atEnd ? 0 : scroller.scrollLeft + step();
+    else left = atStart ? scroller.scrollWidth : scroller.scrollLeft - step();
+    scroller.scrollTo({ left, behavior: 'smooth' });
+  };
+  let paused = false;
+  const prev = document.getElementById('tPrev');
+  const next = document.getElementById('tNext');
+  if (prev) prev.addEventListener('click', () => { paused = true; advance(-1); });
+  if (next) next.addEventListener('click', () => { paused = true; advance(1); });
+  scroller.addEventListener('pointerenter', () => { paused = true; });
+  scroller.addEventListener('pointerleave', () => { paused = false; });
+  scroller.addEventListener('focusin', () => { paused = true; });
+  scroller.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(() => { if (!paused) advance(1); }, 4500);
+  }
 });

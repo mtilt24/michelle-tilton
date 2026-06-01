@@ -276,6 +276,24 @@ h2 {
   color: rgba(250, 247, 242, 0.55);
   letter-spacing: 0.04em;
 }
+.testimonial-controls {
+  display: flex; gap: 0.75rem;
+  align-self: flex-end;
+  margin-top: 0.25rem;
+}
+.t-arrow {
+  width: 46px; height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 247, 242, 0.25);
+  background: transparent;
+  color: var(--cream);
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.t-arrow:hover { background: var(--peach-2); border-color: var(--peach-2); transform: translateY(-2px); }
+.t-arrow:active { transform: translateY(0); }
 .t-card-attr strong {
   color: var(--cream);
   font-weight: 500;
@@ -748,6 +766,10 @@ footer {
           <span>FEEL Good Always</span>
         </div>
       </div>
+    </div>
+    <div class="testimonial-controls">
+      <button class="t-arrow" id="tPrev" type="button" aria-label="Previous testimonial">&larr;</button>
+      <button class="t-arrow" id="tNext" type="button" aria-label="Next testimonial">&rarr;</button>
     </div>
   </div>
 </section>
