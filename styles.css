@@ -58,10 +58,25 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; font-weight: 800; letter-
   position: relative;
 }
 .logo, .nav-logo {
+  display: inline-flex; align-items: baseline; gap: 8px;
   font-family: 'Onest', sans-serif;
-  font-size: 22px; font-weight: 800; letter-spacing: -0.02em;
   color: var(--ink); text-decoration: none;
 }
+.logo .logo-name {
+  font-size: 23px; font-weight: 800; letter-spacing: -0.03em; line-height: 1;
+}
+.logo .logo-flip {
+  display: inline-block;
+  transform: scaleX(-1);
+  color: var(--sunset-2);
+}
+.logo .logo-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; font-size: 10px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--muted);
+}
+.logo:hover .logo-flip { color: var(--sunset-1); }
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-links a { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 0.2s; }
 .nav-links a:not(.nav-cta):hover { color: var(--sunset-2); }
@@ -161,7 +176,8 @@ h1 .outlined { -webkit-text-stroke: 1.5px var(--ink); -webkit-text-fill-color: t
 h1 .sunset {
   background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2));
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic;
-  padding-right: 0.1em;
+  padding-right: 0.12em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
 
 /* Hero meta (right column) */
@@ -353,7 +369,7 @@ footer { padding: 36px 32px; background: var(--paper); border-top: 1px solid var
 .page-hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--muted); }
 .page-hero:not(.case) .page-hero-eyebrow { display: none; }
 .page-hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; max-width: 18ch; margin-bottom: 18px; }
-.page-hero h1 .sunset { background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.page-hero h1 .sunset { background: linear-gradient(90deg, var(--sunset-1), var(--sunset-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-right: 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .page-hero-sub { font-size: 19px; color: var(--muted); max-width: 620px; line-height: 1.55; }
 
 /* ----- Two-column section ----- */

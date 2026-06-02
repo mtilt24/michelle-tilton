@@ -48,8 +48,10 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; }
   background-clip: text;
   color: transparent;
   letter-spacing: -0.01em;
-  padding-right: 0.05em;
+  padding-right: 0.12em;
   padding-bottom: 0.05em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* ----- buttons ----- */
@@ -671,7 +673,7 @@ footer {
   .hero { padding: 3.5rem 1.25rem 3rem; }
   .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
   .hero-inner > div:first-child { padding-left: 0; }
-  .hero-portrait { display: none; }
+  .hero-portrait { display: block; transform: none; max-width: 240px; margin: 1.5rem auto 0; justify-self: center; }
   .hero-pill { display: none; }
   .work-item, .work-item.reverse {
     grid-template-columns: 1fr; gap: 1.5rem;
@@ -697,7 +699,7 @@ footer {
 
 <div class="nav-wrap">
   <nav class="nav">
-    <a class="logo" href="index.html">Raeve Marketing</a>
+    <a class="logo" href="index.html"><span class="logo-name">Ra<span class="logo-flip">e</span>ve</span><span class="logo-sub">Marketing</span></a>
     <div class="nav-links" id="navLinks">
       <a href="work.html">Work</a>
       <a href="services.html">Services</a>
@@ -752,17 +754,17 @@ footer {
         </div>
       </div>
       <div class="t-card">
+        <p class="t-card-quote">"Michelle runs the brand and website work for both of my companies and treats them like they're her own. She brings ideas I'd never have thought of, makes the whole process painless, and always delivers. If you want someone who handles all of it and gets it right, she's the one."</p>
+        <div class="t-card-attr">
+          <strong>Mike Bradley</strong>
+          <span>NorCal Pool Productions &amp; Aurora Vida</span>
+        </div>
+      </div>
+      <div class="t-card">
         <p class="t-card-quote">"Michelle manages all of my marketing, from website and email to social and technical troubleshooting, and no matter the issue she finds a solution quickly and effectively. She puts her clients first and makes sure everything is handled on time, every time. 10/10, I cannot recommend her enough."</p>
         <div class="t-card-attr">
           <strong>Heidi</strong>
           <span>Zuda Yoga</span>
-        </div>
-      </div>
-      <div class="t-card">
-        <p class="t-card-quote">"Michelle runs the brand and website work for both of my companies and treats them like they're her own. She brings ideas I'd never have thought of, makes the whole process painless, and always delivers. If you want someone who handles all of it and gets it right, she's the one."</p>
-        <div class="t-card-attr">
-          <strong>Mike</strong>
-          <span>NorCal Pool Productions &amp; Aurora Vida</span>
         </div>
       </div>
       <div class="t-card">
@@ -838,7 +840,7 @@ footer {
           <span class="work-tag">501(c)(3) launch · Web · Brand</span>
           <h3 class="work-name">Live Like Keira</h3>
           <p class="work-result">Donations, events, and merch in one site.</p>
-          <p class="work-desc">A nonprofit honoring Keira's memory. We built the foundation's first website with donations, event registration, and merch, every dollar going where it should.</p>
+          <p class="work-desc">A nonprofit honoring Keira's memory. I built the foundation's first website with donations, event registration, and merch, every dollar going where it should.</p>
           <a href="projects/livelikekeira.html" class="btn-link">Read case study &rarr;</a>
         </div>
       </article>

@@ -13,7 +13,7 @@
 
 <div class="nav-wrap">
   <nav class="nav">
-    <a class="logo" href="index.html">Raeve Marketing</a>
+    <a class="logo" href="index.html"><span class="logo-name">Ra<span class="logo-flip">e</span>ve</span><span class="logo-sub">Marketing</span></a>
     <div class="nav-links" id="navLinks">
       <a href="work.html">Work</a>
       <a href="services.html">Services</a>
@@ -66,10 +66,15 @@
   .svc-card-examples a { color: var(--sunset-2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
   .svc-card-examples a:hover { border-bottom-color: var(--sunset-2); }
   @media (max-width: 880px) {
-    .svc-tier { padding: 72px 20px; }
-    .svc-intro { padding: 48px 20px 16px; }
+    .svc-tier { padding: 72px 32px; }
+    .svc-intro { padding: 48px 32px 16px; }
     .svc-cards.cols-2 { grid-template-columns: 1fr; }
     .svc-card-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .svc-tier { padding-left: 20px; padding-right: 20px; }
+    .svc-intro { padding-left: 20px; padding-right: 20px; }
+    .svc-tier-inner, .svc-intro-inner { padding-left: 0; padding-right: 0; }
   }
 </style>
 <section class="svc-intro">
