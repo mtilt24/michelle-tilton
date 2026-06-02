@@ -90,18 +90,18 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; font-weight: 800; letter-
 .nav-links a.nav-cta:hover { background: var(--sunset-2); color: #fff; }
 .hamburger {
   display: none;
-  background: none; border: none;
-  width: 28px; height: 22px;
+  background: none; border: none; padding: 0;
+  width: 34px; height: 26px;
   position: relative; cursor: pointer;
 }
 .hamburger span {
   position: absolute; left: 0; right: 0;
-  height: 2px; background: var(--ink);
+  height: 3px; border-radius: 2px; background: var(--ink);
   transition: transform 0.3s, opacity 0.3s;
 }
-.hamburger span:nth-child(1) { top: 2px; }
-.hamburger span:nth-child(2) { top: 10px; }
-.hamburger span:nth-child(3) { top: 18px; }
+.hamburger span:nth-child(1) { top: 3px; }
+.hamburger span:nth-child(2) { top: 12px; }
+.hamburger span:nth-child(3) { top: 21px; }
 @media (max-width: 768px) {
   .nav { padding: 14px 20px; }
   .nav-links { display: none; }
