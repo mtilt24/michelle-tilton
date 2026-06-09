@@ -2,7 +2,7 @@
   "name": "raeve-marketing-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Raeve Marketing site + client portal Netlify functions",
+  "description": "Raeve Marketing site + client portal Vercel functions",
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
     "stripe": "^16.8.0"

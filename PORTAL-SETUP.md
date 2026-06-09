@@ -35,17 +35,23 @@ Supabase and Stripe dashboards.
 3. **Developers → API keys:** copy the **Secret key** (`sk_live_...`, or
    `sk_test_...` while testing). Keep this private.
 
-## 3. Netlify environment variables — ~3 min
+## 3. Vercel — deploy + environment variables — ~5 min
 
-In your Netlify site: **Site configuration → Environment variables**, add:
+1. At https://vercel.com, **Add New → Project** and import the GitHub repo
+   `mtilt24/michelle-tilton`. Framework preset: **Other** (it's a static site;
+   the `api/` folder becomes serverless functions automatically). Deploy.
+2. **Project → Settings → Environment Variables**, add:
 
-| Key | Value |
-|-----|-------|
-| `SUPABASE_URL` | your Project URL (same as in config.js) |
-| `SUPABASE_ANON_KEY` | your anon public key (same as in config.js) |
-| `STRIPE_SECRET_KEY` | your Stripe secret key |
+   | Key | Value |
+   |-----|-------|
+   | `SUPABASE_URL` | your Project URL (same as in config.js) |
+   | `SUPABASE_ANON_KEY` | your anon public key (same as in config.js) |
+   | `STRIPE_SECRET_KEY` | your Stripe secret key |
 
-Then **trigger a deploy** so the billing function picks them up.
+3. **Project → Settings → Domains:** add `raevemarketing.com` and follow
+   Vercel's DNS instructions (point the domain at Vercel, remove it from the old
+   host). Until DNS switches, you can test on the free `*.vercel.app` URL.
+4. **Deployments → Redeploy** so the env vars take effect.
 
 ## 4. Add your first client (Andrea Lynn) — ~5 min
 
@@ -77,7 +83,7 @@ Then **trigger a deploy** so the billing function picks them up.
 
 ```
 npm install
-npx netlify dev
+npx vercel dev
 ```
 
 Opens the site with the billing function running. (Requires the env vars set in
@@ -86,6 +92,7 @@ your shell or a local `.env`.)
 ## Files
 
 - `portal/` — login, password reset, and dashboard pages (+ `config.js`, styles, logic)
-- `netlify/functions/billing-portal.js` — creates the Stripe billing link
+- `api/billing-portal.js` — creates the Stripe billing link (Vercel function)
+- `vercel.json` — security headers
 - `supabase/schema.sql` — database tables + security rules
-- `package.json` — function dependencies (Netlify installs on deploy)
+- `package.json` — function dependencies (Vercel installs on deploy)

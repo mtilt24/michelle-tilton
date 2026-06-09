@@ -174,7 +174,7 @@
       billBtn.disabled = true; billBtn.textContent = "Opening…";
       sb.auth.getSession().then(function (res) {
         var token = res.data.session && res.data.session.access_token;
-        return fetch("/.netlify/functions/billing-portal", {
+        return fetch("/api/billing-portal", {
           method: "POST",
           headers: { "Authorization": "Bearer " + token }
         });
