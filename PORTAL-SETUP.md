@@ -89,10 +89,80 @@ npx vercel dev
 Opens the site with the billing function running. (Requires the env vars set in
 your shell or a local `.env`.)
 
+---
+
+# Phase 2 — Add Client page, email alerts, review flow
+
+Adds: a one-form "Add Client" admin page, email alerts (new request -> you;
+ready-to-review -> client), and an in-portal review/approve loop.
+
+## 2a. Run the new SQL
+
+Supabase → SQL Editor → paste `supabase/02-review-and-updates.sql` → Run.
+(Adds review fields and lets clients approve/request-changes on their own
+requests.)
+
+## 2b. Give yourself an admin login
+
+The "Add client" tools only appear for your email.
+1. Supabase → Authentication → Users → Add user → your email
+   (`michelle@raevemarketing.com`) + a password, tick Auto Confirm.
+2. That email must match `ADMIN_EMAIL` in `portal/config.js` (already set) and
+   the `ADMIN_EMAIL` env var below.
+   When you sign in with it, an **Add client** button appears in the portal.
+
+## 2c. Resend (email) — ~5 min
+
+1. Sign up free at https://resend.com.
+2. **Domains → Add domain** → `raevemarketing.com`, add the DNS records it shows
+   you (at your domain registrar). This lets email come from your domain.
+   *(To test before DNS is done, you can send from `onboarding@resend.dev` to
+   your own address.)*
+3. **API Keys → Create** → copy the key (`re_...`).
+
+## 2d. New Vercel environment variables
+
+Add these (Settings → Environment Variables), then redeploy:
+
+| Key | Value |
+|-----|-------|
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Settings → API → **service_role** key (secret!) |
+| `ADMIN_EMAIL` | `michelle@raevemarketing.com` |
+| `RESEND_API_KEY` | your Resend key (`re_...`) |
+| `FROM_EMAIL` | `Raeve Marketing <notifications@raevemarketing.com>` (or `onboarding@resend.dev` while testing) |
+| `WEBHOOK_SECRET` | make up any random string; you'll reuse it in the next step |
+
+## 2e. Supabase webhook (fires the emails)
+
+Supabase → **Database → Webhooks → Create a new hook**:
+- Table: `requests`
+- Events: **Insert** and **Update**
+- Type: **HTTP Request**, method **POST**
+- URL: `https://raevemarketing.com/api/notify`
+  *(use your `…vercel.app/api/notify` URL until the domain is live)*
+- HTTP Headers: add `x-webhook-secret` = the same value you used for
+  `WEBHOOK_SECRET`.
+
+## How the review loop works
+
+1. Client submits a request → **you get an email**.
+2. You do the work, then in Supabase → Table editor → `requests`, on that row set
+   `status` = `review`, and fill in `review_url` (link to what changed) and
+   `review_note`.
+3. **Client gets an email** and sees an Approve / Request changes box on their
+   dashboard.
+4. They click **Approve** (→ `done`) or **Request changes** (→ back to
+   `in_progress`) and **you get an email** either way.
+
+---
+
 ## Files
 
-- `portal/` — login, password reset, and dashboard pages (+ `config.js`, styles, logic)
-- `api/billing-portal.js` — creates the Stripe billing link (Vercel function)
+- `portal/` — login, reset, dashboard, and **admin (Add Client)** pages (+ `config.js`, styles, logic)
+- `api/billing-portal.js` — creates the Stripe billing link
+- `api/add-client.js` — creates a client's login + Stripe customer + row in one step
+- `api/notify.js` — sends the email alerts (via Resend, triggered by Supabase webhook)
 - `vercel.json` — security headers
 - `supabase/schema.sql` — database tables + security rules
+- `supabase/02-review-and-updates.sql` — review fields + client update policy
 - `package.json` — function dependencies (Vercel installs on deploy)

@@ -97,9 +97,14 @@
   var dash = $("dash");
   if (dash) {
     var client = null;
+    var userEmail = "";
+    var isAdmin = false;
 
     sb.auth.getSession().then(function (res) {
       if (!res.data.session) { window.location.replace("login.html"); return; }
+      userEmail = (res.data.session.user && res.data.session.user.email || "").toLowerCase();
+      isAdmin = cfg.ADMIN_EMAIL && userEmail === String(cfg.ADMIN_EMAIL).toLowerCase();
+      if (isAdmin) { var al = $("adminLink"); if (al) al.style.display = "inline-flex"; }
       loadClient();
     });
 
@@ -111,8 +116,13 @@
     function loadClient() {
       sb.from("clients").select("*").single().then(function (res) {
         if (res.error || !res.data) {
-          $("welcome").textContent = "Welcome";
-          $("welcomeNote").textContent = "Your account isn't fully set up yet. Email michelle@raevemarketing.com.";
+          if (isAdmin) {
+            $("welcome").innerHTML = "Raeve <span class=\"accent\">admin.</span>";
+            $("welcomeNote").innerHTML = "You're signed in as admin. <a class=\"muted-link\" href=\"admin.html\">Add a client &rarr;</a>";
+          } else {
+            $("welcome").textContent = "Welcome";
+            $("welcomeNote").textContent = "Your account isn't fully set up yet. Email michelle@raevemarketing.com.";
+          }
           return;
         }
         client = res.data;
@@ -132,6 +142,18 @@
         if (!rows.length) { list.innerHTML = '<p class="empty">No requests yet. Submit your first one.</p>'; return; }
         list.innerHTML = rows.map(function (r) {
           var st = (r.status || "new");
+          var review = "";
+          if (st === "review") {
+            review = '<div class="review-box">' +
+              '<div class="mono">Ready for your review</div>' +
+              (r.review_note ? '<p class="review-note">' + esc(r.review_note) + '</p>' : '') +
+              (r.review_url ? '<a class="review-link" href="' + esc(r.review_url) + '" target="_blank" rel="noopener">See what changed &rarr;</a>' : '') +
+              '<div class="review-actions">' +
+                '<button class="btn btn-sm" data-approve="' + esc(r.id) + '">Approve</button>' +
+                '<button class="btn btn-ghost btn-sm" data-changes="' + esc(r.id) + '">Request changes</button>' +
+              '</div>' +
+            '</div>';
+          }
           return '<div class="req">' +
             '<div class="req-top">' +
               '<span class="req-title">' + esc(r.title) + '</span>' +
@@ -139,10 +161,26 @@
             '</div>' +
             '<div class="req-meta">' + esc(r.type || "Request") + ' · ' + esc(r.priority || "normal") + ' priority · ' + fmtDate(r.created_at) + '</div>' +
             (r.details ? '<div class="req-details">' + esc(r.details) + '</div>' : '') +
+            review +
           '</div>';
         }).join("");
       });
     }
+
+    // Approve / Request changes (event delegation on the list)
+    var reqListEl = $("reqList");
+    if (reqListEl) reqListEl.addEventListener("click", function (e) {
+      var approveId = e.target.getAttribute && e.target.getAttribute("data-approve");
+      var changesId = e.target.getAttribute && e.target.getAttribute("data-changes");
+      var id = approveId || changesId;
+      if (!id) return;
+      var newStatus = approveId ? "done" : "in_progress";
+      e.target.disabled = true; e.target.textContent = "…";
+      sb.from("requests").update({ status: newStatus }).eq("id", id).then(function (res) {
+        if (res.error) { e.target.disabled = false; e.target.textContent = approveId ? "Approve" : "Request changes"; return; }
+        loadRequests();
+      });
+    });
 
     var reqForm = $("reqForm");
     if (reqForm) reqForm.addEventListener("submit", function (e) {
@@ -187,6 +225,59 @@
       }).catch(function () {
         show(billMsg, "Something went wrong. Try again.", "error");
         billBtn.disabled = false; billBtn.textContent = "View invoices & pay";
+      });
+    });
+  }
+
+  /* ===================== ADMIN: ADD CLIENT ===================== */
+  var addForm = $("addClientForm");
+  if (addForm) {
+    var adminMsg = $("adminMsg");
+    var signOutA = $("signOutBtn");
+    if (signOutA) signOutA.addEventListener("click", function () {
+      sb.auth.signOut().then(function () { window.location.replace("login.html"); });
+    });
+
+    // must be signed in as the admin to even see this
+    sb.auth.getSession().then(function (res) {
+      if (!res.data.session) { window.location.replace("login.html"); return; }
+      var email = (res.data.session.user && res.data.session.user.email || "").toLowerCase();
+      if (!cfg.ADMIN_EMAIL || email !== String(cfg.ADMIN_EMAIL).toLowerCase()) {
+        document.getElementById("admin").innerHTML =
+          '<div class="card"><p class="empty">This page is for Raeve admin only.</p></div>';
+      }
+    });
+
+    addForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      hide(adminMsg);
+      $("result").style.display = "none";
+      var btn = $("addClientBtn");
+      btn.disabled = true; btn.textContent = "Creating…";
+      sb.auth.getSession().then(function (res) {
+        var token = res.data.session && res.data.session.access_token;
+        return fetch("/api/add-client", {
+          method: "POST",
+          headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: $("cName").value.trim(),
+            company: $("cCompany").value.trim(),
+            email: $("cEmail").value.trim()
+          })
+        });
+      }).then(function (r) { return r.json(); }).then(function (data) {
+        btn.disabled = false; btn.textContent = "Create client";
+        if (data && data.ok) {
+          addForm.reset();
+          $("tempPw").textContent = data.tempPassword;
+          $("result").style.display = "block";
+          show(adminMsg, "Client created.", "success");
+        } else {
+          show(adminMsg, (data && data.error) || "Could not add client.", "error");
+        }
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = "Create client";
+        show(adminMsg, "Something went wrong. Try again.", "error");
       });
     });
   }
