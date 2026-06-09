@@ -12,6 +12,6 @@
  * Those live in Netlify environment variables. See PORTAL-SETUP.md.
  */
 window.RAEVE_PORTAL = {
-  SUPABASE_URL: "https://YOUR-PROJECT-REF.supabase.co",
-  SUPABASE_ANON_KEY: "YOUR-SUPABASE-ANON-KEY"
+  SUPABASE_URL: "https://afcixlqulohnfrannvkv.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_Z-eoWKt69mTft9N5k4a14g_n04lxOUg"
 };
