@@ -94,6 +94,7 @@ module.exports = async function handler(req, res) {
   }
 
   var sent = 0;
+  var errors = [];
   for (var i = 0; i < jobs.length; i++) {
     try {
       const r = await fetch("https://api.resend.com/emails", {
@@ -101,10 +102,11 @@ module.exports = async function handler(req, res) {
         headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
         body: JSON.stringify({ from: FROM_EMAIL, to: jobs[i].to, subject: jobs[i].subject, html: jobs[i].html })
       });
-      if (r.ok) sent++;
-    } catch (e) { /* swallow — a failed email shouldn't break the webhook */ }
+      if (r.ok) { sent++; }
+      else { errors.push(await r.text()); }
+    } catch (e) { errors.push(String(e && e.message)); }
   }
-  return res.status(200).json({ sent });
+  return res.status(200).json({ sent, errors });
 };
 
 function firstName(n) { return (n || "").split(" ")[0] || n || "there"; }
