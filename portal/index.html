@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | Raeve Marketing</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:ital,wght@0,500;0,600;0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portal.css">
+</head>
+<body>
+  <div class="portal-bar">
+    <a class="logo" href="index.html"><span class="logo-name">Ra<span class="logo-flip">e</span>ve</span><span class="logo-sub">Marketing</span></a>
+    <button id="signOutBtn" class="btn btn-ghost btn-sm">Sign out</button>
+  </div>
+
+  <main id="dash" class="dash">
+    <div class="dash-head">
+      <h1 id="welcome">Welcome</h1>
+      <p id="welcomeNote"></p>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT: requests -->
+      <div class="stack">
+        <section class="card">
+          <h2 class="card-title">New website request</h2>
+          <p class="card-note">Tell me what you need. I'll pick it up and update the status here.</p>
+
+          <div id="reqMsg" class="msg"></div>
+
+          <form id="reqForm" novalidate>
+            <div class="field">
+              <div class="field-label">Title</div>
+              <input id="rTitle" type="text" placeholder="e.g. Add a new retreat date" required>
+            </div>
+            <div class="field">
+              <div class="field-label">Type</div>
+              <select id="rType">
+                <option>Content edit</option>
+                <option>New page or section</option>
+                <option>Bug or fix</option>
+                <option>New project</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <div class="field-label">Priority</div>
+              <select id="rPriority">
+                <option value="low">Low</option>
+                <option value="normal" selected>Normal</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+              </select>
+            </div>
+            <div class="field">
+              <div class="field-label">Details</div>
+              <textarea id="rDetails" placeholder="What should change, links, copy, anything that helps."></textarea>
+            </div>
+            <button id="reqBtn" type="submit" class="btn">Submit request</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2 class="card-title">Your requests</h2>
+          <p class="card-note">Everything you've submitted, newest first.</p>
+          <div id="reqList"><p class="empty">Loading…</p></div>
+        </section>
+      </div>
+
+      <!-- RIGHT: billing -->
+      <div class="stack">
+        <section class="card">
+          <h2 class="card-title">Billing</h2>
+          <p class="card-note">View your invoices and pay securely through Stripe.</p>
+
+          <div id="billMsg" class="msg"></div>
+
+          <button id="billBtn" class="btn" style="width:100%;">View invoices &amp; pay</button>
+          <p class="card-note" style="margin: 1rem 0 0;">Payments are processed by Stripe. Your card details never touch this site.</p>
+        </section>
+
+        <section class="card">
+          <h2 class="card-title">Need something bigger?</h2>
+          <p class="card-note" style="margin-bottom: 1.1rem;">New brand, full redesign, or a strategy call.</p>
+          <a class="btn btn-ghost" style="width:100%;" href="mailto:michelle@raevemarketing.com">Email Michelle</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="portal.js"></script>
+</body>
+</html>

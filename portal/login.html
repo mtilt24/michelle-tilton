@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Login | Raeve Marketing</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:ital,wght@0,500;0,600;0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portal.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a class="logo" href="/index.html"><span class="logo-name">Ra<span class="logo-flip">e</span>ve</span><span class="logo-sub">Marketing</span></a>
+      <h1>Client <span class="accent">portal.</span></h1>
+      <p class="sub">Sign in to make requests and manage billing.</p>
+
+      <div id="loginMsg" class="msg"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <div class="field-label">Email</div>
+          <input id="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <div class="field-label">Password</div>
+          <input id="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button id="loginBtn" type="submit" class="btn">Sign in</button>
+      </form>
+
+      <p class="auth-foot"><a id="forgotLink" href="#">Forgot your password?</a></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="portal.js"></script>
+</body>
+</html>
