@@ -162,6 +162,9 @@
       return (s || "new").replace("_", " ");
     }
 
+    var BUCKET = "request-files";
+    var expanded = {};   // request id -> true when the client has opened that ticket
+
     function threadHtml(r) {
       var comments = (r.comments || []).slice().sort(function (a, b) {
         return new Date(a.created_at) - new Date(b.created_at);
@@ -180,10 +183,22 @@
         '</div>';
     }
 
+    function attachmentsHtml(files) {
+      if (!files || !files.length) return "";
+      return '<div class="attach">' + files.map(function (f) {
+        var isImg = (f.content_type || "").indexOf("image/") === 0;
+        if (isImg && f.signedUrl) {
+          return '<a class="att-img" href="' + esc(f.signedUrl) + '" target="_blank" rel="noopener">' +
+            '<img src="' + esc(f.signedUrl) + '" alt="' + esc(f.name || "image") + '" loading="lazy"></a>';
+        }
+        return '<a class="att-file" href="' + esc(f.signedUrl || "#") + '" target="_blank" rel="noopener">' +
+          '&#128206; ' + esc(f.name || "file") + '</a>';
+      }).join("") + '</div>';
+    }
+
     function reqCard(r) {
       var st = (r.status || "new");
-      // The update box shows whenever Michelle left a note or a link, in ANY
-      // status — with the approve / request-changes buttons only while in review.
+      var open = expanded[r.id] || st === "review";   // review items auto-open (they need action)
       var update = "";
       if (r.review_note || r.review_url || st === "review") {
         update = '<div class="review-box">' +
@@ -197,40 +212,71 @@
             '</div>' : '') +
         '</div>';
       }
-      return '<div class="req">' +
-        '<div class="req-top">' +
-          '<span class="req-title">' + esc(r.title) + '</span>' +
-          '<span class="status status-' + esc(st) + '">' + esc(statusLabel(st)) + '</span>' +
-        '</div>' +
-        '<div class="req-meta">' + esc(r.type || "Request") + ' · ' + esc(r.priority || "normal") + ' priority · ' + fmtDate(r.created_at) + '</div>' +
+      var nFiles = (r.attachments || []).length;
+      var body =
         (r.details ? '<div class="req-details">' + esc(r.details) + '</div>' : '') +
+        attachmentsHtml(r.attachments) +
         update +
-        threadHtml(r) +
+        threadHtml(r);
+      return '<div class="ticket' + (open ? " open" : "") + '" data-id="' + esc(r.id) + '">' +
+        '<button class="ticket-row" type="button">' +
+          '<span class="t-main">' +
+            '<span class="t-title">' + esc(r.title) +
+              (st === "review" ? ' <span class="t-flag">action needed</span>' : '') + '</span>' +
+            '<span class="t-sub">' + esc(r.type || "Request") + ' &middot; ' + fmtDate(r.created_at) +
+              (nFiles ? ' &middot; &#128206; ' + nFiles : '') + '</span>' +
+          '</span>' +
+          '<span class="t-chev">&#9662;</span>' +
+        '</button>' +
+        '<div class="ticket-body">' + body + '</div>' +
       '</div>';
+    }
+
+    function renderGroups(rows, list) {
+      list.innerHTML = CLIENT_STATUSES.map(function (g) {
+        var inGroup = rows.filter(function (r) { return (r.status || "new") === g.key; });
+        if (!inGroup.length) return "";
+        return '<div class="status-group">' +
+          '<h3 class="group-title">' + esc(g.label) + ' <span class="group-count">' + inGroup.length + '</span></h3>' +
+          inGroup.map(reqCard).join("") +
+        '</div>';
+      }).join("");
     }
 
     function loadRequests() {
       var list = $("reqList");
-      sb.from("requests").select("*, comments(*)").order("created_at", { ascending: false }).then(function (res) {
+      sb.from("requests").select("*, comments(*), attachments(*)").order("created_at", { ascending: false }).then(function (res) {
         if (res.error) { list.innerHTML = '<p class="empty">Could not load requests.</p>'; return; }
         var rows = res.data || [];
         if (!rows.length) { list.innerHTML = '<p class="empty">No requests yet. Submit your first one.</p>'; return; }
-        // Group into the client-facing status sections; only show non-empty ones.
-        list.innerHTML = CLIENT_STATUSES.map(function (g) {
-          var inGroup = rows.filter(function (r) { return (r.status || "new") === g.key; });
-          if (!inGroup.length) return "";
-          return '<div class="status-group">' +
-            '<h3 class="group-title">' + esc(g.label) + ' <span class="group-count">' + inGroup.length + '</span></h3>' +
-            inGroup.map(reqCard).join("") +
-          '</div>';
-        }).join("");
+        // Sign every attachment URL in one batch, then render.
+        var paths = [];
+        rows.forEach(function (r) { (r.attachments || []).forEach(function (f) { paths.push(f.path); }); });
+        if (!paths.length) { renderGroups(rows, list); return; }
+        sb.storage.from(BUCKET).createSignedUrls(paths, 3600).then(function (sres) {
+          var map = {};
+          (sres.data || []).forEach(function (s) { if (s && s.path) map[s.path] = s.signedUrl; });
+          rows.forEach(function (r) { (r.attachments || []).forEach(function (f) { f.signedUrl = map[f.path]; }); });
+          renderGroups(rows, list);
+        });
       });
     }
 
-    // Approve / Request changes / Reply (event delegation on the list)
+    // Expand/collapse, Approve, Request changes, Reply (delegated on the list)
     var reqListEl = $("reqList");
     if (reqListEl) reqListEl.addEventListener("click", function (e) {
       var t = e.target;
+
+      // open/close a ticket
+      var row = t.closest && t.closest(".ticket-row");
+      if (row) {
+        var ticket = row.closest(".ticket");
+        var tid = ticket.getAttribute("data-id");
+        if (ticket.classList.contains("open")) { ticket.classList.remove("open"); delete expanded[tid]; }
+        else { ticket.classList.add("open"); expanded[tid] = true; }
+        return;
+      }
+
       if (!t.getAttribute) return;
 
       var replyId = t.getAttribute("data-reply");
@@ -246,6 +292,7 @@
           body: body
         }).then(function (res) {
           if (res.error) { t.disabled = false; t.textContent = "Send"; return; }
+          expanded[replyId] = true;
           loadRequests();
         });
         return;
@@ -263,6 +310,13 @@
       });
     });
 
+    // show chosen file names under the file input
+    var rFiles = $("rFiles");
+    if (rFiles) rFiles.addEventListener("change", function () {
+      var names = Array.prototype.slice.call(rFiles.files).map(function (f) { return f.name; }).join(", ");
+      if ($("rFileList")) $("rFileList").textContent = names;
+    });
+
     var reqForm = $("reqForm");
     if (reqForm) reqForm.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -271,18 +325,44 @@
       if (!client) { show(reqMsg, "Account still loading, try again in a moment.", "error"); return; }
       var btn = $("reqBtn");
       btn.disabled = true; btn.textContent = "Sending…";
+      var files = (rFiles && rFiles.files) ? Array.prototype.slice.call(rFiles.files) : [];
+
       sb.from("requests").insert({
         client_id: client.id,
         title: $("rTitle").value.trim(),
         type: $("rType").value,
         priority: $("rPriority").value,
         details: $("rDetails").value.trim()
-      }).then(function (res) {
-        btn.disabled = false; btn.textContent = "Submit request";
-        if (res.error) { show(reqMsg, res.error.message, "error"); return; }
-        reqForm.reset();
-        show(reqMsg, "Request submitted. Michelle will be in touch.", "success");
-        loadRequests();
+      }).select().single().then(function (res) {
+        if (res.error || !res.data) {
+          btn.disabled = false; btn.textContent = "Submit request";
+          show(reqMsg, (res.error && res.error.message) || "Could not submit.", "error"); return;
+        }
+        var newReq = res.data;
+
+        // Upload any files one at a time, then record each in the attachments table.
+        var i = 0;
+        function next() {
+          if (i >= files.length) { finish(); return; }
+          var file = files[i++];
+          var clean = (file.name || "file").replace(/[^a-zA-Z0-9._-]/g, "_");
+          var path = client.id + "/" + newReq.id + "/" + Date.now() + "-" + clean;
+          sb.storage.from(BUCKET).upload(path, file).then(function (up) {
+            if (up.error) { next(); return; }
+            sb.from("attachments").insert({
+              request_id: newReq.id, client_id: client.id, path: path,
+              name: file.name, size: file.size, content_type: file.type || null, uploaded_by: "client"
+            }).then(next, next);
+          }, next);
+        }
+        function finish() {
+          btn.disabled = false; btn.textContent = "Submit request";
+          reqForm.reset();
+          if ($("rFileList")) $("rFileList").textContent = "";
+          show(reqMsg, "Request submitted. Michelle will be in touch.", "success");
+          loadRequests();
+        }
+        next();
       });
     });
 
