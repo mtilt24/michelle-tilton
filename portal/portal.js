@@ -150,7 +150,17 @@
       });
     }
 
-    function statusLabel(s) { return (s || "new").replace("_", " "); }
+    // Client-facing status groups, shown in this order (actionable first).
+    var CLIENT_STATUSES = [
+      { key: "review",      label: "Ready for your review" },
+      { key: "in_progress", label: "In progress" },
+      { key: "new",         label: "Submitted" },
+      { key: "done",        label: "Complete" }
+    ];
+    function statusLabel(s) {
+      for (var i = 0; i < CLIENT_STATUSES.length; i++) if (CLIENT_STATUSES[i].key === s) return CLIENT_STATUSES[i].label;
+      return (s || "new").replace("_", " ");
+    }
 
     function threadHtml(r) {
       var comments = (r.comments || []).slice().sort(function (a, b) {
@@ -170,35 +180,48 @@
         '</div>';
     }
 
+    function reqCard(r) {
+      var st = (r.status || "new");
+      // The update box shows whenever Michelle left a note or a link, in ANY
+      // status — with the approve / request-changes buttons only while in review.
+      var update = "";
+      if (r.review_note || r.review_url || st === "review") {
+        update = '<div class="review-box">' +
+          '<div class="mono">' + (st === "review" ? "Ready for your review" : "Update from Michelle") + '</div>' +
+          (r.review_note ? '<p class="review-note">' + esc(r.review_note) + '</p>' : '') +
+          (r.review_url ? '<a class="review-link" href="' + esc(r.review_url) + '" target="_blank" rel="noopener">See what changed &rarr;</a>' : '') +
+          (st === "review" ?
+            '<div class="review-actions">' +
+              '<button class="btn btn-sm" data-approve="' + esc(r.id) + '">Approve</button>' +
+              '<button class="btn btn-ghost btn-sm" data-changes="' + esc(r.id) + '">Request changes</button>' +
+            '</div>' : '') +
+        '</div>';
+      }
+      return '<div class="req">' +
+        '<div class="req-top">' +
+          '<span class="req-title">' + esc(r.title) + '</span>' +
+          '<span class="status status-' + esc(st) + '">' + esc(statusLabel(st)) + '</span>' +
+        '</div>' +
+        '<div class="req-meta">' + esc(r.type || "Request") + ' · ' + esc(r.priority || "normal") + ' priority · ' + fmtDate(r.created_at) + '</div>' +
+        (r.details ? '<div class="req-details">' + esc(r.details) + '</div>' : '') +
+        update +
+        threadHtml(r) +
+      '</div>';
+    }
+
     function loadRequests() {
       var list = $("reqList");
       sb.from("requests").select("*, comments(*)").order("created_at", { ascending: false }).then(function (res) {
         if (res.error) { list.innerHTML = '<p class="empty">Could not load requests.</p>'; return; }
         var rows = res.data || [];
         if (!rows.length) { list.innerHTML = '<p class="empty">No requests yet. Submit your first one.</p>'; return; }
-        list.innerHTML = rows.map(function (r) {
-          var st = (r.status || "new");
-          var review = "";
-          if (st === "review") {
-            review = '<div class="review-box">' +
-              '<div class="mono">Ready for your review</div>' +
-              (r.review_note ? '<p class="review-note">' + esc(r.review_note) + '</p>' : '') +
-              (r.review_url ? '<a class="review-link" href="' + esc(r.review_url) + '" target="_blank" rel="noopener">See what changed &rarr;</a>' : '') +
-              '<div class="review-actions">' +
-                '<button class="btn btn-sm" data-approve="' + esc(r.id) + '">Approve</button>' +
-                '<button class="btn btn-ghost btn-sm" data-changes="' + esc(r.id) + '">Request changes</button>' +
-              '</div>' +
-            '</div>';
-          }
-          return '<div class="req">' +
-            '<div class="req-top">' +
-              '<span class="req-title">' + esc(r.title) + '</span>' +
-              '<span class="status status-' + esc(st) + '">' + esc(statusLabel(st)) + '</span>' +
-            '</div>' +
-            '<div class="req-meta">' + esc(r.type || "Request") + ' · ' + esc(r.priority || "normal") + ' priority · ' + fmtDate(r.created_at) + '</div>' +
-            (r.details ? '<div class="req-details">' + esc(r.details) + '</div>' : '') +
-            review +
-            threadHtml(r) +
+        // Group into the client-facing status sections; only show non-empty ones.
+        list.innerHTML = CLIENT_STATUSES.map(function (g) {
+          var inGroup = rows.filter(function (r) { return (r.status || "new") === g.key; });
+          if (!inGroup.length) return "";
+          return '<div class="status-group">' +
+            '<h3 class="group-title">' + esc(g.label) + ' <span class="group-count">' + inGroup.length + '</span></h3>' +
+            inGroup.map(reqCard).join("") +
           '</div>';
         }).join("");
       });

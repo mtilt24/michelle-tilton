@@ -90,16 +90,23 @@ module.exports = async function handler(req, res) {
              <p><a href="${PORTAL_URL}">Open the portal</a></p>`
     });
   } else if (table === "requests" && type === "UPDATE") {
-    if (rec.status === "review" && old.status !== "review") {
+    const becameReview = rec.status === "review" && old.status !== "review";
+    const noteChanged = (rec.review_note || "") !== (old.review_note || "")
+                     || (rec.review_url || "") !== (old.review_url || "");
+    // Email the client when it's handed to them for review, OR any time Michelle
+    // adds / edits the note or link (so updates never go unnoticed).
+    if (becameReview || noteChanged) {
       const c = await clientInfo(rec.client_id);
       if (c.email) jobs.push({
         to: c.email,
-        subject: `Ready for your review: ${rec.title}`,
+        subject: becameReview ? `Ready for your review: ${rec.title}` : `Update on: ${rec.title}`,
         html: `<p>Hi ${esc(firstName(c.name))},</p>
-               <p>Your request <strong>${esc(rec.title)}</strong> is ready for you to review.</p>
+               <p>${becameReview
+                    ? `Your request <strong>${esc(rec.title)}</strong> is ready for you to review.`
+                    : `Michelle posted an update on <strong>${esc(rec.title)}</strong>.`}</p>
                ${rec.review_note ? `<p>${esc(rec.review_note)}</p>` : ""}
                ${rec.review_url ? `<p><a href="${esc(rec.review_url)}">See what changed &rarr;</a></p>` : ""}
-               <p>Approve it or ask for changes from <a href="${PORTAL_URL}">your portal</a>.</p>
+               <p>${becameReview ? "Approve it or ask for changes from" : "See it in"} <a href="${PORTAL_URL}">your portal</a>.</p>
                <p>&mdash; Michelle, Raeve Marketing</p>`
       });
     }

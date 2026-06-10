@@ -183,3 +183,19 @@ textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
 /* reply box */
 .reply { margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
 .reply textarea { width: 100%; min-height: 60px; font-size: 0.9rem; }
+
+/* admin board: status columns (stacked sections) */
+#board { display: flex; flex-direction: column; gap: 1.5rem; }
+.col { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 1.4rem; }
+.col-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--line); }
+.col-title { font-family: "Onest", sans-serif; font-size: 1.1rem; font-weight: 700; }
+.col-count { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--muted); }
+.col-flag { color: var(--peach-2); }
+.col-empty { padding: 0.6rem 0; text-align: left; }
+.req-flag { border-color: var(--peach-2); box-shadow: 0 0 0 1px var(--peach-2) inset; }
+.reply-flag { font-family: "JetBrains Mono", monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: var(--peach-2); padding: 0.25rem 0.5rem; border-radius: 999px; white-space: nowrap; }
+
+/* client dashboard: status groups */
+.status-group + .status-group { margin-top: 1.6rem; }
+.group-title { font-family: "Onest", sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+.group-count { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--muted); background: var(--cream-2); padding: 0.15rem 0.5rem; border-radius: 999px; }
