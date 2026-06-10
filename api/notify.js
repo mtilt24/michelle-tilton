@@ -105,8 +105,9 @@ module.exports = async function handler(req, res) {
                     ? `Your request <strong>${esc(rec.title)}</strong> is ready for you to review.`
                     : `Michelle posted an update on <strong>${esc(rec.title)}</strong>.`}</p>
                ${rec.review_note ? `<p>${esc(rec.review_note)}</p>` : ""}
-               ${rec.review_url ? `<p><a href="${esc(rec.review_url)}">See what changed &rarr;</a></p>` : ""}
-               <p>${becameReview ? "Approve it or ask for changes from" : "See it in"} <a href="${PORTAL_URL}">your portal</a>.</p>
+               <p>${becameReview
+                    ? `Open <a href="${PORTAL_URL}">your portal</a> to see what changed, then approve it or ask for changes.`
+                    : `Open <a href="${PORTAL_URL}">your portal</a> to see the details and reply.`}</p>
                <p>&mdash; Michelle, Raeve Marketing</p>`
       });
     }
