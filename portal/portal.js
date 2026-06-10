@@ -119,7 +119,8 @@
       if (!res.data.session) { window.location.replace("login.html"); return; }
       userEmail = (res.data.session.user && res.data.session.user.email || "").toLowerCase();
       isAdmin = cfg.ADMIN_EMAIL && userEmail === String(cfg.ADMIN_EMAIL).toLowerCase();
-      if (isAdmin) { var al = $("adminLink"); if (al) al.style.display = "inline-flex"; }
+      // Admin's home is the dashboard, not the client view — send them there.
+      if (isAdmin) { window.location.replace("admin.html"); return; }
       loadClient();
     });
 
