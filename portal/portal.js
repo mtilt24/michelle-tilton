@@ -74,6 +74,13 @@
   var resetForm = $("resetForm");
   if (resetForm) {
     var resetMsg = $("resetMsg");
+
+    // First-login forced reset: friendlier subtitle so it doesn't feel like an error.
+    if (/[?&]first=1/.test(window.location.search)) {
+      var sub = document.querySelector(".sub");
+      if (sub) sub.textContent = "Welcome — set your own password to finish setting up your account.";
+    }
+
     resetForm.addEventListener("submit", function (e) {
       e.preventDefault();
       hide(resetMsg);
@@ -86,8 +93,16 @@
           show(resetMsg, res.error.message, "error");
           btn.disabled = false; btn.textContent = "Set new password";
         } else {
-          show(resetMsg, "Password updated. Redirecting…", "success");
-          setTimeout(function () { window.location.replace("index.html"); }, 1200);
+          // Clear the first-login flag (best effort; RLS limits it to their own row).
+          sb.auth.getSession().then(function (s) {
+            var uid = s.data.session && s.data.session.user && s.data.session.user.id;
+            var done = function () {
+              show(resetMsg, "Password updated. Redirecting…", "success");
+              setTimeout(function () { window.location.replace("index.html"); }, 1200);
+            };
+            if (uid) sb.from("clients").update({ must_reset: false }).eq("user_id", uid).then(done);
+            else done();
+          });
         }
       });
     });
@@ -126,6 +141,8 @@
           return;
         }
         client = res.data;
+        // First login on a temp password: send them to set their own first.
+        if (client.must_reset) { window.location.replace("reset.html?first=1"); return; }
         $("welcome").innerHTML = "Welcome, <span class=\"accent\">" + esc((client.name || "").split(" ")[0] || client.name) + ".</span>";
         $("welcomeNote").textContent = client.company ? client.company : "";
         loadRequests();
@@ -134,9 +151,27 @@
 
     function statusLabel(s) { return (s || "new").replace("_", " "); }
 
+    function threadHtml(r) {
+      var comments = (r.comments || []).slice().sort(function (a, b) {
+        return new Date(a.created_at) - new Date(b.created_at);
+      });
+      var bubbles = comments.map(function (c) {
+        var mine = c.author_role === "client";
+        return '<div class="bubble ' + (mine ? "bubble-me" : "bubble-them") + '">' +
+          '<div class="bubble-who">' + (mine ? "You" : "Michelle") + ' &middot; ' + fmtDate(c.created_at) + '</div>' +
+          '<div class="bubble-body">' + esc(c.body) + '</div>' +
+        '</div>';
+      }).join("");
+      return (bubbles ? '<div class="thread">' + bubbles + '</div>' : "") +
+        '<div class="reply">' +
+          '<textarea data-reply-input="' + esc(r.id) + '" rows="2" placeholder="Add a note for Michelle…"></textarea>' +
+          '<button class="btn btn-ghost btn-sm" data-reply="' + esc(r.id) + '">Send</button>' +
+        '</div>';
+    }
+
     function loadRequests() {
       var list = $("reqList");
-      sb.from("requests").select("*").order("created_at", { ascending: false }).then(function (res) {
+      sb.from("requests").select("*, comments(*)").order("created_at", { ascending: false }).then(function (res) {
         if (res.error) { list.innerHTML = '<p class="empty">Could not load requests.</p>'; return; }
         var rows = res.data || [];
         if (!rows.length) { list.innerHTML = '<p class="empty">No requests yet. Submit your first one.</p>'; return; }
@@ -162,22 +197,44 @@
             '<div class="req-meta">' + esc(r.type || "Request") + ' · ' + esc(r.priority || "normal") + ' priority · ' + fmtDate(r.created_at) + '</div>' +
             (r.details ? '<div class="req-details">' + esc(r.details) + '</div>' : '') +
             review +
+            threadHtml(r) +
           '</div>';
         }).join("");
       });
     }
 
-    // Approve / Request changes (event delegation on the list)
+    // Approve / Request changes / Reply (event delegation on the list)
     var reqListEl = $("reqList");
     if (reqListEl) reqListEl.addEventListener("click", function (e) {
-      var approveId = e.target.getAttribute && e.target.getAttribute("data-approve");
-      var changesId = e.target.getAttribute && e.target.getAttribute("data-changes");
+      var t = e.target;
+      if (!t.getAttribute) return;
+
+      var replyId = t.getAttribute("data-reply");
+      if (replyId) {
+        var ta = reqListEl.querySelector('[data-reply-input="' + replyId + '"]');
+        var body = ta && ta.value.trim();
+        if (!body) return;
+        t.disabled = true; t.textContent = "…";
+        sb.from("comments").insert({
+          request_id: replyId,
+          author_email: userEmail,
+          author_role: "client",
+          body: body
+        }).then(function (res) {
+          if (res.error) { t.disabled = false; t.textContent = "Send"; return; }
+          loadRequests();
+        });
+        return;
+      }
+
+      var approveId = t.getAttribute("data-approve");
+      var changesId = t.getAttribute("data-changes");
       var id = approveId || changesId;
       if (!id) return;
       var newStatus = approveId ? "done" : "in_progress";
-      e.target.disabled = true; e.target.textContent = "…";
+      t.disabled = true; t.textContent = "…";
       sb.from("requests").update({ status: newStatus }).eq("id", id).then(function (res) {
-        if (res.error) { e.target.disabled = false; e.target.textContent = approveId ? "Approve" : "Request changes"; return; }
+        if (res.error) { t.disabled = false; t.textContent = approveId ? "Approve" : "Request changes"; return; }
         loadRequests();
       });
     });
@@ -229,56 +286,5 @@
     });
   }
 
-  /* ===================== ADMIN: ADD CLIENT ===================== */
-  var addForm = $("addClientForm");
-  if (addForm) {
-    var adminMsg = $("adminMsg");
-    var signOutA = $("signOutBtn");
-    if (signOutA) signOutA.addEventListener("click", function () {
-      sb.auth.signOut().then(function () { window.location.replace("login.html"); });
-    });
-
-    // must be signed in as the admin to even see this
-    sb.auth.getSession().then(function (res) {
-      if (!res.data.session) { window.location.replace("login.html"); return; }
-      var email = (res.data.session.user && res.data.session.user.email || "").toLowerCase();
-      if (!cfg.ADMIN_EMAIL || email !== String(cfg.ADMIN_EMAIL).toLowerCase()) {
-        document.getElementById("admin").innerHTML =
-          '<div class="card"><p class="empty">This page is for Raeve admin only.</p></div>';
-      }
-    });
-
-    addForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      hide(adminMsg);
-      $("result").style.display = "none";
-      var btn = $("addClientBtn");
-      btn.disabled = true; btn.textContent = "Creating…";
-      sb.auth.getSession().then(function (res) {
-        var token = res.data.session && res.data.session.access_token;
-        return fetch("/api/add-client", {
-          method: "POST",
-          headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: $("cName").value.trim(),
-            company: $("cCompany").value.trim(),
-            email: $("cEmail").value.trim()
-          })
-        });
-      }).then(function (r) { return r.json(); }).then(function (data) {
-        btn.disabled = false; btn.textContent = "Create client";
-        if (data && data.ok) {
-          addForm.reset();
-          $("tempPw").textContent = data.tempPassword;
-          $("result").style.display = "block";
-          show(adminMsg, "Client created.", "success");
-        } else {
-          show(adminMsg, (data && data.error) || "Could not add client.", "error");
-        }
-      }).catch(function () {
-        btn.disabled = false; btn.textContent = "Create client";
-        show(adminMsg, "Something went wrong. Try again.", "error");
-      });
-    });
-  }
+  /* The admin dashboard (add client, all requests, replies) lives in admin.js. */
 })();

@@ -37,6 +37,7 @@ module.exports = async function handler(req, res) {
   }
 
   const payload = typeof req.body === "string" ? safeJson(req.body) : (req.body || {});
+  const table = payload.table || "requests";  // requests | comments
   const type = payload.type;                 // INSERT | UPDATE | DELETE
   const rec = payload.record || {};
   const old = payload.old_record || {};
@@ -47,10 +48,38 @@ module.exports = async function handler(req, res) {
     const { data } = await admin.from("clients").select("name,email").eq("id", id).single();
     return data || {};
   }
+  async function requestInfo(id) {
+    if (!id) return {};
+    const { data } = await admin.from("requests").select("title,client_id").eq("id", id).single();
+    return data || {};
+  }
 
   var jobs = [];
 
-  if (type === "INSERT") {
+  // ---- replies on a request ----
+  if (table === "comments" && type === "INSERT") {
+    const r = await requestInfo(rec.request_id);
+    const c = await clientInfo(r.client_id);
+    if (rec.author_role === "admin" && c.email) {
+      jobs.push({
+        to: c.email,
+        subject: `Michelle replied: ${r.title || "your request"}`,
+        html: `<p>Hi ${esc(firstName(c.name))},</p>
+               <p>Michelle left a note on <strong>${esc(r.title)}</strong>:</p>
+               <blockquote>${esc(rec.body)}</blockquote>
+               <p>Reply from <a href="${PORTAL_URL}">your portal</a>.</p>
+               <p>&mdash; Raeve Marketing</p>`
+      });
+    } else if (rec.author_role === "client") {
+      jobs.push({
+        to: ADMIN_EMAIL,
+        subject: `Reply from ${c.name || "a client"}: ${r.title || "a request"}`,
+        html: `<p><strong>${esc(c.name)}</strong> replied on <strong>${esc(r.title)}</strong>:</p>
+               <blockquote>${esc(rec.body)}</blockquote>
+               <p><a href="${PORTAL_URL}">Open the portal</a></p>`
+      });
+    }
+  } else if (table === "requests" && type === "INSERT") {
     const c = await clientInfo(rec.client_id);
     jobs.push({
       to: ADMIN_EMAIL,
@@ -60,7 +89,7 @@ module.exports = async function handler(req, res) {
              ${rec.details ? `<p>${esc(rec.details)}</p>` : ""}
              <p><a href="${PORTAL_URL}">Open the portal</a></p>`
     });
-  } else if (type === "UPDATE") {
+  } else if (table === "requests" && type === "UPDATE") {
     if (rec.status === "review" && old.status !== "review") {
       const c = await clientInfo(rec.client_id);
       if (c.email) jobs.push({

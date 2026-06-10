@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Client | Raeve Marketing</title>
+<title>Admin | Raeve Marketing</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,18 +14,23 @@
 <body>
   <div class="portal-bar">
     <a class="logo" href="index.html"><span class="logo-name">Ra<span class="logo-flip">e</span>ve</span><span class="logo-sub">Marketing</span></a>
-    <button id="signOutBtn" class="btn btn-ghost btn-sm">Sign out</button>
+    <div style="display:flex; gap:0.6rem; align-items:center;">
+      <button id="addToggle" class="btn btn-ghost btn-sm">Add client</button>
+      <button id="signOutBtn" class="btn btn-ghost btn-sm">Sign out</button>
+    </div>
   </div>
 
-  <main id="admin" class="dash" style="max-width: 560px;">
+  <main id="admin" class="dash dash-wide">
     <div class="dash-head">
-      <h1>Add a <span class="accent">client.</span></h1>
-      <p>Creates their login, Stripe customer, and account in one step.</p>
+      <h1>Raeve <span class="accent">admin.</span></h1>
+      <p>Every client's requests in one place. Change status, drop a review link, reply.</p>
     </div>
 
-    <section class="card">
+    <!-- Add client (hidden until toggled) -->
+    <section id="addClientCard" class="card" style="display:none; margin-bottom:1.5rem; max-width:560px;">
+      <h2 class="card-title">Add a client</h2>
+      <p class="card-note">Creates their login, Stripe customer, and account in one step.</p>
       <div id="adminMsg" class="msg"></div>
-
       <form id="addClientForm" novalidate>
         <div class="field">
           <div class="field-label">Name</div>
@@ -41,18 +46,42 @@
         </div>
         <button id="addClientBtn" type="submit" class="btn" style="width:100%;">Create client</button>
       </form>
-
       <div id="result" style="display:none; margin-top:1.4rem; padding:1.1rem; border:1px solid var(--line); border-radius:14px; background:var(--cream);">
         <p class="mono" style="margin-bottom:0.5rem;">Client created</p>
-        <p style="font-size:0.92rem;">Send them their login link and this temporary password (or tell them to use "Forgot your password?"):</p>
+        <p style="font-size:0.92rem;">Send them their login link and this temporary password (they'll be asked to set a new one on first sign-in):</p>
         <p style="margin-top:0.6rem;">Login: <a href="login.html">raevemarketing.com/portal/login.html</a></p>
         <p style="margin-top:0.3rem;">Temp password: <strong id="tempPw" style="font-family:'JetBrains Mono',monospace;"></strong></p>
       </div>
+    </section>
+
+    <!-- Needs you -->
+    <section class="card" style="margin-bottom:1.5rem;">
+      <h2 class="card-title">Needs you <span id="needsCount" class="needs-count"></span></h2>
+      <p class="card-note">New requests and any thread where the client replied last.</p>
+      <div id="needsList"><p class="empty">Loading…</p></div>
+    </section>
+
+    <!-- Everything else -->
+    <section class="card">
+      <div class="row-between" style="margin-bottom:1.1rem; flex-wrap:wrap; gap:0.75rem;">
+        <h2 class="card-title" style="margin:0;">All requests</h2>
+        <div class="filters">
+          <select id="fStatus">
+            <option value="all">All statuses</option>
+            <option value="new">New</option>
+            <option value="in_progress">In progress</option>
+            <option value="review">Review</option>
+            <option value="done">Done</option>
+          </select>
+          <select id="fClient"><option value="all">All clients</option></select>
+        </div>
+      </div>
+      <div id="allList"><p class="empty">Loading…</p></div>
     </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
-  <script src="portal.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>

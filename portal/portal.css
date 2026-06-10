@@ -153,3 +153,33 @@ textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
 .row-between { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .muted-link { color: var(--peach-2); font-size: 0.84rem; cursor: pointer; }
 .muted-link:hover { text-decoration: underline; }
+
+/* ---------- admin dashboard ---------- */
+.dash-wide { max-width: 760px; }
+.needs-count { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--peach-2); }
+.filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filters select { width: auto; padding: 0.5rem 0.7rem; font-size: 0.85rem; }
+.client-tag { font-weight: 600; color: var(--ink); }
+
+/* per-request admin controls */
+.admin-edit { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px dashed var(--line); }
+.ae-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.7rem; }
+.ae-field { display: block; flex: 1 1 200px; margin-bottom: 0.7rem; }
+.ae-field .field-label { margin-bottom: 0.3rem; }
+.ae-field select, .ae-field input, .ae-field textarea { font-size: 0.9rem; padding: 0.6rem 0.7rem; }
+.admin-edit .btn { margin-top: 0.2rem; }
+.save-msg { margin-left: 0.7rem; color: var(--good); }
+
+/* comment thread (both sides) */
+.thread { margin-top: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.bubble { max-width: 85%; padding: 0.55rem 0.8rem; border-radius: 13px; font-size: 0.9rem; }
+.bubble-who { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+.bubble-body { color: var(--ink-soft); white-space: pre-wrap; line-height: 1.45; }
+.bubble-me { align-self: flex-end; background: var(--ink); }
+.bubble-me .bubble-who { color: rgba(250,247,242,0.6); }
+.bubble-me .bubble-body { color: var(--cream); }
+.bubble-them { align-self: flex-start; background: var(--cream-2); border: 1px solid var(--line); }
+
+/* reply box */
+.reply { margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+.reply textarea { width: 100%; min-height: 60px; font-size: 0.9rem; }

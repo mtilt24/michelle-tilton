@@ -68,13 +68,17 @@ Supabase and Stripe dashboards.
    ```
 
 4. Send Andrea the temp password and the login link:
-   **https://raevemarketing.com/portal/login.html** (she resets her password on
-   first visit via "Forgot your password?").
+   **https://raevemarketing.com/portal/login.html**. On her first sign-in the
+   portal makes her set her own password before she can do anything (Phase 3).
+
+   *Easier: skip steps 1–3 and use the **Add client** button on the admin
+   dashboard — it creates the login, Stripe customer, and account in one step.*
 
 ## Day-to-day
 
-- **See / work requests:** Supabase → Table editor → `requests`. Change a row's
-  `status` to `in_progress`, `review`, or `done`. The client sees it update.
+- **See / work requests:** sign in at `/portal/` as the admin and use the
+  **admin dashboard** (Phase 3) — change status, paste a review link, and reply
+  to clients there. (You can still edit `requests` rows in Supabase if you want.)
 - **Send an invoice:** Stripe → Invoices → create one for the customer. It shows
   up under their **View invoices & pay** button.
 - **Add another client:** repeat Step 4.
@@ -143,6 +147,35 @@ Supabase → **Database → Webhooks → Create a new hook**:
 - HTTP Headers: add `x-webhook-secret` = the same value you used for
   `WEBHOOK_SECRET`.
 
+---
+
+# Phase 3 — Admin dashboard, forced password reset, two-way replies
+
+Adds: a real **admin dashboard** (every client's requests in one inbox-style
+view — change status, drop a review link, reply), a **forced password reset** on
+each client's first login, and a **reply thread** on every request that both you
+and the client can post to (with email alerts).
+
+## 3a. Run the new SQL
+
+Supabase → SQL Editor → paste `supabase/03-admin-and-comments.sql` → Run.
+(Adds the `must_reset` flag, the `comments` table, an `is_admin()` helper, and
+the admin RLS policies that let the dashboard see/work every client from the
+browser.) The admin email in that file (`is_admin()`) must match `ADMIN_EMAIL`
+in `portal/config.js` — change both if it ever moves.
+
+## 3b. Second Supabase webhook (reply emails)
+
+Supabase → **Database → Webhooks → Create a new hook** (same as Phase 2, but for
+the new table):
+- Table: `comments`
+- Events: **Insert**
+- Type: **HTTP Request**, method **POST**
+- URL: `https://raevemarketing.com/api/notify`
+- HTTP Headers: `x-webhook-secret` = the same `WEBHOOK_SECRET` value as before.
+
+No new env vars — Phase 3 reuses everything from Phase 2.
+
 ## How the review loop works
 
 1. Client submits a request → **you get an email**.
@@ -158,11 +191,14 @@ Supabase → **Database → Webhooks → Create a new hook**:
 
 ## Files
 
-- `portal/` — login, reset, dashboard, and **admin (Add Client)** pages (+ `config.js`, styles, logic)
+- `portal/` — login, reset, client dashboard, and **admin dashboard** pages (+ `config.js`, styles)
+- `portal/portal.js` — login / reset / client-dashboard logic (incl. forced reset + reply thread)
+- `portal/admin.js` — admin dashboard (all requests inbox, status/links, replies, add client)
 - `api/billing-portal.js` — creates the Stripe billing link
 - `api/add-client.js` — creates a client's login + Stripe customer + row in one step
-- `api/notify.js` — sends the email alerts (via Resend, triggered by Supabase webhook)
+- `api/notify.js` — email alerts for requests **and** replies (Resend, via Supabase webhooks)
 - `vercel.json` — security headers
 - `supabase/schema.sql` — database tables + security rules
 - `supabase/02-review-and-updates.sql` — review fields + client update policy
+- `supabase/03-admin-and-comments.sql` — must_reset flag, comments table, admin policies
 - `package.json` — function dependencies (Vercel installs on deploy)
