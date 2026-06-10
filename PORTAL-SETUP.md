@@ -201,4 +201,5 @@ No new env vars — Phase 3 reuses everything from Phase 2.
 - `supabase/schema.sql` — database tables + security rules
 - `supabase/02-review-and-updates.sql` — review fields + client update policy
 - `supabase/03-admin-and-comments.sql` — must_reset flag, comments table, admin policies
+- `supabase/04-attachments.sql` — file attachments: Storage bucket + attachments table + policies
 - `package.json` — function dependencies (Vercel installs on deploy)
