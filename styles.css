@@ -97,34 +97,85 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; font-weight: 800; letter-
 .hamburger span {
   position: absolute; left: 0; right: 0;
   height: 3px; border-radius: 2px; background: var(--ink);
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.35s cubic-bezier(0.7, 0, 0.2, 1), opacity 0.2s;
 }
 .hamburger span:nth-child(1) { top: 3px; }
 .hamburger span:nth-child(2) { top: 12px; }
 .hamburger span:nth-child(3) { top: 21px; }
+/* Morph the bars into an X when the menu is open */
+.hamburger.is-open span:nth-child(1) { top: 12px; transform: rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; }
+.hamburger.is-open span:nth-child(3) { top: 12px; transform: rotate(-45deg); }
+
 @media (max-width: 768px) {
   .nav { padding: 14px 20px; }
   .nav-links { display: none; }
   .hamburger { display: block; }
+
+  /* Full-screen editorial overlay */
   .nav-links.open {
-    display: flex !important; flex-direction: column; align-items: stretch;
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: var(--paper);
-    padding: 28px 24px; gap: 8px;
-    border-bottom: 1px solid var(--border);
-    z-index: 200;
+    display: flex !important; flex-direction: column; justify-content: center;
+    position: fixed; inset: 0;
+    background: linear-gradient(165deg, var(--paper) 0%, var(--cream) 100%);
+    padding: 88px 30px max(40px, env(safe-area-inset-bottom)); gap: 2px;
+    z-index: 300; overflow-y: auto;
+    counter-reset: navitem;
+    animation: navOverlayIn 0.3s ease both;
   }
-  .nav-links.open a {
-    font-size: 20px; font-weight: 500;
-    padding: 14px 4px;
-    border-bottom: 1px solid var(--border);
+  /* Warm sunset glow in the top corner */
+  .nav-links.open::before {
+    content: ''; position: absolute; top: -130px; right: -130px;
+    width: 340px; height: 340px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(231,111,81,0.18), transparent 70%);
+    pointer-events: none;
   }
-  .nav-links.open a:last-child { border-bottom: none; }
+
+  .nav-links.open a:not(.nav-cta) {
+    position: relative;
+    font-family: 'Onest', sans-serif; font-weight: 700; letter-spacing: -0.02em;
+    font-size: clamp(30px, 8.5vw, 44px); line-height: 1.15;
+    color: var(--ink); text-decoration: none;
+    padding: 16px 0 16px 50px;
+    border-bottom: 1px solid var(--border);
+    opacity: 0; transform: translateY(18px);
+    animation: navLinkIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    transition: color 0.2s;
+  }
+  /* Editorial index numbers: 01, 02, 03… */
+  .nav-links.open a:not(.nav-cta)::before {
+    counter-increment: navitem;
+    content: '0' counter(navitem);
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    font-size: 13px; color: var(--sunset-2);
+  }
+  .nav-links.open a:not(.nav-cta):active { color: var(--sunset-2); }
+
+  /* Staggered reveal */
+  .nav-links.open a:nth-child(1) { animation-delay: 0.06s; }
+  .nav-links.open a:nth-child(2) { animation-delay: 0.12s; }
+  .nav-links.open a:nth-child(3) { animation-delay: 0.18s; }
+  .nav-links.open a:nth-child(4) { animation-delay: 0.24s; }
+  .nav-links.open a:nth-child(5) { animation-delay: 0.30s; }
+
   .nav-links.open .nav-cta {
-    align-self: stretch; text-align: center;
-    margin-top: 12px; padding: 16px; font-size: 18px;
-    border-bottom: none;
+    margin-top: 34px; align-self: stretch; text-align: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 500;
+    padding: 18px; border-radius: 12px;
+    background: linear-gradient(120deg, var(--sunset-1), var(--sunset-2));
+    color: #fff; border: none;
+    box-shadow: 0 12px 28px -8px rgba(231,111,81,0.5);
+    opacity: 0; transform: translateY(18px);
+    animation: navLinkIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.36s forwards;
   }
+}
+
+@keyframes navOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes navLinkIn { to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .nav-links.open,
+  .nav-links.open a,
+  .nav-links.open .nav-cta { animation: none; opacity: 1; transform: none; }
 }
 
 /* ===== BUTTONS ===== */
