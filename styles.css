@@ -166,15 +166,17 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; font-weight: 800; letter-
   .nav-links.open a:nth-child(5) { animation-delay: 0.30s; }
 
   .nav-links.open .nav-cta {
+    /* Match the site's nav CTA: dark ink pill, uppercase mono */
     margin-top: 34px; align-self: stretch; text-align: center;
-    font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 500;
-    padding: 18px; border-radius: 12px;
-    background: linear-gradient(120deg, var(--sunset-1), var(--sunset-2));
-    color: #fff; border: none;
-    box-shadow: 0 12px 28px -8px rgba(231,111,81,0.5);
+    font-family: 'JetBrains Mono', monospace; font-weight: 500;
+    font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 18px; border-radius: 100px;
+    background: var(--ink); color: #fff; border: none;
+    transition: background 0.2s;
     opacity: 0; transform: translateY(18px);
     animation: navLinkIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.36s forwards;
   }
+  .nav-links.open .nav-cta:active { background: var(--sunset-2); }
 }
 
 @keyframes navOverlayIn { from { opacity: 0; } to { opacity: 1; } }
