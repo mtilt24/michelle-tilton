@@ -128,7 +128,9 @@
     if (signOut) signOut.addEventListener("click", function () {
       // Always leave for the login page, even if signOut errors on a stale session.
       function done() { window.location.replace("/portal/login"); }
-      sb.auth.signOut().then(done, done);
+      // scope:"local" clears the session in this browser without a network
+      // revoke that can 403 (and skip the clear) on an already-stale session.
+      sb.auth.signOut({ scope: "local" }).then(done, done);
     });
 
     function loadClient() {
@@ -146,7 +148,7 @@
         client = res.data;
         // First login on a temp password: send them to set their own first.
         if (client.must_reset) { window.location.replace("/portal/reset?first=1"); return; }
-        $("welcome").innerHTML = "Welcome, <span class=\"accent\">" + esc((client.name || "").split(" ")[0] || client.name) + ".</span>";
+        $("welcome").innerHTML = "Hello, <span class=\"accent\">" + esc((client.name || "").split(" ")[0] || client.name) + ".</span>";
         $("welcomeNote").textContent = client.company ? client.company : "";
         loadRequests();
       });

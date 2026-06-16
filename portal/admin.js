@@ -54,7 +54,7 @@
   var signOut = $("signOutBtn");
   if (signOut) signOut.addEventListener("click", function () {
     function done() { window.location.replace("/portal/login"); }
-    sb.auth.signOut().then(done, done);
+    sb.auth.signOut({ scope: "local" }).then(done, done);
   });
 
   /* ----- load clients + requests + comments + attachments ----- */
