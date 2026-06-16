@@ -112,6 +112,11 @@ h1, h2, h3, h4, h5 { font-family: 'Onest', sans-serif; font-weight: 800; letter-
   .nav-links { display: none; }
   .hamburger { display: block; }
 
+  /* backdrop-filter makes .nav-wrap the containing block for position:fixed,
+     which traps the overlay inside the header. Drop it on mobile so the
+     full-screen menu positions against the viewport. */
+  .nav-wrap { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
   /* Full-screen editorial overlay */
   .nav-links.open {
     display: flex !important; flex-direction: column; justify-content: center;
