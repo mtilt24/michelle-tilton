@@ -33,6 +33,18 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
+  // Sign out reliably: synchronously drop the Supabase token so the login page
+  // can't bounce us back in, then leave without waiting on signOut()'s promise.
+  function doSignOut() {
+    try {
+      for (var i = localStorage.length - 1; i >= 0; i--) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf("sb-") === 0 && k.indexOf("auth-token") !== -1) localStorage.removeItem(k);
+      }
+    } catch (e) {}
+    try { sb.auth.signOut({ scope: "local" }); } catch (e) {}
+    window.location.replace("/portal/login");
+  }
 
   var adminEmail = "";
   var requests = [];          // each: row + .client + .comments[] + .attachments[]
@@ -52,10 +64,7 @@
   });
 
   var signOut = $("signOutBtn");
-  if (signOut) signOut.addEventListener("click", function () {
-    function done() { window.location.replace("/portal/login"); }
-    sb.auth.signOut({ scope: "local" }).then(done, done);
-  });
+  if (signOut) signOut.addEventListener("click", doSignOut);
 
   /* ----- load clients + requests + comments + attachments ----- */
   function loadAll() {

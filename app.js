@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => setMenu(false));
     });
+    // Tap empty space in the overlay (not a link) to close.
+    navLinks.addEventListener('click', (e) => {
+      if (e.target === navLinks) setMenu(false);
+    });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') setMenu(false);
     });

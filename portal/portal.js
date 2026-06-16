@@ -25,6 +25,19 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
+  // Sign out reliably: synchronously drop the Supabase token from storage so the
+  // login page can't see a stale session and bounce us back in, then leave.
+  // We do NOT wait on signOut()'s promise — it can hang or never settle.
+  function doSignOut() {
+    try {
+      for (var i = localStorage.length - 1; i >= 0; i--) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf("sb-") === 0 && k.indexOf("auth-token") !== -1) localStorage.removeItem(k);
+      }
+    } catch (e) {}
+    try { sb.auth.signOut({ scope: "local" }); } catch (e) {}
+    window.location.replace("/portal/login");
+  }
 
   /* ============================ LOGIN ============================ */
   var loginForm = $("loginForm");
@@ -126,11 +139,7 @@
 
     var signOut = $("signOutBtn");
     if (signOut) signOut.addEventListener("click", function () {
-      // Always leave for the login page, even if signOut errors on a stale session.
-      function done() { window.location.replace("/portal/login"); }
-      // scope:"local" clears the session in this browser without a network
-      // revoke that can 403 (and skip the clear) on an already-stale session.
-      sb.auth.signOut({ scope: "local" }).then(done, done);
+      doSignOut();
     });
 
     function loadClient() {
