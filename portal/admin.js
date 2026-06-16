@@ -42,7 +42,7 @@
 
   /* ----- guard: must be the admin ----- */
   sb.auth.getSession().then(function (res) {
-    if (!res.data.session) { window.location.replace("login.html"); return; }
+    if (!res.data.session) { window.location.replace("/portal/login.html"); return; }
     adminEmail = (res.data.session.user && res.data.session.user.email || "").toLowerCase();
     if (!cfg.ADMIN_EMAIL || adminEmail !== String(cfg.ADMIN_EMAIL).toLowerCase()) {
       $("admin").innerHTML = '<div class="card"><p class="empty">This page is for Raeve admin only.</p></div>';
@@ -53,7 +53,7 @@
 
   var signOut = $("signOutBtn");
   if (signOut) signOut.addEventListener("click", function () {
-    sb.auth.signOut().then(function () { window.location.replace("login.html"); });
+    sb.auth.signOut().then(function () { window.location.replace("/portal/login.html"); });
   });
 
   /* ----- load clients + requests + comments + attachments ----- */

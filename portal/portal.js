@@ -33,7 +33,7 @@
 
     // Already signed in? Go straight to the dashboard.
     sb.auth.getSession().then(function (res) {
-      if (res.data.session) window.location.replace("index.html");
+      if (res.data.session) window.location.replace("/portal/index.html");
     });
 
     loginForm.addEventListener("submit", function (e) {
@@ -49,7 +49,7 @@
           show(loginMsg, res.error.message || "Could not sign in.", "error");
           btn.disabled = false; btn.textContent = "Sign in";
         } else {
-          window.location.replace("index.html");
+          window.location.replace("/portal/index.html");
         }
       });
     });
@@ -98,7 +98,7 @@
             var uid = s.data.session && s.data.session.user && s.data.session.user.id;
             var done = function () {
               show(resetMsg, "Password updated. Redirecting…", "success");
-              setTimeout(function () { window.location.replace("index.html"); }, 1200);
+              setTimeout(function () { window.location.replace("/portal/index.html"); }, 1200);
             };
             if (uid) sb.from("clients").update({ must_reset: false }).eq("user_id", uid).then(done);
             else done();
@@ -116,17 +116,17 @@
     var isAdmin = false;
 
     sb.auth.getSession().then(function (res) {
-      if (!res.data.session) { window.location.replace("login.html"); return; }
+      if (!res.data.session) { window.location.replace("/portal/login.html"); return; }
       userEmail = (res.data.session.user && res.data.session.user.email || "").toLowerCase();
       isAdmin = cfg.ADMIN_EMAIL && userEmail === String(cfg.ADMIN_EMAIL).toLowerCase();
       // Admin's home is the dashboard, not the client view — send them there.
-      if (isAdmin) { window.location.replace("admin.html"); return; }
+      if (isAdmin) { window.location.replace("/portal/admin.html"); return; }
       loadClient();
     });
 
     var signOut = $("signOutBtn");
     if (signOut) signOut.addEventListener("click", function () {
-      sb.auth.signOut().then(function () { window.location.replace("login.html"); });
+      sb.auth.signOut().then(function () { window.location.replace("/portal/login.html"); });
     });
 
     function loadClient() {
@@ -143,7 +143,7 @@
         }
         client = res.data;
         // First login on a temp password: send them to set their own first.
-        if (client.must_reset) { window.location.replace("reset.html?first=1"); return; }
+        if (client.must_reset) { window.location.replace("/portal/reset.html?first=1"); return; }
         $("welcome").innerHTML = "Welcome, <span class=\"accent\">" + esc((client.name || "").split(" ")[0] || client.name) + ".</span>";
         $("welcomeNote").textContent = client.company ? client.company : "";
         loadRequests();
