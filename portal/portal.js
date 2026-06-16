@@ -33,7 +33,7 @@
 
     // Already signed in? Go straight to the dashboard.
     sb.auth.getSession().then(function (res) {
-      if (res.data.session) window.location.replace("/portal/index.html");
+      if (res.data.session) window.location.replace("/portal");
     });
 
     loginForm.addEventListener("submit", function (e) {
@@ -49,7 +49,7 @@
           show(loginMsg, res.error.message || "Could not sign in.", "error");
           btn.disabled = false; btn.textContent = "Sign in";
         } else {
-          window.location.replace("/portal/index.html");
+          window.location.replace("/portal");
         }
       });
     });
@@ -61,7 +61,7 @@
         var email = $("email").value.trim();
         if (!email) { show(loginMsg, "Enter your email above first, then click reset.", "error"); return; }
         sb.auth.resetPasswordForEmail(email, {
-          redirectTo: window.location.origin + "/portal/reset.html"
+          redirectTo: window.location.origin + "/portal/reset"
         }).then(function (res) {
           if (res.error) show(loginMsg, res.error.message, "error");
           else show(loginMsg, "Check your email for a reset link.", "success");
@@ -98,7 +98,7 @@
             var uid = s.data.session && s.data.session.user && s.data.session.user.id;
             var done = function () {
               show(resetMsg, "Password updated. Redirecting…", "success");
-              setTimeout(function () { window.location.replace("/portal/index.html"); }, 1200);
+              setTimeout(function () { window.location.replace("/portal"); }, 1200);
             };
             if (uid) sb.from("clients").update({ must_reset: false }).eq("user_id", uid).then(done);
             else done();
@@ -116,17 +116,19 @@
     var isAdmin = false;
 
     sb.auth.getSession().then(function (res) {
-      if (!res.data.session) { window.location.replace("/portal/login.html"); return; }
+      if (!res.data.session) { window.location.replace("/portal/login"); return; }
       userEmail = (res.data.session.user && res.data.session.user.email || "").toLowerCase();
       isAdmin = cfg.ADMIN_EMAIL && userEmail === String(cfg.ADMIN_EMAIL).toLowerCase();
       // Admin's home is the dashboard, not the client view — send them there.
-      if (isAdmin) { window.location.replace("/portal/admin.html"); return; }
+      if (isAdmin) { window.location.replace("/portal/admin"); return; }
       loadClient();
     });
 
     var signOut = $("signOutBtn");
     if (signOut) signOut.addEventListener("click", function () {
-      sb.auth.signOut().then(function () { window.location.replace("/portal/login.html"); });
+      // Always leave for the login page, even if signOut errors on a stale session.
+      function done() { window.location.replace("/portal/login"); }
+      sb.auth.signOut().then(done, done);
     });
 
     function loadClient() {
@@ -134,7 +136,7 @@
         if (res.error || !res.data) {
           if (isAdmin) {
             $("welcome").innerHTML = "Raeve <span class=\"accent\">admin.</span>";
-            $("welcomeNote").innerHTML = "You're signed in as admin. <a class=\"muted-link\" href=\"admin.html\">Add a client &rarr;</a>";
+            $("welcomeNote").innerHTML = "You're signed in as admin. <a class=\"muted-link\" href=\"/portal/admin\">Add a client &rarr;</a>";
           } else {
             $("welcome").textContent = "Welcome";
             $("welcomeNote").textContent = "Your account isn't fully set up yet. Email michelle@raevemarketing.com.";
@@ -143,7 +145,7 @@
         }
         client = res.data;
         // First login on a temp password: send them to set their own first.
-        if (client.must_reset) { window.location.replace("/portal/reset.html?first=1"); return; }
+        if (client.must_reset) { window.location.replace("/portal/reset?first=1"); return; }
         $("welcome").innerHTML = "Welcome, <span class=\"accent\">" + esc((client.name || "").split(" ")[0] || client.name) + ".</span>";
         $("welcomeNote").textContent = client.company ? client.company : "";
         loadRequests();
