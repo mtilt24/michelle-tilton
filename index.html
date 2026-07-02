@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260616c">
+<link rel="stylesheet" href="styles.css?v=20260701a">
 <style>
 :root {
   --cream: #faf7f2;
@@ -642,24 +642,7 @@ h2 {
 .cta-final .btn-ghost { color: var(--cream); border-color: rgba(250, 247, 242, 0.3); }
 .cta-final .btn-ghost:hover { background: var(--cream); color: var(--ink); }
 
-/* ----- footer ----- */
-footer {
-  background: var(--ink);
-  color: rgba(250, 247, 242, 0.6);
-  padding: 2.5rem 2rem;
-  border-top: 1px solid rgba(250, 247, 242, 0.08);
-}
-.footer-inner {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 1.5rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-.footer-links a:hover { color: var(--cream); }
+/* ----- footer: styles live in styles.css (.site-footer) ----- */
 
 /* ----- responsive ----- */
 @media (max-width: 1024px) {
@@ -721,6 +704,7 @@ footer {
   "url": "https://raevemarketing.com",
   "description": "Boutique design and marketing studio for nonprofits and small businesses. Brand, websites, and ongoing marketing, by one senior strategist.",
   "email": "michelle@raevemarketing.com",
+  "telephone": "+1-916-292-8677",
   "priceRange": "$",
   "areaServed": "US",
   "founder": { "@type": "Person", "name": "Michelle Tilton", "jobTitle": "Marketing Strategist" },
@@ -1004,17 +988,39 @@ footer {
   </div>
 </section>
 
-<footer>
-  <div class="footer-inner">
-    <div>&copy; 2026 Raeve Marketing</div>
-    <div class="footer-links">
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/"><span class="footer-logo-name">Ra<span class="footer-logo-flip">e</span>ve</span><span class="footer-logo-sub">Marketing</span></a>
+      <p class="footer-tagline">Boutique brand, web, and marketing for small teams doing big things.</p>
+      <div class="footer-contact">
+        <a href="mailto:michelle@raevemarketing.com" class="footer-contact-item">
+          <span class="footer-contact-label">Email</span>
+          michelle@raevemarketing.com
+        </a>
+        <a href="tel:+19162928677" class="footer-contact-item">
+          <span class="footer-contact-label">Phone</span>
+          (916) 292-8677
+        </a>
+      </div>
+    </div>
+    <nav class="footer-col">
+      <span class="footer-col-head">Explore</span>
       <a href="work">Work</a>
       <a href="services">Services</a>
       <a href="about">About</a>
-      <a href="mailto:michelle@raevemarketing.com">Email</a>
-      <a href="/portal/login">Client login</a>
+      <a href="contact">Contact</a>
+    </nav>
+    <nav class="footer-col">
+      <span class="footer-col-head">Connect</span>
+      <a href="contact">Book a call</a>
       <a href="https://www.linkedin.com/in/michelle-tilton2487/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+      <a href="/portal/login">Client login</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Raeve Marketing. All rights reserved.</span>
+    <a href="#top" class="footer-top-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top &uarr;</a>
   </div>
 </footer>
 
